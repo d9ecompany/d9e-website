@@ -11,378 +11,770 @@
 html{scroll-behavior:smooth}
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#fff;color:#111;line-height:1.5
+  background:#fff;
+  color:#111;
+  line-height:1.5;
 }
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 a{text-decoration:none;color:inherit}
 
 .topbar{
-  background:#111;color:#fff;text-align:center;
-  padding:9px;font-size:12px;letter-spacing:.8px
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:9px;
+  font-size:12px;
+  letter-spacing:.7px;
 }
 
 header{
-  position:sticky;top:0;z-index:1000;
+  position:sticky;
+  top:0;
+  z-index:1000;
   background:rgba(255,255,255,.97);
   border-bottom:1px solid #eee;
-  backdrop-filter:blur(12px)
+  backdrop-filter:blur(12px);
 }
+
 .nav{
-  max-width:1400px;margin:auto;height:72px;
-  padding:0 24px;display:flex;align-items:center;
-  justify-content:space-between;gap:20px
+  max-width:1400px;
+  margin:auto;
+  height:70px;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
+
 .logo{
-  font-size:27px;font-weight:900;letter-spacing:-1.5px
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+  white-space:nowrap;
 }
 .logo span{font-weight:400}
 
 .navlinks{
-  display:flex;gap:27px;align-items:center;
-  font-size:14px
+  display:flex;
+  align-items:center;
+  gap:26px;
+  font-size:14px;
 }
 .navlinks a:hover{text-decoration:underline}
 
-.actions{display:flex;align-items:center;gap:8px}
-.iconbtn{
-  width:42px;height:42px;border:0;background:transparent;
-  border-radius:50%;font-size:20px
+.actions{
+  display:flex;
+  align-items:center;
+  gap:5px;
 }
-.iconbtn:hover{background:#f3f3f3}
+
+.iconbtn{
+  width:42px;
+  height:42px;
+  border:0;
+  background:transparent;
+  border-radius:50%;
+  font-size:19px;
+}
+.iconbtn:hover{background:#f2f2f2}
+
+.cartCount{
+  font-size:10px;
+  vertical-align:top;
+  background:#111;
+  color:#fff;
+  border-radius:10px;
+  padding:2px 5px;
+}
 
 .menuBtn{display:none}
 
 .hero{
   min-height:590px;
-  display:flex;align-items:center;
+  display:flex;
+  align-items:center;
   background:
-  linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.15)),
-  url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85")
-  center/cover;
-  color:#fff
+    linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.15)),
+    url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  color:#fff;
 }
+
 .heroContent{
-  width:min(1400px,100%);margin:auto;padding:50px 24px
+  width:min(1400px,100%);
+  margin:auto;
+  padding:50px 24px;
 }
-.hero small{letter-spacing:3px;font-weight:bold}
+
+.hero small{
+  letter-spacing:3px;
+  font-weight:bold;
+}
+
 .hero h1{
   font-size:clamp(48px,8vw,100px);
-  line-height:.92;margin:18px 0;
-  letter-spacing:-5px
+  line-height:.92;
+  margin:18px 0;
+  letter-spacing:-5px;
 }
-.hero p{max-width:500px;font-size:17px;margin-bottom:28px}
+
+.hero p{
+  max-width:500px;
+  font-size:17px;
+  margin-bottom:28px;
+}
+
 .btn{
-  border:1px solid #111;background:#111;color:#fff;
-  padding:14px 24px;min-height:48px;
-  font-weight:bold;transition:.2s
+  border:1px solid #111;
+  background:#111;
+  color:#fff;
+  padding:14px 24px;
+  min-height:48px;
+  font-weight:bold;
+  transition:.2s;
 }
 .btn:hover{opacity:.82}
-.btn.white{background:#fff;color:#111;border-color:#fff}
-.btn.outline{background:#fff;color:#111}
+.btn.white{
+  background:#fff;
+  color:#111;
+  border-color:#fff;
+}
+.btn.outline{
+  background:#fff;
+  color:#111;
+}
 .btn.full{width:100%}
 
 .section{
-  max-width:1400px;margin:auto;padding:70px 24px
+  max-width:1400px;
+  margin:auto;
+  padding:70px 24px;
 }
+
 .sectionHead{
-  display:flex;justify-content:space-between;
-  align-items:end;margin-bottom:28px;gap:20px
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:28px;
+  gap:20px;
 }
-.sectionHead h2{font-size:34px;letter-spacing:-1px}
-.sectionHead p{color:#777;font-size:14px}
+
+.sectionHead h2{
+  font-size:34px;
+  letter-spacing:-1px;
+}
+
+.sectionHead p{
+  color:#777;
+  font-size:14px;
+}
 
 .categories{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:12px
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
 }
+
 .category{
-  min-height:330px;position:relative;overflow:hidden;
-  color:#fff;background:#222;cursor:pointer
+  min-height:330px;
+  position:relative;
+  overflow:hidden;
+  color:#fff;
+  background:#222;
+  cursor:pointer;
 }
+
 .category img{
-  width:100%;height:100%;object-fit:cover;
-  position:absolute;inset:0;transition:.4s
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  inset:0;
+  transition:.4s;
 }
+
 .category:hover img{transform:scale(1.05)}
+
 .category:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(transparent,rgba(0,0,0,.7))
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent,rgba(0,0,0,.7));
 }
+
 .categoryText{
-  position:absolute;z-index:2;bottom:22px;left:22px
+  position:absolute;
+  z-index:2;
+  bottom:22px;
+  left:22px;
 }
+
 .categoryText h3{font-size:25px}
 
 .shopTools{
-  display:flex;gap:10px;flex-wrap:wrap;
-  margin-bottom:25px
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
 }
+
 .search{
-  flex:1;min-width:230px;
-  border:1px solid #ddd;padding:14px 16px;
-  outline:none
+  flex:1;
+  min-width:230px;
+  border:1px solid #ddd;
+  padding:14px 16px;
+  outline:none;
 }
+
 .search:focus{border-color:#111}
+
 .filter{
-  border:1px solid #ddd;background:#fff;
-  padding:0 14px;min-height:48px
+  border:1px solid #ddd;
+  background:#fff;
+  padding:0 14px;
+  min-height:48px;
 }
 
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:24px
+  gap:24px;
 }
-.product{cursor:pointer;position:relative}
+
+.product{
+  cursor:pointer;
+  position:relative;
+}
+
 .productImg{
-  aspect-ratio:3/4;background:#f4f4f4;
-  overflow:hidden;position:relative
+  aspect-ratio:3/4;
+  background:#f4f4f4;
+  overflow:hidden;
+  position:relative;
 }
+
 .productImg img{
-  width:100%;height:100%;object-fit:cover;
-  transition:.35s
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.35s;
 }
+
 .product:hover .productImg img{transform:scale(1.03)}
+
 .badge{
-  position:absolute;left:10px;top:10px;
-  background:#111;color:#fff;padding:5px 9px;
-  font-size:11px;z-index:2
+  position:absolute;
+  left:10px;
+  top:10px;
+  background:#111;
+  color:#fff;
+  padding:5px 9px;
+  font-size:11px;
+  z-index:2;
 }
+
 .heart{
-  position:absolute;right:10px;top:10px;
-  width:38px;height:38px;border:0;
-  background:#fff;border-radius:50%;
-  z-index:3;font-size:18px
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:38px;
+  height:38px;
+  border:0;
+  background:#fff;
+  border-radius:50%;
+  z-index:3;
+  font-size:18px;
 }
+
 .productInfo{padding-top:12px}
 .productInfo h3{font-size:15px;margin-bottom:5px}
 .productMeta{font-size:13px;color:#777}
-.price{margin-top:7px;font-weight:bold}
+
+.price{
+  margin-top:7px;
+  font-weight:bold;
+}
+
 .old{
-  color:#999;text-decoration:line-through;
-  font-weight:normal;margin-left:7px
+  color:#999;
+  text-decoration:line-through;
+  font-weight:normal;
+  margin-left:7px;
 }
 
 .features{
   background:#f7f7f7;
-  display:grid;grid-template-columns:repeat(4,1fr)
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
 }
+
 .feature{
-  padding:38px 25px;text-align:center;
-  border-right:1px solid #ddd
+  padding:38px 25px;
+  text-align:center;
+  border-right:1px solid #ddd;
 }
+
 .feature:last-child{border:0}
 .feature strong{display:block;margin-bottom:7px}
 .feature span{font-size:13px;color:#777}
 
 .newsletter{
-  background:#111;color:#fff;text-align:center
+  background:#111;
+  color:#fff;
+  text-align:center;
 }
-.newsletterBox{max-width:650px;margin:auto}
-.newsletter h2{font-size:36px;margin-bottom:10px}
-.newsletter p{color:#bbb;margin-bottom:22px}
+
+.newsletterBox{
+  max-width:650px;
+  margin:auto;
+}
+
+.newsletter h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.newsletter p{
+  color:#bbb;
+  margin-bottom:22px;
+}
+
 .newsForm{display:flex}
+
 .newsForm input{
-  flex:1;padding:15px;border:0;outline:0
+  flex:1;
+  padding:15px;
+  border:0;
+  outline:0;
 }
 
 footer{
-  background:#111;color:#fff;
-  padding:55px 24px
-}
-.footerGrid{
-  max-width:1400px;margin:auto;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px
-}
-footer h3{margin-bottom:15px}
-footer p,footer a{color:#aaa;font-size:14px;display:block;margin:8px 0}
-.copyright{
-  max-width:1400px;margin:40px auto 0;
-  padding-top:20px;border-top:1px solid #333;
-  color:#777;font-size:12px
+  background:#111;
+  color:#fff;
+  padding:55px 24px;
 }
 
-/* overlays */
-.overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.55);
-  z-index:2000;display:none
+.footerGrid{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:35px;
 }
+
+footer h3{margin-bottom:15px}
+footer p,footer a{
+  color:#aaa;
+  font-size:14px;
+  display:block;
+  margin:8px 0;
+}
+
+footer a:hover{color:#fff}
+
+.copyright{
+  max-width:1400px;
+  margin:40px auto 0;
+  padding-top:20px;
+  border-top:1px solid #333;
+  color:#777;
+  font-size:12px;
+}
+
+/* OVERLAY */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:2000;
+  display:none;
+}
+
 .overlay.active{display:block}
 
-/* drawer */
+/* DRAWER */
+
 .drawer{
-  position:fixed;right:0;top:0;height:100%;
+  position:fixed;
+  right:0;
+  top:0;
+  height:100%;
   width:min(450px,100%);
-  background:#fff;z-index:2100;
+  background:#fff;
+  z-index:2100;
   transform:translateX(100%);
-  transition:.3s;display:flex;flex-direction:column
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
 }
+
 .drawer.active{transform:translateX(0)}
+
 .drawerHead{
-  padding:20px;border-bottom:1px solid #eee;
-  display:flex;justify-content:space-between;align-items:center
+  padding:20px;
+  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
+
 .close{
-  border:0;background:transparent;
-  width:40px;height:40px;font-size:25px
+  border:0;
+  background:transparent;
+  width:40px;
+  height:40px;
+  font-size:25px;
 }
-.drawerBody{padding:20px;overflow:auto;flex:1}
-.drawerFoot{padding:20px;border-top:1px solid #eee}
+
+.drawerBody{
+  padding:20px;
+  overflow:auto;
+  flex:1;
+}
+
+.drawerFoot{
+  padding:20px;
+  border-top:1px solid #eee;
+}
 
 .cartItem{
-  display:grid;grid-template-columns:80px 1fr auto;
-  gap:12px;padding:15px 0;border-bottom:1px solid #eee
-}
-.cartItem img{
-  width:80px;height:100px;object-fit:cover
-}
-.cartItem h4{font-size:14px}
-.cartItem p{font-size:12px;color:#777;margin:3px 0}
-.qty{
-  display:flex;align-items:center;gap:8px;margin-top:8px
-}
-.qty button{
-  width:28px;height:28px;border:1px solid #ddd;
-  background:#fff
-}
-.remove{
-  border:0;background:none;color:#c00;
-  font-size:12px;margin-top:5px
-}
-.totalLine{
-  display:flex;justify-content:space-between;
-  margin-bottom:10px
-}
-.empty{
-  text-align:center;color:#777;padding:60px 10px
+  display:grid;
+  grid-template-columns:80px 1fr auto;
+  gap:12px;
+  padding:15px 0;
+  border-bottom:1px solid #eee;
 }
 
-/* modal */
+.cartItem img{
+  width:80px;
+  height:100px;
+  object-fit:cover;
+}
+
+.cartItem h4{font-size:14px}
+
+.cartItem p{
+  font-size:12px;
+  color:#777;
+  margin:3px 0;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+}
+
+.qty button{
+  width:28px;
+  height:28px;
+  border:1px solid #ddd;
+  background:#fff;
+}
+
+.remove{
+  border:0;
+  background:none;
+  color:#c00;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.totalLine{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+
+.empty{
+  text-align:center;
+  color:#777;
+  padding:60px 10px;
+}
+
+/* MODALS */
+
 .modal{
-  position:fixed;z-index:2200;
-  left:50%;top:50%;
+  position:fixed;
+  z-index:2200;
+  left:50%;
+  top:50%;
   transform:translate(-50%,-50%) scale(.96);
-  width:min(560px,calc(100% - 24px));
-  max-height:90vh;overflow:auto;
-  background:#fff;display:none;
-  box-shadow:0 20px 80px rgba(0,0,0,.3)
+  width:min(600px,calc(100% - 24px));
+  max-height:90vh;
+  overflow:auto;
+  background:#fff;
+  display:none;
+  box-shadow:0 20px 80px rgba(0,0,0,.3);
 }
+
 .modal.active{
-  display:block;transform:translate(-50%,-50%) scale(1)
+  display:block;
+  transform:translate(-50%,-50%) scale(1);
 }
+
 .modalHead{
-  padding:18px 20px;border-bottom:1px solid #eee;
-  display:flex;justify-content:space-between;align-items:center;
-  position:sticky;top:0;background:#fff;z-index:3
+  padding:18px 20px;
+  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:3;
 }
+
 .modalBody{padding:20px}
 
 .productModalGrid{
-  display:grid;grid-template-columns:1fr 1fr;gap:25px
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
 }
+
 .productModalGrid img{
-  width:100%;aspect-ratio:3/4;object-fit:cover
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
 }
-.modalTitle{font-size:25px;margin-bottom:7px}
-.modalPrice{font-size:20px;font-weight:bold;margin:12px 0 18px}
+
+.modalTitle{
+  font-size:25px;
+  margin-bottom:7px;
+}
+
+.modalPrice{
+  font-size:20px;
+  font-weight:bold;
+  margin:12px 0 18px;
+}
+
 .optionTitle{
-  font-size:13px;font-weight:bold;margin:17px 0 8px
+  font-size:13px;
+  font-weight:bold;
+  margin:17px 0 8px;
 }
-.options{display:flex;gap:8px;flex-wrap:wrap}
+
+.options{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
 .option{
-  border:1px solid #ccc;background:#fff;
-  padding:10px 15px;min-width:48px
+  border:1px solid #ccc;
+  background:#fff;
+  padding:10px 15px;
+  min-width:48px;
 }
+
 .option.selected{
-  background:#111;color:#fff;border-color:#111
+  background:#111;
+  color:#fff;
+  border-color:#111;
 }
-.modalActions{display:flex;gap:8px;margin-top:22px}
+
+.modalActions{
+  display:flex;
+  gap:8px;
+  margin-top:22px;
+}
+
 .modalActions .btn{flex:1}
 
-/* login */
+/* FORMS */
+
 .formGroup{margin-bottom:15px}
+
 .formGroup label{
-  display:block;font-size:13px;font-weight:bold;
-  margin-bottom:6px
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:6px;
 }
-.formGroup input,.formGroup textarea,.formGroup select{
-  width:100%;border:1px solid #ddd;
-  padding:13px;outline:none;background:#fff
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select{
+  width:100%;
+  border:1px solid #ddd;
+  padding:13px;
+  outline:none;
+  background:#fff;
 }
+
 .formGroup input:focus,
-.formGroup textarea:focus{border-color:#111}
+.formGroup textarea:focus{
+  border-color:#111;
+}
+
 .demoNote{
-  background:#fff8d8;border:1px solid #eadb86;
-  padding:12px;font-size:13px;margin:15px 0
+  background:#fff8d8;
+  border:1px solid #eadb86;
+  padding:12px;
+  font-size:13px;
+  margin:15px 0;
 }
-.error{color:#c00;font-size:13px;margin-top:7px}
-.success{color:#087a38;font-size:13px;margin-top:7px}
 
-/* checkout */
+.error{
+  color:#c00;
+  font-size:13px;
+  margin-top:7px;
+}
+
+.success{
+  color:#087a38;
+  font-size:13px;
+  margin-top:7px;
+}
+
+/* CHECKOUT */
+
 .checkoutGrid{
-  display:grid;grid-template-columns:1fr 1fr;gap:20px
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
+
 .paymentBox{
-  border:1px solid #ddd;padding:15px;margin:8px 0;
-  cursor:pointer
+  border:1px solid #ddd;
+  padding:15px;
+  margin:8px 0;
+  cursor:pointer;
 }
+
 .paymentBox.selected{
-  border:2px solid #111
+  border:2px solid #111;
 }
+
 .orderSummary{
-  background:#f7f7f7;padding:18px;margin-bottom:20px
+  background:#f7f7f7;
+  padding:18px;
+  margin-bottom:20px;
 }
+
 .orderRow{
-  display:flex;justify-content:space-between;
-  padding:6px 0;font-size:14px
+  display:flex;
+  justify-content:space-between;
+  padding:6px 0;
+  font-size:14px;
 }
+
 .notice{
-  background:#f3f3f3;padding:12px;
-  font-size:13px;margin:10px 0
+  background:#f3f3f3;
+  padding:12px;
+  font-size:13px;
+  margin:10px 0;
 }
 
-/* account */
-.accountBox{text-align:center;padding:10px}
+/* ACCOUNT */
+
 .accountIcon{
-  width:70px;height:70px;border-radius:50%;
-  background:#111;color:#fff;display:flex;
-  align-items:center;justify-content:center;
-  font-size:28px;margin:0 auto 15px
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#111;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin:0 auto 15px;
 }
-.accountActions{display:grid;gap:10px;margin-top:20px}
 
-/* mobile menu */
+.accountActions{
+  display:grid;
+  gap:10px;
+  margin-top:20px;
+}
+
+/* MOBILE MENU */
+
 .mobileMenu{
-  position:fixed;top:0;left:0;height:100%;
-  width:min(330px,90%);background:#fff;
-  z-index:2150;transform:translateX(-100%);
-  transition:.3s;padding:25px
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:min(330px,90%);
+  background:#fff;
+  z-index:2150;
+  transform:translateX(-100%);
+  transition:.3s;
+  padding:25px;
 }
+
 .mobileMenu.active{transform:translateX(0)}
+
 .mobileMenu a{
-  display:block;padding:17px 0;
-  border-bottom:1px solid #eee;font-weight:bold
+  display:block;
+  padding:17px 0;
+  border-bottom:1px solid #eee;
+  font-weight:bold;
 }
+
+/* TOAST */
 
 .toast{
-  position:fixed;bottom:25px;left:50%;
+  position:fixed;
+  bottom:25px;
+  left:50%;
   transform:translateX(-50%) translateY(20px);
-  background:#111;color:#fff;padding:13px 20px;
-  z-index:5000;opacity:0;pointer-events:none;
-  transition:.3s;font-size:14px
-}
-.toast.show{
-  opacity:1;transform:translateX(-50%) translateY(0)
+  background:#111;
+  color:#fff;
+  padding:13px 20px;
+  z-index:5000;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  font-size:14px;
+  max-width:90%;
+  text-align:center;
 }
 
-.orderCard{
-  border:1px solid #ddd;padding:16px;margin-bottom:12px
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
 }
+
+/* ORDERS */
+
+.orderCard{
+  border:1px solid #ddd;
+  padding:16px;
+  margin-bottom:12px;
+}
+
 .status{
-  display:inline-block;padding:5px 9px;
-  background:#e9f7ee;color:#087a38;
-  font-size:11px;font-weight:bold
+  display:inline-block;
+  padding:5px 9px;
+  background:#e9f7ee;
+  color:#087a38;
+  font-size:11px;
+  font-weight:bold;
+}
+
+/* WISHLIST */
+
+.wishGrid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.wishItem{
+  border:1px solid #eee;
+  padding:10px;
+}
+
+.wishItem img{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
 }
 
 @media(max-width:1000px){
@@ -390,33 +782,88 @@ footer p,footer a{color:#aaa;font-size:14px;display:block;margin:8px 0}
   .categories{grid-template-columns:repeat(2,1fr)}
   .footerGrid{grid-template-columns:1fr 1fr}
 }
+
 @media(max-width:700px){
-  .nav{height:62px;padding:0 15px}
+  .nav{
+    height:62px;
+    padding:0 15px;
+  }
+
   .navlinks{display:none}
   .menuBtn{display:block}
   .logo{font-size:23px}
   .actions .desktopOnly{display:none}
+
   .hero{min-height:510px}
-  .hero h1{letter-spacing:-3px}
+
+  .hero h1{
+    letter-spacing:-3px;
+  }
+
   .section{padding:50px 15px}
-  .products{grid-template-columns:repeat(2,1fr);gap:15px}
-  .categories{grid-template-columns:1fr 1fr}
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+  }
+
+  .categories{
+    grid-template-columns:1fr 1fr;
+  }
+
   .category{min-height:230px}
-  .features{grid-template-columns:1fr 1fr}
-  .feature{border-bottom:1px solid #ddd}
-  .productModalGrid,.checkoutGrid{grid-template-columns:1fr}
-  .productModalGrid img{max-height:400px}
-  .footerGrid{grid-template-columns:1fr 1fr}
+
+  .features{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .feature{
+    border-bottom:1px solid #ddd;
+  }
+
+  .productModalGrid,
+  .checkoutGrid{
+    grid-template-columns:1fr;
+  }
+
+  .productModalGrid img{
+    max-height:400px;
+  }
 }
+
 @media(max-width:450px){
   .heroContent{padding:35px 18px}
+
   .hero h1{font-size:52px}
-  .categories{grid-template-columns:1fr}
+
+  .categories{
+    grid-template-columns:1fr;
+  }
+
   .category{min-height:260px}
-  .features{grid-template-columns:1fr}
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
   .feature{border-right:0}
-  .newsForm{display:grid;gap:8px}
-  .footerGrid{grid-template-columns:1fr}
+
+  .newsForm{
+    display:grid;
+    gap:8px;
+  }
+
+  .footerGrid{
+    grid-template-columns:1fr;
+  }
+
+  .cartItem{
+    grid-template-columns:65px 1fr;
+  }
+
+  .cartItem > div:last-child{
+    grid-column:2;
+  }
 }
 </style>
 </head>
@@ -426,255 +873,291 @@ footer p,footer a{color:#aaa;font-size:14px;display:block;margin:8px 0}
 <div class="topbar">FREE DELIVERY ON ORDERS ABOVE ₹999</div>
 
 <header>
-  <div class="nav">
-    <button class="iconbtn menuBtn" onclick="openMobileMenu()">☰</button>
+<div class="nav">
 
-    <a href="#home" class="logo">D9E<span> Clothing</span></a>
+<button class="iconbtn menuBtn" onclick="openMobileMenu()">☰</button>
 
-    <nav class="navlinks">
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#men" onclick="filterProducts('Men');return true">Men</a>
-      <a href="#women" onclick="filterProducts('Women');return true">Women</a>
-      <a href="#new" onclick="filterProducts('New');return true">New Arrivals</a>
-      <a href="#help">Help</a>
-    </nav>
+<a href="#home" class="logo">D9E<span> Clothing</span></a>
 
-    <div class="actions">
-      <button class="iconbtn desktopOnly" onclick="openSearch()">⌕</button>
-      <button class="iconbtn desktopOnly" onclick="openWishlist()">♡</button>
-      <button class="iconbtn" onclick="openAccount()">♙</button>
-      <button class="iconbtn" onclick="openCart()">🛒<sup id="cartCount">0</sup></button>
-    </div>
-  </div>
+<nav class="navlinks">
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#shop" onclick="filterProducts('Men')">Men</a>
+<a href="#shop" onclick="filterProducts('Women')">Women</a>
+<a href="#shop" onclick="filterProducts('New')">New Arrivals</a>
+<a href="#help">Help</a>
+</nav>
+
+<div class="actions">
+<button class="iconbtn desktopOnly" onclick="focusSearch()">⌕</button>
+<button class="iconbtn desktopOnly" onclick="openWishlist()">♡</button>
+<button class="iconbtn" onclick="openAccount()">♙</button>
+<button class="iconbtn" onclick="openCart()">🛒 <sup id="cartCount" class="cartCount">0</sup></button>
+</div>
+
+</div>
 </header>
 
 <div id="mobileMenu" class="mobileMenu">
-  <button class="close" onclick="closeMobileMenu()">×</button>
-  <a href="#home" onclick="closeMobileMenu()">Home</a>
-  <a href="#shop" onclick="closeMobileMenu()">Shop</a>
-  <a href="#men" onclick="filterProducts('Men');closeMobileMenu()">Men</a>
-  <a href="#women" onclick="filterProducts('Women');closeMobileMenu()">Women</a>
-  <a href="#new" onclick="filterProducts('New');closeMobileMenu()">New Arrivals</a>
-  <a href="#help" onclick="closeMobileMenu()">Help</a>
-  <a href="javascript:void(0)" onclick="openAccount();closeMobileMenu()">My Account</a>
+<button class="close" onclick="closeMobileMenu()">×</button>
+<a href="#home" onclick="closeMobileMenu()">Home</a>
+<a href="#shop" onclick="closeMobileMenu()">Shop</a>
+<a href="#shop" onclick="filterProducts('Men');closeMobileMenu()">Men</a>
+<a href="#shop" onclick="filterProducts('Women');closeMobileMenu()">Women</a>
+<a href="#shop" onclick="filterProducts('New');closeMobileMenu()">New Arrivals</a>
+<a href="#help" onclick="closeMobileMenu()">Help</a>
+<a href="javascript:void(0)" onclick="openAccount();closeMobileMenu()">My Account</a>
+<a href="javascript:void(0)" onclick="openOrders();closeMobileMenu()">My Orders</a>
 </div>
 
 <section class="hero" id="home">
-  <div class="heroContent">
-    <small>D9E CLOTHING</small>
-    <h1>WEAR YOUR<br>OWN WAY.</h1>
-    <p>Modern essentials, everyday comfort and clean style — made for your real life.</p>
-    <button class="btn white" onclick="scrollToShop()">SHOP NOW</button>
-  </div>
+<div class="heroContent">
+<small>D9E CLOTHING</small>
+<h1>WEAR YOUR<br>OWN WAY.</h1>
+<p>Modern essentials, everyday comfort and clean style — made for your real life.</p>
+<button class="btn white" onclick="scrollToShop()">SHOP NOW</button>
+</div>
 </section>
 
-<section class="section" id="categories">
-  <div class="sectionHead">
-    <div>
-      <h2>Shop by category</h2>
-      <p>Find your everyday essentials.</p>
-    </div>
-  </div>
+<section class="section">
+<div class="sectionHead">
+<div>
+<h2>Shop by category</h2>
+<p>Find your everyday essentials.</p>
+</div>
+</div>
 
-  <div class="categories">
-    <div class="category" onclick="filterProducts('Men')">
-      <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=80" onerror="this.src='https://placehold.co/700x900?text=D9E+Men'">
-      <div class="categoryText"><h3>Men</h3><span>Shop collection →</span></div>
-    </div>
+<div class="categories">
 
-    <div class="category" onclick="filterProducts('Women')">
-      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80" onerror="this.src='https://placehold.co/700x900?text=D9E+Women'">
-      <div class="categoryText"><h3>Women</h3><span>Shop collection →</span></div>
-    </div>
+<div class="category" onclick="filterProducts('Men')">
+<img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=80" onerror="this.src='https://placehold.co/700x900?text=D9E+Men'">
+<div class="categoryText">
+<h3>Men</h3>
+<span>Shop collection →</span>
+</div>
+</div>
 
-    <div class="category" onclick="filterProducts('T-Shirts')">
-      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" onerror="this.src='https://placehold.co/700x900?text=T-Shirts'">
-      <div class="categoryText"><h3>T-Shirts</h3><span>Shop collection →</span></div>
-    </div>
+<div class="category" onclick="filterProducts('Women')">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80" onerror="this.src='https://placehold.co/700x900?text=D9E+Women'">
+<div class="categoryText">
+<h3>Women</h3>
+<span>Shop collection →</span>
+</div>
+</div>
 
-    <div class="category" onclick="filterProducts('Best')">
-      <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80" onerror="this.src='https://placehold.co/700x900?text=Best+Sellers'">
-      <div class="categoryText"><h3>Best Sellers</h3><span>Shop collection →</span></div>
-    </div>
-  </div>
+<div class="category" onclick="filterProducts('T-Shirts')">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" onerror="this.src='https://placehold.co/700x900?text=T-Shirts'">
+<div class="categoryText">
+<h3>T-Shirts</h3>
+<span>Shop collection →</span>
+</div>
+</div>
+
+<div class="category" onclick="filterProducts('Best')">
+<img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80" onerror="this.src='https://placehold.co/700x900?text=Best+Sellers'">
+<div class="categoryText">
+<h3>Best Sellers</h3>
+<span>Shop collection →</span>
+</div>
+</div>
+
+</div>
 </section>
 
 <section class="section" id="shop">
-  <div class="sectionHead">
-    <div>
-      <h2>Shop D9E</h2>
-      <p id="resultText">All products</p>
-    </div>
-  </div>
 
-  <div class="shopTools">
-    <input id="searchInput" class="search" placeholder="Search clothing..." oninput="renderProducts()">
+<div class="sectionHead">
+<div>
+<h2>Shop D9E</h2>
+<p id="resultText">All products</p>
+</div>
+</div>
 
-    <select id="categoryFilter" class="filter" onchange="renderProducts()">
-      <option value="All">All</option>
-      <option value="Men">Men</option>
-      <option value="Women">Women</option>
-      <option value="T-Shirts">T-Shirts</option>
-      <option value="Shirts">Shirts</option>
-      <option value="Hoodies">Hoodies</option>
-      <option value="Pants">Pants</option>
-      <option value="Jackets">Jackets</option>
-      <option value="Denim">Denim</option>
-      <option value="New">New Arrivals</option>
-      <option value="Best">Best Sellers</option>
-    </select>
+<div class="shopTools">
 
-    <select id="sortFilter" class="filter" onchange="renderProducts()">
-      <option value="default">Sort</option>
-      <option value="low">Price: Low to High</option>
-      <option value="high">Price: High to Low</option>
-      <option value="name">Name</option>
-    </select>
-  </div>
+<input
+id="searchInput"
+class="search"
+placeholder="Search clothing..."
+oninput="renderProducts()"
+>
 
-  <div class="products" id="productGrid"></div>
+<select id="categoryFilter" class="filter" onchange="renderProducts()">
+<option value="All">All</option>
+<option value="Men">Men</option>
+<option value="Women">Women</option>
+<option value="T-Shirts">T-Shirts</option>
+<option value="Shirts">Shirts</option>
+<option value="Hoodies">Hoodies</option>
+<option value="Pants">Pants</option>
+<option value="Jackets">Jackets</option>
+<option value="Denim">Denim</option>
+<option value="New">New Arrivals</option>
+<option value="Best">Best Sellers</option>
+</select>
+
+<select id="sortFilter" class="filter" onchange="renderProducts()">
+<option value="default">Sort</option>
+<option value="low">Price: Low to High</option>
+<option value="high">Price: High to Low</option>
+<option value="name">Name</option>
+</select>
+
+</div>
+
+<div class="products" id="productGrid"></div>
+
 </section>
 
 <section class="features">
-  <div class="feature">
-    <strong>🚚 Fast Delivery</strong>
-    <span>Reliable home delivery.</span>
-  </div>
-  <div class="feature">
-    <strong>↩ Easy Returns</strong>
-    <span>Simple return support.</span>
-  </div>
-  <div class="feature">
-    <strong>🔒 Secure Checkout</strong>
-    <span>UPI & Cash on Delivery.</span>
-  </div>
-  <div class="feature" id="help">
-    <strong>☎ Customer Support</strong>
-    <span>9359026575</span>
-  </div>
+
+<div class="feature">
+<strong>🚚 Fast Delivery</strong>
+<span>Reliable home delivery.</span>
+</div>
+
+<div class="feature">
+<strong>↩ Easy Returns</strong>
+<span>Simple return support.</span>
+</div>
+
+<div class="feature">
+<strong>🔒 Secure Checkout</strong>
+<span>UPI & Cash on Delivery.</span>
+</div>
+
+<div class="feature" id="help">
+<strong>☎ Customer Support</strong>
+<span>9359026575</span>
+</div>
+
 </section>
 
 <section class="newsletter section">
-  <div class="newsletterBox">
-    <h2>Stay in the loop.</h2>
-    <p>Get updates about new drops and offers.</p>
-    <form class="newsForm" onsubmit="subscribe(event)">
-      <input id="emailNews" type="email" placeholder="Your email address" required>
-      <button class="btn white">SUBSCRIBE</button>
-    </form>
-  </div>
+
+<div class="newsletterBox">
+<h2>Stay in the loop.</h2>
+<p>Get updates about new drops and offers.</p>
+
+<form class="newsForm" onsubmit="subscribe(event)">
+<input id="emailNews" type="email" placeholder="Your email address" required>
+<button class="btn white">SUBSCRIBE</button>
+</form>
+
+</div>
+
 </section>
 
 <footer>
-  <div class="footerGrid">
-    <div>
-      <h3>D9E Clothing</h3>
-      <p>Modern clothing for everyday life.</p>
-      <p>Support: 9359026575</p>
-      <p>deepak9eofficial@gmail.com</p>
-    </div>
 
-    <div>
-      <h3>Shop</h3>
-      <a href="#shop" onclick="filterProducts('Men')">Men</a>
-      <a href="#shop" onclick="filterProducts('Women')">Women</a>
-      <a href="#shop" onclick="filterProducts('New')">New Arrivals</a>
-      <a href="#shop" onclick="filterProducts('Best')">Best Sellers</a>
-    </div>
+<div class="footerGrid">
 
-    <div>
-      <h3>Help</h3>
-      <a href="javascript:void(0)" onclick="openAccount()">My Account</a>
-      <a href="javascript:void(0)" onclick="openOrders()">My Orders</a>
-      <a href="javascript:void(0)" onclick="showPolicy('returns')">Returns</a>
-      <a href="javascript:void(0)" onclick="showPolicy('shipping')">Shipping</a>
-    </div>
+<div>
+<h3>D9E Clothing</h3>
+<p>Modern clothing for everyday life.</p>
+<p>Support: 9359026575</p>
+<p>deepak9eofficial@gmail.com</p>
+</div>
 
-    <div>
-      <h3>Legal</h3>
-      <a href="javascript:void(0)" onclick="showPolicy('privacy')">Privacy</a>
-      <a href="javascript:void(0)" onclick="showPolicy('terms')">Terms</a>
-      <a href="javascript:void(0)" onclick="showPolicy('contact')">Contact</a>
-    </div>
-  </div>
+<div>
+<h3>Shop</h3>
+<a href="#shop" onclick="filterProducts('Men')">Men</a>
+<a href="#shop" onclick="filterProducts('Women')">Women</a>
+<a href="#shop" onclick="filterProducts('New')">New Arrivals</a>
+<a href="#shop" onclick="filterProducts('Best')">Best Sellers</a>
+</div>
 
-  <div class="copyright">
-    © 2026 D9E Clothing. All rights reserved.
-  </div>
+<div>
+<h3>Help</h3>
+<a href="javascript:void(0)" onclick="openAccount()">My Account</a>
+<a href="javascript:void(0)" onclick="openOrders()">My Orders</a>
+<a href="javascript:void(0)" onclick="showPolicy('returns')">Returns</a>
+<a href="javascript:void(0)" onclick="showPolicy('shipping')">Shipping</a>
+</div>
+
+<div>
+<h3>Legal</h3>
+<a href="javascript:void(0)" onclick="showPolicy('privacy')">Privacy</a>
+<a href="javascript:void(0)" onclick="showPolicy('terms')">Terms</a>
+<a href="javascript:void(0)" onclick="showPolicy('contact')">Contact</a>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 D9E Clothing. All rights reserved.
+</div>
+
 </footer>
 
 <div class="overlay" id="overlay" onclick="closeEverything()"></div>
 
 <!-- CART -->
+
 <aside class="drawer" id="cartDrawer">
-  <div class="drawerHead">
-    <h2>Your Bag</h2>
-    <button class="close" onclick="closeCart()">×</button>
-  </div>
-  <div class="drawerBody" id="cartBody"></div>
-  <div class="drawerFoot">
-    <div class="totalLine"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
-    <div class="totalLine"><span>Delivery</span><span id="cartDelivery">₹0</span></div>
-    <div class="totalLine"><strong>Total</strong><strong id="cartTotal">₹0</strong></div>
-    <button class="btn full" onclick="startCheckout()">CHECKOUT</button>
-  </div>
+
+<div class="drawerHead">
+<h2>Your Bag</h2>
+<button class="close" onclick="closeCart()">×</button>
+</div>
+
+<div class="drawerBody" id="cartBody"></div>
+
+<div class="drawerFoot">
+
+<div class="totalLine">
+<span>Subtotal</span>
+<strong id="cartSubtotal">₹0</strong>
+</div>
+
+<div class="totalLine">
+<span>Delivery</span>
+<span id="cartDelivery">₹0</span>
+</div>
+
+<div class="totalLine">
+<strong>Total</strong>
+<strong id="cartTotal">₹0</strong>
+</div>
+
+<button class="btn full" onclick="startCheckout()">CHECKOUT</button>
+
+</div>
+
 </aside>
 
 <!-- PRODUCT MODAL -->
+
 <div class="modal" id="productModal">
-  <div class="modalHead">
-    <strong>Product</strong>
-    <button class="close" onclick="closeProduct()">×</button>
-  </div>
-  <div class="modalBody" id="productModalBody"></div>
+
+<div class="modalHead">
+<strong>Product</strong>
+<button class="close" onclick="closeProduct()">×</button>
 </div>
 
-<!-- LOGIN -->
+<div class="modalBody" id="productModalBody"></div>
+
+</div>
+
+<!-- LOGIN MODAL -->
+
 <div class="modal" id="loginModal">
-  <div class="modalHead">
-    <h3>Login / Sign Up</h3>
-    <button class="close" onclick="closeLogin()">×</button>
-  </div>
 
-  <div class="modalBody">
-    <div class="accountIcon">♙</div>
-
-    <h2 style="text-align:center;margin-bottom:5px">Welcome to D9E</h2>
-    <p style="text-align:center;color:#777;font-size:13px">
-      Login with your mobile number to continue shopping.
-    </p>
-
-    <div class="formGroup" style="margin-top:22px">
-      <label>Mobile Number</label>
-      <input id="loginPhone" type="tel" maxlength="10" placeholder="10-digit mobile number">
-      <div id="phoneError" class="error"></div>
-    </div>
-
-    <button class="btn full" id="sendOtpBtn" onclick="sendOTP()">SEND OTP</button>
-
-    <div id="otpArea" style="display:none">
-      <div class="demoNote">
-        <strong>Demo OTP: 123456</strong><br>
-        This is a testing version. Real SMS OTP requires a backend OTP service.
-      </div>
-
-      <div class="formGroup">
-        <label>Enter OTP</label>
-        <input id="otpInput" type="tel" maxlength="6" placeholder="6-digit OTP">
-        <div id="otpError" class="error"></div>
-      </div>
-
-      <button class="btn full" onclick="verifyOTP()">VERIFY & CONTINUE</button>
-    </div>
-  </div>
+<div class="modalHead">
+<h3>Login / Sign Up</h3>
+<button class="close" onclick="closeLogin()">×</button>
 </div>
 
-<!-- ACCOUNT -->
-<div class="modal" id="accountModal">
-  <div class="modalHead">
-    <h3>My Account</h3>
-    <button class="close" onclick="closeAccount()">×</button>
-  </div>
+<div class="modalBody">
 
-  <div class="modalB
+<div class="accountIcon">♙</div>
+
+<h2 style="text-align:center;margin-bottom:5px">
+Welcome to D9E
+</h2>
+
+<p style="text-align:center;color:#777;font-size:13px">
+Login with your mobile number to continue shopping.
+</p>
+
+<div class="formGroup" style="margin-top:
