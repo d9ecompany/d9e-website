@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>D9E Clothing</title>
+<meta name="description" content="D9E Clothing - Modern everyday fashion for men and women.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fff;
+  color:#111;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+/* TOP BAR */
+.topbar{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:9px 12px;
+  font-size:12px;
+  letter-spacing:.4px;
+}
+
+/* HEADER */
+.header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  height:70px;
+  background:#fff;
+  border-bottom:1px solid #e8e8e8;
+}
+
+.header-inner{
+  max-width:1400px;
+  height:100%;
+  margin:auto;
+  padding:0 22px;
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.logo{
+  font-size:29px;
+  font-weight:900;
+  letter-spacing:2px;
+  white-space:nowrap;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  margin:auto;
+  font-size:14px;
+  font-weight:700;
+}
+
+.nav a:hover{
+  text-decoration:underline;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:3px;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border:0;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  font-size:20px;
+}
+
+.icon-btn:hover{
+  background:#f5f5f5;
+}
+
+.badge{
+  position:absolute;
+  top:1px;
+  right:0;
+  min-width:17px;
+  height:17px;
+  border-radius:50%;
+  background:#111;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:10px;
+}
+
+.menu-btn{
+  display:none;
+}
+
+/* HERO */
+.hero{
+  min-height:600px;
+  background:
+    linear-gradient(rgba(0,0,0,.32),rgba(0,0,0,.42)),
+    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:30px 20px;
+}
+
+.hero-content{
+  max-width:800px;
+}
+
+.eyebrow{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:4px;
+}
+
+.hero h1{
+  font-size:clamp(45px,8vw,90px);
+  line-height:.94;
+  margin:20px 0;
+  font-weight:900;
+}
+
+.hero p{
+  font-size:17px;
+  margin-bottom:28px;
+}
+
+.btn{
+  border:1px solid #111;
+  background:#111;
+  color:#fff;
+  padding:14px 24px;
+  min-height:48px;
+  font-weight:700;
+}
+
+.btn:hover{
+  background:#333;
+}
+
+.btn-white{
+  background:#fff;
+  color:#111;
+  border-color:#fff;
+}
+
+/* SECTIONS */
+.section{
+  max-width:1400px;
+  margin:auto;
+  padding:70px 22px;
+}
+
+.section-title{
+  font-size:32px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.section-subtitle{
+  color:#777;
+  font-size:14px;
+  margin-bottom:30px;
+}
+
+/* CATEGORIES */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.category{
+  height:330px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  background:#eee;
+}
+
+.category img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.35s;
+}
+
+.category:hover img{
+  transform:scale(1.05);
+}
+
+.category-title{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:25px;
+  color:#fff;
+  font-size:25px;
+  font-weight:800;
+  background:linear-gradient(transparent,rgba(0,0,0,.8));
+}
+
+/* SHOP */
+.shop-tools{
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.search-box{
+  flex:1;
+}
+
+.search-box input,
+.sort-select{
+  width:100%;
+  height:48px;
+  border:1px solid #ccc;
+  background:#fff;
+  padding:0 14px;
+  outline:none;
+}
+
+.sort-select{
+  width:190px;
+}
+
+.search-box input:focus,
+.sort-select:focus{
+  border-color:#111;
+}
+
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:30px;
+}
+
+.filter-btn{
+  border:1px solid #ddd;
+  background:#fff;
+  padding:10px 16px;
+  font-size:13px;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.product-card{
+  cursor:pointer;
+  min-width:0;
+}
+
+.product-image{
+  position:relative;
+  aspect-ratio:3/4;
+  background:#f1f1f1;
+  overflow:hidden;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.3s;
+}
+
+.product-card:hover .product-image img{
+  transform:scale(1.035);
+}
+
+.wishlist-btn{
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:38px;
+  height:38px;
+  border:0;
+  background:#fff;
+  border-radius:50%;
+  z-index:2;
+  font-size:18px;
+}
+
+.product-info{
+  padding:11px 2px 25px;
+}
+
+.product-name{
+  font-size:14px;
+  font-weight:700;
+}
+
+.product-category{
+  color:#777;
+  font-size:12px;
+  margin:4px 0;
+}
+
+.product-price{
+  font-size:14px;
+  font-weight:800;
+}
+
+.old-price{
+  color:#999;
+  text-decoration:line-through;
+  font-weight:400;
+  margin-left:5px;
+}
+
+.empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:50px 20px;
+  color:#777;
+}
+
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+}
+
+.feature{
+  text-align:center;
+  padding:35px 15px;
+  border-right:1px solid #eee;
+}
+
+.feature:last-child{
+  border-right:0;
+}
+
+.feature-title{
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.feature-text{
+  color:#777;
+  font-size:12px;
+}
+
+/* NEWSLETTER */
+.newsletter{
+  background:#f5f5f5;
+  text-align:center;
+}
+
+.newsletter-inner{
+  max-width:600px;
+  margin:auto;
+}
+
+.newsletter-form{
+  display:flex;
+  gap:8px;
+}
+
+.newsletter-form input{
+  flex:1;
+  min-width:0;
+  border:1px solid #ccc;
+  padding:0 14px;
+  height:48px;
+}
+
+/* FOOTER */
+.footer{
+  background:#111;
+  color:#fff;
+}
+
+.footer-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:55px 22px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:35px;
+}
+
+.footer-brand h2{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.footer-brand p,
+.footer a{
+  color:#aaa;
+  font-size:13px;
+}
+
+.footer a{
+  display:block;
+  margin:9px 0;
+}
+
+.footer a:hover{
+  color:#fff;
+}
+
+.footer h3{
+  font-size:13px;
+  margin-bottom:13px;
+}
+
+.copyright{
+  border-top:1px solid #333;
+  text-align:center;
+  color:#888;
+  font-size:12px;
+  padding:18px;
+}
+
+/* OVERLAY */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:2000;
+  display:none;
+}
+
+.overlay.show{
+  display:block;
+}
+
+/* CART */
+.cart-drawer{
+  position:fixed;
+  right:0;
+  top:0;
+  bottom:0;
+  width:min(450px,100%);
+  background:#fff;
+  z-index:2100;
+  transform:translateX(100%);
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-drawer.open{
+  transform:translateX(0);
+}
+
+.drawer-header{
+  padding:20px;
+  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.close-btn{
+  width:40px;
+  height:40px;
+  border:0;
+  background:transparent;
+  font-size:25px;
+}
+
+.drawer-body{
+  flex:1;
+  overflow:auto;
+  padding:20px;
+}
+
+.drawer-footer{
+  padding:20px;
+  border-top:1px solid #eee;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:70px 1fr auto;
+  gap:11px;
+  padding:13px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+  width:70px;
+  height:90px;
+  object-fit:cover;
+}
+
+.cart-name{
+  font-size:13px;
+  font-weight:700;
+}
+
+.cart-meta{
+  color:#777;
+  font-size:11px;
+  margin:4px 0;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-top:7px;
+}
+
+.quantity button{
+  width:28px;
+  height:28px;
+  border:1px solid #ddd;
+  background:#fff;
+}
+
+.remove-btn{
+  border:0;
+  background:none;
+  color:#888;
+  font-size:11px;
+  margin-top:6px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  margin:7px 0;
+  font-size:13px;
+}
+
+.summary-total{
+  border-top:1px solid #eee;
+  padding-top:12px;
+  margin-top:12px;
+  font-size:18px;
+  font-weight:800;
+}
+
+.full-btn{
+  width:100%;
+  margin-top:12px;
+}
+
+/* MODALS */
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:2200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(700px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:#fff;
+}
+
+.modal-header{
+  padding:18px 20px;
+  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.modal-body{
+  padding:20px;
+}
+
+/* PRODUCT DETAIL */
+.product-detail{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.detail-image{
+  min-height:500px;
+  background:#eee;
+}
+
+.detail-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.detail-info{
+  padding:30px;
+}
+
+.detail-info h2{
+  font-size:27px;
+  margin-bottom:7px;
+}
+
+.detail-price{
+  font-size:21px;
+  font-weight:800;
+  margin:15px 0;
+}
+
+.option-title{
+  font-size:12px;
+  font-weight:800;
+  margin:18px 0 7px;
+}
+
+.options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.option{
+  border:1px solid #ccc;
+  background:#fff;
+  padding:9px 13px;
+  font-size:12px;
+}
+
+.option.selected{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+/* FORMS */
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-group label{
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  border:1px solid #ccc;
+  padding:11px;
+  outline:none;
+  background:#fff;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.note{
+  color:#777;
+  font-size:12px;
+  margin-bottom:18px;
+}
+
+/* TOAST */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:22px;
+  transform:translate(-50%,20px);
+  opacity:0;
+  z-index:5000;
+  background:#111;
+  color:#fff;
+  padding:12px 19px;
+  font-size:13px;
+  pointer-events:none;
+  transition:.2s;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+.order-box{
+  border:1px solid #ddd;
+  padding:15px;
+  margin-bottom:12px;
+}
+
+.order-status{
+  font-weight:700;
+  margin-top:7px;
+}
+
+/* MOBILE */
+@media(max-width:1000px){
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:750px){
+  .header{
+    height:60px;
+  }
+
+  .header-inner{
+    padding:0 12px;
+    gap:7px;
+  }
+
+  .menu-btn{
+    display:flex;
+  }
+
+  .nav{
+    display:none;
+    position:absolute;
+    top:60px;
+    left:0;
+    right:0;
+    background:#fff;
+    border-bottom:1px solid #eee;
+    padding:16px;
+    flex-direction:column;
+    align-items:flex-start;
+    margin:0;
+  }
+
+  .nav.open{
+    display:flex;
+  }
+
+  .logo{
+    font-size:24px;
+  }
+
+  .hero{
+    min-height:500px;
+  }
+
+  .section{
+    padding:50px 15px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .features{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .feature{
+    border-bottom:1px solid #eee;
+  }
+
+  .product-detail{
+    grid-template-columns:1fr;
+  }
+
+  .detail-image{
+    min-height:350px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+    padding:40px 15px;
+  }
+}
+
+@media(max-width:480px){
+  .header-actions{
+    margin-left:auto;
+  }
+
+  .icon-btn{
+    width:35px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  .categories{
+    gap:10px;
+  }
+
+  .category{
+    height:230px;
+  }
+
+  .category-title{
+    font-size:19px;
+    padding:18px;
+  }
+
+  .shop-tools{
+    flex-direction:column;
+  }
+
+  .sort-select{
+    width:100%;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  .newsletter-form{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+FREE DELIVERY ON ORDERS ABOVE ₹999
+</div>
+
+<header class="header">
+  <div class="header-inner">
+
+    <button class="icon-btn menu-btn" onclick="toggleMenu()">☰</button>
+
+    <a href="#home" class="logo">D9E</a>
+
+    <nav class="nav" id="mainNav">
+      <a href="#home" onclick="closeMenu()">Home</a>
+      <a href="#shop" onclick="setCategory('Men');closeMenu()">Men</a>
+      <a href="#shop" onclick="setCategory('Women');closeMenu()">Women</a>
+      <a href="#shop" onclick="setCategory('New');closeMenu()">New Arrivals</a>
+      <a href="#shop" onclick="closeMenu()">Shop</a>
+    </nav>
+
+    <div class="header-actions">
+
+      <button class="icon-btn" onclick="focusSearch()" title="Search">
+        ⌕
+      </button>
+
+      <button class="icon-btn" onclick="openWishlist()" title="Wishlist">
+        ♡
+        <span class="badge" id="wishlistCount">0</span>
+      </button>
+
+      <button class="icon-btn" onclick="openAccount()" title="Account">
+        ♙
+      </button>
+
+      <button class="icon-btn" onclick="openCart()" title="Cart">
+        🛍
+        <span class="badge" id="cartCount">0</span>
+      </button>
+
+    </div>
+  </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      D9E CLOTHING
+    </div>
+
+    <h1>
+      WEAR YOUR OWN WAY.
+    </h1>
+
+    <p>
+      Clean. Modern. Everyday fashion made for your style.
+    </p>
+
+    <button class="btn btn-white" onclick="goShop()">
+      SHOP NOW
+    </button>
+
+  </div>
+</section>
+
+<section class="section">
+
+  <h2 class="section-title">
+    Shop by category
+  </h2>
+
+  <p class="section-subtitle">
+    Find your everyday essentials.
+  </p>
+
+  <div class="categories">
+
+    <div class="category" onclick="setCategory('Men')">
+      <img
+        src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=80"
+        alt="Men">
+      <div class="category-title">Men</div>
+    </div>
+
+    <div class="category" onclick="setCategory('Women')">
+      <img
+        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80"
+        alt="Women">
+      <div class="category-title">Women</div>
+    </div>
+
+    <div class="category" onclick="setCategory('T-Shirts')">
+      <img
+        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80"
+        alt="T-Shirts">
+      <div class="category-title">T-Shirts</div>
+    </div>
+
+    <div class="category" onclick="setCategory('Hoodies')">
+      <img
+        src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80"
+        alt="Hoodies">
+      <div class="category-title">Hoodies</div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section" id="shop">
+
+  <h2 class="section-title">
+    Shop D9E
+  </h2>
+
+  <p class="section-subtitle" id="resultText">
+    All products
+  </p>
+
+  <div class="shop-tools">
+
+    <div class="search-box">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search products..."
+        oninput="renderProducts()">
+    </div>
+
+    <select
+      class="sort-select"
+      id="sortSelect"
+      onchange="renderProducts()">
+
+      <option value="featured">Featured</option>
+      <option value="newest">Newest</option>
+      <option value="priceLow">Price: Low to High</option>
+      <option value="priceHigh">Price: High to Low</option>
+      <option value="name">Name</option>
+
+    </select>
+
+  </div>
+
+  <div class="filters">
+
+    <button class="filter-btn active"
+      data-category="All"
+      onclick="setCategory('All')">
+      All
+    </button>
+
+    <button class="filter-btn"
+      data-category="Men"
+      onclick="setCategory('Men')">
+      Men
+    </button>
+
+    <button class="filter-btn"
+      data-category="Women"
+      onclick="setCategory('Women')">
+      Women
+    </button>
+
+    <button class="filter-btn"
+      data-category="T-Shirts"
+      onclick="setCategory('T-Shirts')">
+      T-Shirts
+    </button>
+
+    <button class="filter-btn"
+      data-category="Shirts"
+      onclick="setCategory('Shirts')">
+      Shirts
+    </button>
+
+    <button class="filter-btn"
+      data-category="Hoodies"
+      onclick="setCategory('Hoodies')">
+      Hoodies
+    </button>
+
+    <button class="filter-btn"
+      data-category="Pants"
+      onclick="setCategory('Pants')">
+      Pants
+    </button>
+
+    <button class="filter-btn"
+      data-category="Jackets"
+      onclick="setCategory('Jackets')">
+      Jackets
+    </button>
+
+    <button class="filter-btn"
+      data-category="Denim"
+      onclick="setCategory('Denim')">
+      Denim
+    </button>
+
+  </div>
+
+  <div class="products" id="productGrid"></div>
+
+</section>
+
+<section class="features">
+
+  <div class="feature">
+    <div class="feature-title">🚚 Home Delivery</div>
+    <div class="feature-text">
+      Delivery to your address.
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-title">↩ Easy Returns</div>
+    <div class="feature-text">
+      Return and exchange support.
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-title">🔒 Secure Checkout</div>
+    <div class="feature-text">
+      UPI and Cash on Delivery.
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-title">☎ Customer Support</div>
+    <div class="feature-text">
+      9359026575
+    </div>
+  </div>
+
+</section>
+
+<section class="section newsletter">
+
+  <div class="newsletter-inner">
+
+    <h2 class="section-title">
+      Stay in the loop.
+    </h2>
+
+    <p class="section-subtitle">
+      Get updates about new D9E collections and offers.
+    </p>
+
+    <form
+      class="newsletter-form"
+      onsubmit="subscribeNewsletter(event)">
+
+      <input
+        id="newsletterEmail"
+        type="email"
+        placeholder="Your email address"
+        required>
+
+      <button class="btn">
+        SUBSCRIBE
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <h2>D9E</h2>
+
+      <p>
+        Modern everyday clothing designed with a clean,
+        simple and confident style.
+      </p>
+    </div>
+
+    <div>
+      <h3>SHOP</h3>
+
+      <a href="#shop" onclick="setCategory('Men')">
+        Men
+      </a>
+
+      <a href="#shop" onclick="setCategory('Women')">
+        Women
+      </a>
+
+      <a href="#shop" onclick="setCategory('T-Shirts')">
+        T-Shirts
+      </a>
+
+      <a href="#shop" onclick="setCategory('Hoodies')">
+        Hoodies
+      </a>
+    </div>
+
+    <div>
+      <h3>HELP</h3>
+
+      <a href="javascript:void(0)" onclick="openAccount()">
+        My Account
+      </a>
+
+      <a href="javascript:void(0)" onclick="openOrders()">
+        My Orders
+      </a>
+
+      <a href="javascript:void(0)" onclick="showPolicy('Shipping')">
+        Shipping
+      </a>
+
+      <a href="javascript:void(0)" onclick="showPolicy('Returns')">
+        Returns
+      </a>
+    </div>
+
+    <div>
+      <h3>CONTACT</h3>
+
+      <a href="tel:9359026575">
+        9359026575
+      </a>
+
+      <a href="mailto:deepak9eofficial@gmail.com">
+        Email Support
+      </a>
+
+      <a href="javascript:void(0)" onclick="showPolicy('Privacy')">
+        Privacy
+      </a>
+
+      <a href="javascript:void(0)" onclick="showPolicy('Terms')">
+        Terms
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 D9E Clothing. All rights reserved.
+  </div>
+
+</footer>
+
+<!-- OVERLAY -->
+
+<div
+  class="overlay"
+  id="overlay"
+  onclick="closeAll()">
+</div>
+
+<!-- CART -->
+
+<div class="cart-drawer" id="cartDrawer">
+
+  <div class="drawer-header">
+
+    <h2>Your Cart</h2>
+
+    <button
+      class="close-btn"
+      onclick="closeCart()">
+      ×
+    </button>
+
+  </div>
+
+  <div
+    class="drawer-body"
+    id="cartBody">
+  </div>
+
+  <div
+    class="drawer-footer"
+    id="cartFooter">
+  </div>
+
+</div>
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal" id="productModal">
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <h2>Product</h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal('productModal')">
+        ×
+      </button>
+
+    </div>
+
+    <div
+      id="productDetail">
+    </div>
+
+  </div>
+
+</div>
+
+<!-- LOGIN -->
+
+<div class="modal" id="loginModal">
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+<script>
+/* =========================
+   D9E CLOTHING - DATA
+========================= */
+
+const SUPPORT_PHONE = "9359026575";
+const SUPPORT_EMAIL = "deepak9eofficial@gmail.com";
+const UPI_ID = "deepak.yadav.848502-3@okhdfcbank";
+
+let currentCategory = "All";
+let selectedProduct = null;
+let selectedSize = "M";
+let selectedColor = "Black";
+
+let cart = JSON.parse(localStorage.getItem("d9e_cart") || "[]");
+let wishlist = JSON.parse(localStorage.getItem("d9e_wishlist") || "[]");
+let orders = JSON.parse(localStorage.getItem("d9e_orders") || "[]");
+let user = JSON.parse(localStorage.getItem("d9e_user") || "null");
+let address = JSON.parse(localStorage.getItem("d9e_address") || "null");
+
+const products = [
+
+  {
+    id:1,
+    name:"Essential Oversized T-Shirt",
+    gender:"Men",
+    category:"T-Shirts",
+    price:799,
+    oldPrice:999,
+    image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
+    colors:["Black","White","Grey"],
+    sizes:["S","M","L","XL"],
+    description:"A clean oversized cotton T-shirt designed for everyday comfort."
+  },
+
+  {
+    id:2,
+    name:"Classic Premium Shirt",
+    gender:"Men",
+    category:"Shirts",
+    price:1299,
+    oldPrice:1599,
+    image:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=85",
+    colors:["Black","White","Blue"],
+    sizes:["S","M","L","XL"],
+    description:"A refined everyday shirt with a clean premium finish."
+  },
+
+  {
+    id:3,
+    name:"Relaxed Fit Hoodie",
+    gender:"Men",
+    category:"Hoodies",
+    price:1499,
+    oldPrice:1899,
+    image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85",
+    colors:["Black","Grey","Brown"],
+    sizes:["S","M","L","XL"],
+    description:"Soft relaxed hoodie made for comfort and everyday layering."
+  },
+
+  {
+    id:4,
+    name:"Everyday Cargo Pants",
+    gender:"Men",
+    category:"Pants",
+    price:1599,
+    oldPrice:1999,
+    image:"https://images.unsplash.com/photo-1517445312882-bc9910d016b5?auto=format&fit=crop&w=900&q=85",
+    colors:["Black","Olive","Beige"],
+    sizes:["30","32","34","36"],
+    description:"Modern cargo pants with a relaxed everyday fit."
+  },
+
+  {
+    id:5,
+    name:"Minimal Women's Tee",
+    gender:"Women",
+    category:"T-Shirts",
+    price:699,
+    oldPrice:899,
+    image:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85",
+    colors:["White","Black","Pink"],
+    sizes:["XS","S","M","L"],
+    description:"Minimal everyday T-shirt with a soft comfortable feel."
+  },
+
+  {
+    id:6,
+    name:"Women's Relaxed Hoodie",
+    gender:"Women",
+    category:"Hoodies",
+    price:1399,
+    oldPrice:1699,
+    image:"https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=85",
+    colors:["Black","Cream","Grey"],
+    sizes:["XS","S","M","L"],
+    description:"Relaxed hoodie designed for comfort and effortless style."
+  },
+
+  {
+    id:7,
+    name:"Premium Women's Jacket",
+    gender:"Women",
+    category:"Jackets",
+    price:1899,
+    oldPrice:2299,
+    image:"https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=900&q=85",
+    colors:["Black","Brown","Cream"],
+    sizes:["S","M","L","XL"],
+    description:"A versatile jacket with a modern premium silhouette."
+  },
+
+  {
+    id:8,
+    name:"Straight Fit Denim",
+    gender:"Women",
+    category:"Denim",
+    price:1699,
+    oldPrice:2099,
+    image:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=85",
+    colors:["Blue","Black"],
+    sizes:["28","30","32","34"],
+    description:"Straight-fit denim made for everyday styling."
+  },
+
+  {
+    id:9,
+    name:"Premium Cotton Polo",
+    gender:"Men",
+    category:"T-Shirts",
+    price:999,
+    oldPrice:1299,
+    image:"https://images.unsplash.com/photo-1625910513413-5fc45c47b1e9?auto=format&fit=crop&w=900&q=85",
+    colors:["Black","White","Navy"],
+    sizes:["S","M","L","XL"],
+    description:"Premium cotton polo with a clean timeless look."
+  },
+
+  {
+    id:10,
+    name:"Relaxed Women's Shirt",
+    gender:"Women",
+    category:"Shirts",
+    price:1199,
+    oldPrice:1499,
+    image:"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85",
+    colors:["White","Blue","Pink"],
+    sizes:["XS","S","M","L"],
+    description:"Relaxed women's shirt designed for easy everyday wear."
+  },
+
+  {
+    id:11,
+    name:"Classic Black T-Shirt",
+    gender:"Men",
+    category:"T-Shirts",
+    price:599,
+    oldPrice:799,
+    image:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=85",
+    colors:["Black","White"],
+    sizes:["S","M","L","XL"],
+    description:"A classic black T-shirt that works with everything."
+  },
+
+  {
+    id:12,
+    name:"Soft Knit Women's Top",
+    gender:"Women",
+    category:"T-Shirts",
+    price:899,
+    oldPrice:1099,
+    image:"https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=900&q=85",
+    colors:["Cream","Black","Brown"],
+    sizes:["XS","S","M","L"],
+    description:"Soft knit top with a clean contemporary shape."
+  },
+
+  {
+    id:13,
+    name:"Utility Overshirt",
+    gender:"Men",
+    category:"Shirts",
+    price:1399,
+    oldPrice:1699,
+    image:"https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=900&q=85",
+    colors:["Black","Olive","Beige"],
+    sizes:["S","M","L","XL"],
+    description:"Utility-inspired overshirt for modern layering."
+  },
+
+  {
+    id:14,
+    name:"Women's Denim Jacket",
+    gender:"Women",
+    category:"Jackets",
+    price:1799,
+    oldPrice:2199,
+    image:"https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?auto=format&fit=crop&w=900&q=85",
+    colors:["Blue","Black"],
+    sizes:["S","M","L","XL"],
+    description:"Classic denim jacket with a modern everyday fit."
+  },
+
+  {
+    id:15,
+    name:"Relaxed Track Pants",
+    gender:"Men",
+    category:"Pants",
+    price:1099,
+    oldPrice:1399,
+    image:"https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=900&q=85",
+    colors:["Black","Grey","Navy"],
+    sizes:["S","M","L","XL"],
+    description:"Relaxed track pants built for comfort and movement."
+  },
+
+  {
+    id:16,
+    name:"Straight Denim Jeans",
+    gender:"Men",
+    category:"Denim",
+    price:1699,
+    oldPrice:1999,
+    image:"https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=85",
+    colors:["Blue","Black"],
+    sizes:["30","32","34","36"],
+    description:"Straight denim jeans with a clean everyday fit."
+  }
+
+];
+
+
+/* =========================
+   STORAGE
+========================= */
+
+function saveData(){
+
+  localStorage.setItem(
+    "d9e_cart",
+    JSON.stringify(cart)
+  );
+
+  localStorage.setItem(
+    "d9e_wishlist",
+    JSON.stringify(wishlist)
+  );
+
+  localStorage.setItem(
+    "d9e_orders",
+    JSON.stringify(orders)
+  );
+
+  localStorage.setItem(
+    "d9e_user",
+    JSON.stringify(user)
+  );
+
+  localStorage.setItem(
+    "d9e_address",
+    JSON.stringify(address)
+  );
+
+  updateBadges();
+}
+
+
+/* =========================
+   BASIC HELPERS
+========================= */
+
+function money(value){
+  return "₹" + Number(value).toLocaleString("en-IN");
+}
+
+function getProduct(id){
+  return products.find(p => p.id === Number(id));
+}
+
+function showToast(message){
+
+  const toast = document.getElementById("toast");
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer = setTimeout(()=>{
+    toast.classList.remove("show");
+  },2200);
+}
+
+function updateBadges(){
+
+  const cartCount = cart.reduce(
+    (total,item)=>total + item.qty,
+    0
+  );
+
+  document.getElementById("cartCount").textContent =
+    cartCount;
+
+  document.getElementById("wishlistCount").textContent =
+    wishlist.length;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+function toggleMenu(){
+
+  document
+    .getElementById("mainNav")
+    .classList.toggle("open");
+}
+
+function closeMenu(){
+
+  document
+    .getElementById("mainNav")
+    .classList.remove("open");
+}
+
+
+/* =========================
+   SHOP
+========================= */
+
+function goShop(){
+
+  document
+    .getElementById("shop")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+}
+
+function focusSearch(){
+
+  goShop();
+
+  setTimeout(()=>{
+    document
+      .getElementById("searchInput")
+      .focus();
+  },500);
+}
+
+function setCategory(category){
+
+  currentCategory = category;
+
+  document
+    .querySelectorAll(".filter-btn")
+    .forEach(btn=>{
+      btn.classList.toggle(
+        "active",
+        btn.dataset.category === category
+      );
+    });
+
+  renderProducts();
+
+  if(
+    !["All","Men","Women","T-Shirts","Shirts","Hoodies","Pants","Jackets","Denim"].includes(category)
+  ){
+    currentCategory = "All";
+  }
+
+  goShop();
+}
+
+function renderProducts(){
+
+  const grid =
+    document.getElementById("productGrid");
+
+  const search =
+    document
+      .getElementById("searchInput")
+      .value
+      .trim()
+      .toLowerCase();
+
+  const sort =
+    document
+      .getElementById("sortSelect")
+      .value;
+
+  let list = products.filter(product=>{
+
+    const categoryMatch =
+      currentCategory === "All" ||
+      currentCategory === "New" ||
+      product.gender === currentCategory ||
+      product.category === currentCategory;
+
+    const searchMatch =
+      !search ||
+      product.name.toLowerCase().includes(search) ||
+      product.category.toLowerCase().includes(search) ||
+      product.gender.toLowerCase().includes(search);
+
+    return categoryMatch && searchMatch;
+  });
+
+  if(sort === "priceLow"){
+    list.sort((a,b)=>a.price-b.price);
+  }
+
+  if(sort === "priceHigh"){
+    list.sort((a,b)=>b.price-a.price);
+  }
+
+  if(sort === "name"){
+    list.sort((a,b)=>a.name.localeCompare(b.name));
+  }
+
+  if(sort === "newest"){
+    list.reverse();
+  }
+
+  document.getElementById("resultText").textContent =
+    list.length + " product" +
+    (list.length === 1 ? "" : "s") +
+    " found";
+
+  if(!list.length){
+
+    grid.innerHTML = `
+      <div class="empty">
+        <h3>No products found</h3>
+        <p style="margin-top:7px">
+          Try another search or category.
+        </p>
+      </div>
+    `;
+
+    return;
+  }
+
+  grid.innerHTML = list.map(product=>{
+
+    const liked =
+      wishlist.includes(product.id);
+
+    return `
+      <article
+        class="product-card"
+        onclick="openProduct(${product.id})">
+
+        <div class="product-image">
+
+          <img
+            src="${product.image}"
+            alt="${product.name}"
+            loading="lazy"
+            onerror="this.src='https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=70'">
+
+          <button
+            class="wishlist-btn"
+            onclick="event.stopPropagation();toggleWishlist(${product.id})"
+            aria-label="Wishlist">
+
+            ${liked ? "♥" : "♡"}
+
+          </button>
+
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-name">
+            ${product.name}
+          </div>
+
+          <div class="product-category">
+            ${product.category}
+          </div>
+
+          <div class="product-price">
+
+            ${money(product.price)}
+
+            <span class="old-price">
+              ${money(product.oldPrice)}
+            </span>
+
+          </div>
+
+        </div>
+
+      </article>
+    `;
+  }).join("");
+}
+
+
+/* =========================
+   WISHLIST
+========================= */
+
+function toggleWishlist(id){
+
+  id = Number(id);
+
+  if(wishlist.includes(id)){
+
+    wishlist =
+      wishlist.filter(item => item !== id);
+
+    showToast("Removed from wishlist");
+
+  }else{
+
+    wishlist.push(id);
+
+    showToast("Added to wishlist");
+  }
+
+  saveData();
+  renderProducts();
+
+  if(
+    document
+      .getElementById("wishlistModal")
+      .classList.contains("show")
+  ){
+    renderWishlist();
+  }
+}
+
+function openWishlist(){
+
+  renderWishlist();
+
+  openModal("wishlistModal");
+}
+
+function renderWishlist(){
+
+  const body =
+    document.getElementById("wishlistBody");
+
+  if(!wishlist.length){
+
+    body.innerHTML = `
+      <div class="empty">
+        <h3>Your wishlist is empty</h3>
+        <p style="margin-top:8px">
+          Tap ♡ on a product to save it here.
+        </p>
+      </div>
+    `;
+
+    return;
+  }
+
+  body.innerHTML = wishlist.map(id=>{
+
+    const p = getProduct(id);
+
+    if(!p) return "";
+
+    return `
+      <div class="cart-item">
+
+        <img src="${p.image}" alt="${p.name}">
+
+        <div>
+
+          <div class="cart-name">
+            ${p.name}
+          </div>
+
+          <div class="cart-meta">
+            ${p.category}
+          </div>
+
+          <strong>
+            ${money(p.price)}
+          </strong>
+
+          <div>
+            <button
+              class="btn"
+              style="padding:8px 12px;margin-top:8px"
+              onclick="openProduct(${p.id})">
+              VIEW
+            </button>
+          </div>
+
+        </div>
+
+        <button
+          class="remove-btn"
+          onclick="toggleWishlist(${p.id})">
+          Remove
+        </button>
+
+      </div>
+    `;
+  }).join("");
+}
+
+
+/* =========================
+   PRODUCT MODAL
+========================= */
+
+function openProduct(id){
+
+  const product = getProduct(id);
+
+  if(!product) return;
+
+  selectedProduct = product;
+  selectedSize = product.sizes[0];
+  selectedColor = product.colors[0];
+
+  renderProductDetail();
+
+  openModal("productModal");
+}
+
+function renderProductDetail(){
+
+  const p = selectedProduct;
+
+  if(!p) return;
+
+  document.getElementById("productDetail").innerHTML = `
+
+    <div class="product-detail">
+
+      <div class="detail-image">
+
+        <img
+          src="${p.image}"
+          alt="${p.name}"
+          onerror="this.src='https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80'">
+
+      </div>
+
+      <div class="detail-info">
+
+        <h2>${p.name}</h2>
+
+        <div class="product-category">
+          ${p.gender} · ${p.category}
+        </div>
+
+        <div class="detail-price">
+          ${money(p.price)}
+          <span class="old-price">
+            ${money(p.oldPrice)}
+          </span>
+        </div>
+
+        <p style="font-size:13px;color:#666;line-height:1.6">
+          ${p.description}
+        </p>
+
+        <div class="option-title">
+          SIZE
+        </div>
+
+        <div class="options">
+
+          ${p.sizes.map(size=>`
+
+            <button
+              class="option ${selectedSize === size ? "selected" : ""}"
+              onclick="selectSize('${size}')">
+
+              ${size}
+
+            </button>
+
+          `).join("")}
+
+        </div>
+
+        <div class="option-title">
+          COLOR
+        </div>
+
+        <div class="options">
+
+          ${p.colors.map(color=>`
+
+            <button
+              class="option ${selectedColor === color ? "selected" : ""}"
+              onclick="selectColor('${color}')">
+
+              ${color}
+
+            </button>
+
+          `).join("")}
+
+        </div>
+
+        <div class="option-title">
+          DELIVERY
+        </div>
+
+        <p style="font-size:12px;color:#666">
+          Free delivery on orders above ₹999.
+          Cash on Delivery available.
+        </p>
+
+        <button
+          class="btn full-btn"
+          onclick="addSelectedToCart()">
+          ADD TO CART
+        </button>
+
+        <button
+          class="btn full-btn"
+          style="background:#fff;color:#111"
+          onclick="buyNow()">
+          BUY NOW
+        </button>
+
+      </div>
+
+    </div>
+  `;
+}
+
+function selectSize(size){
+
+  selectedSize = size;
+
+  renderProductDetail();
+}
+
+function selectColor(color){
+
+  selectedColor = color;
+
+  renderProductDetail();
+}
+
+
+/* =========================
+   CART
+========================= */
+
+function addSelectedToCart(){
+
+  if(!selectedProduct) return;
+
+  addToCart(
+    selectedProduct.id,
+    selectedSize,
+    selectedColor
+  );
+
+  closeModal("productModal");
+  openCart();
+}
+
+function addToCart(id,size="M",color="Black"){
+
+  const product = getProduct(id);
+
+  if(!product) return;
+
+  const existing = cart.find(item =>
+    item.id === product.id &&
+    item.size === size &&
+    item.color === color
+  );
+
+  if(existing){
+
+    existing.qty += 1;
+
+  }else{
+
+    cart.push({
+      id:product.id,
+      size:size,
+      color:color,
+      qty:1
+    });
+  }
+
+  saveData();
+
+  showToast("Added to cart");
+}
+
+function changeQty(index,change){
+
+  if(!cart[index]) return;
+
+  cart[index].qty += change;
+
+  if(cart[index].qty <= 0){
+    cart.splice(index,1);
+  }
+
+  saveData();
+  renderCart();
+}
+
+function removeCartItem(index){
+
+  cart.splice(index,1);
+
+  saveData();
+  renderCart();
+
+  showToast("Item removed");
+}
+
+function cartSubtotal(){
+
+  return cart.reduce((total,item)=>{
+
+    const product = getProduct(item.id);
+
+    return total +
+      (product ? product.price * item.qty : 0);
+
+  },0);
+}
+
+function deliveryCharge(){
+
+  const subtotal = cartSubtotal();
+
+  if(subtotal === 0) return 0;
+
+  return subtotal >= 999 ? 0 : 99;
+}
+
+function cartTotal(){
+
+  return cartSubtotal() + deliveryCharge();
+}
+
+function openCart(){
+
+  renderCart();
+
+  document
+    .getElementById("overlay")
+    .classList.add("show");
+
+  document
+    .getElementById("cartDrawer")
+    .classList.add("open");
+}
+
+function closeCart(){
+
+  document
+    .getElementById("cartDrawer")
+    .classList.remove("open");
+
+  if(
+    !document.querySelector(".modal.show")
+  ){
+    document
+      .getElementById("overlay")
+      .classList.remove("show");
+  }
+}
+
+function renderCart(){
+
+  const body =
+    document.getElementById("cartBody");
+
+  const footer =
+    document.getElementById("cartFooter");
+
+  if(!cart.length){
+
+    body.innerHTML = `
+      <div class="empty">
+        <h3>Your cart is empty</h3>
+        <p style="margin-top:8px">
+          Add something you love.
+        </p>
+      </div>
+    `;
+
+    footer.innerHTML = "";
+
+    return;
+  }
+
+  body.innerHTML = cart.map((item,index)=>{
+
+    const p = getProduct(item.id);
+
+    if(!p) return "";
+
+    return `
+      <div class="cart-item">
+
+        <img
+          src="${p.image}"
+          alt="${p.name}">
+
+        <div>
+
+          <div class="cart-name">
+            ${p.name}
+          </div>
+
+          <div class="cart-meta">
+            Size: ${item.size} · Color: ${item.color}
+          </div>
+
+          <strong>
+            ${money(p.price * item.qty)}
+          </strong>
+
+          <div class="quantity">
+
+            <button
+              onclick="changeQty(${index},-1)">
+              −
+            </button>
+
+            <span>
+              ${item.qty}
+            </span>
+
+            <button
+              onclick="changeQty(${index},1)">
+              +
+            </button>
+
+          </div>
+
+          <button
+            class="remove-btn"
+            onclick="removeCartItem(${index})">
+            Remove
+          </button>
+
+        </div>
+
+      </div>
+    `;
+  }).join("");
+
+  footer.innerHTML = `
+
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <strong>${money(cartSubtotal())}</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Delivery</span>
+      <strong>
+        ${deliveryCharge() === 0
+          ? "FREE"
+          : money(deliveryCharge())}
+      </strong>
+    </div>
+
+    <div class="summary-row summary-total">
+      <span>Total</span>
+      <strong>${money(cartTotal())}</strong>
+    </div>
+
+    <button
+      class="btn full-btn"
+      onclick="startCheckout()">
+      PROCEED TO CHECKOUT
+    </button>
+  `;
+}
+
+
+/* =========================
+   BUY NOW
+========================= */
+
+function buyNow(){
+
+  if(!selectedProduct) return;
+
+  addToCart(
+    selectedProduct.id,
+    selectedSize,
+    selectedColor
+  );
+
+  closeModal("productModal");
+
+  startCheckout();
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function openAccount(){
+
+  if(user){
+
+    renderAccount();
+    openModal("accountMod
+      
