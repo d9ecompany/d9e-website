@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>D9E — Official Website</title>
+<meta name="description" content="D9E Official Website">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#070707;
+  color:#fff;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+/* HEADER */
+
+header{
+  width:100%;
+  padding:20px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #202020;
+  position:sticky;
+  top:0;
+  background:rgba(7,7,7,.94);
+  backdrop-filter:blur(12px);
+  z-index:100;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:800;
+  letter-spacing:3px;
+}
+
+nav{
+  display:flex;
+  gap:28px;
+}
+
+nav a{
+  color:#bbb;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:#fff;
+}
+
+.menu{
+  display:none;
+  border:1px solid #333;
+  background:#111;
+  color:#fff;
+  padding:8px;
+  border-radius:8px;
+}
+
+/* HERO */
+
+.hero{
+  min-height:82vh;
+  display:flex;
+  align-items:center;
+  padding:80px 7%;
+
+  background:
+    radial-gradient(
+      circle at 80% 30%,
+      #202020,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 20% 70%,
+      #151515,
+      transparent 35%
+    );
+}
+
+.hero-content{
+  max-width:850px;
+}
+
+.profile{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #333;
+  margin-bottom:22px;
+}
+
+.tag{
+  display:inline-block;
+  border:1px solid #333;
+  padding:8px 14px;
+  border-radius:50px;
+  color:#aaa;
+  font-size:12px;
+  letter-spacing:1px;
+  margin-bottom:24px;
+}
+
+h1{
+  font-size:clamp(50px,9vw,110px);
+  line-height:.95;
+  letter-spacing:-5px;
+  margin-bottom:25px;
+}
+
+.hero p{
+  color:#a9a9a9;
+  font-size:18px;
+  max-width:650px;
+  margin-bottom:35px;
+}
+
+.buttons{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:8px;
+  font-weight:700;
+  font-size:14px;
+  border:none;
+}
+
+.primary{
+  background:#fff;
+  color:#000;
+}
+
+.primary:hover{
+  transform:translateY(-2px);
+}
+
+.secondary{
+  border:1px solid #333;
+  color:#fff;
+  background:#0d0d0d;
+}
+
+.secondary:hover{
+  background:#181818;
+}
+
+/* SECTIONS */
+
+section{
+  padding:90px 7%;
+}
+
+.section-title{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.section-text{
+  color:#999;
+  max-width:700px;
+  margin-bottom:30px;
+}
+
+/* CARDS */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  border:1px solid #252525;
+  background:#0d0d0d;
+  padding:30px;
+  border-radius:16px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:#444;
+}
+
+.card h3{
+  margin-bottom:12px;
+  font-size:20px;
+}
+
+.card p{
+  color:#929292;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.detail{
+  display:none;
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid #292929;
+  color:#aaa;
+  font-size:14px;
+}
+
+.detail.open{
+  display:block;
+}
+
+.detail li{
+  margin:7px 0;
+}
+
+/* RATING */
+
+.rating{
+  margin-top:30px;
+  border:1px solid #252525;
+  background:#0d0d0d;
+  padding:25px;
+  border-radius:16px;
+  max-width:700px;
+}
+
+.stars{
+  margin:12px 0;
+}
+
+.star{
+  border:0;
+  background:none;
+  color:#555;
+  font-size:30px;
+  padding:2px;
+}
+
+.star.active,
+.star:hover{
+  color:#fff;
+}
+
+/* PAYMENT */
+
+.payment{
+  margin-top:30px;
+  border:1px solid #292929;
+  background:#0d0d0d;
+  border-radius:16px;
+  padding:25px;
+  max-width:520px;
+}
+
+.price{
+  font-size:32px;
+  font-weight:800;
+  margin:15px 0;
+}
+
+.upi{
+  text-align:center;
+  color:#aaa;
+  word-break:break-all;
+}
+
+.qr{
+  display:block;
+  width:220px;
+  height:220px;
+  object-fit:contain;
+  background:#fff;
+  padding:8px;
+  border-radius:12px;
+  margin:18px auto;
+}
+
+.notice{
+  color:#777;
+  font-size:12px;
+  margin-top:15px;
+}
+
+/* CONTACT */
+
+.contact{
+  border-top:1px solid #202020;
+  border-bottom:1px solid #202020;
+}
+
+.form{
+  max-width:650px;
+}
+
+.field{
+  width:100%;
+  background:#0d0d0d;
+  color:#fff;
+  border:1px solid #292929;
+  border-radius:8px;
+  padding:13px;
+  margin:7px 0;
+}
+
+textarea.field{
+  min-height:130px;
+  resize:vertical;
+}
+
+/* FOOTER */
+
+footer{
+  padding:30px 7%;
+  display:flex;
+  justify-content:space-between;
+  color:#666;
+  font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  header{
+    padding:16px 5%;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero{
+    padding:70px 5%;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:70px 5%;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:10px;
+  }
+
+}
+
+@media(max-width:500px){
+
+  .profile{
+    width:100px;
+    height:100px;
+  }
+
+  h1{
+    letter-spacing:-3px;
+  }
+
+  .section-title{
+    font-size:32px;
+  }
+
+  .qr{
+    width:190px;
+    height:190px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<a class="logo" href="#home">
+D9E
+</a>
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+<button class="menu" onclick="openMenu()">
+☰
+</button>
+
+</header>
+
+
+<main>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<img
+class="profile"
+src="owner-dp.jpg"
+alt="Deepakyadav"
+>
+
+<span class="tag">
+D9E • OFFICIAL
+</span>
+
+<h1>
+Build.<br>
+Create.<br>
+Move Forward.
+</h1>
+
+<p>
+Welcome to D9E — a modern digital platform
+focused on creativity, technology and future projects.
+</p>
+
+<div class="buttons">
+
+<a
+class="btn primary"
+href="#projects"
+>
+Explore Projects
+</a>
+
+<a
+class="btn secondary"
+href="#contact"
+>
+Contact
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="section-title">
+About D9E
+</h2>
+
+<p class="section-text">
+D9E is an independent digital platform for
+professional ideas, social-media creation and
+useful digital experiences.
+</p>
+
+
+<!-- RATING -->
+
+<div class="rating">
+
+<h3>
+How much do people like D9E?
+</h3>
+
+<p
+id="ratingText"
+class="section-text"
+>
+Be the first to give a rating.
+</p>
+
+<div class="stars">
+
+<button
+class="star"
+onclick="rate(1)"
+>
+★
+</button>
+
+<button
+class="star"
+onclick="rate(2)"
+>
+★
+</button>
+
+<button
+class="star"
+onclick="rate(3)"
+>
+★
+</button>
+
+<button
+class="star"
+onclick="rate(4)"
+>
+★
+</button>
+
+<button
+class="star"
+onclick="rate(5)"
+>
+★
+</button>
+
+</div>
+
+<p
+id="ratingStats"
+class="section-text"
+>
+0 ratings
+</p>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2 class="section-title">
+Projects
+</h2>
+
+<p class="section-text">
+Professional digital services and ideas
+created through D9E.
+</p>
+
+
+<div class="cards">
+
+
+<!-- PROJECT 1 -->
+
+<div class="card">
+
+<h3>
+YouTube Channel Setup
+</h3>
+
+<p>
+Professional YouTube channel setup
+and presentation.
+</p>
+
+<button
+class="btn secondary"
+onclick="toggle('d1')"
+>
+View Details
+</button>
+
+<div
+id="d1"
+class="detail"
+>
+
+<ul>
+
+<li>
+Channel identity
+</li>
+
+<li>
+Profile and banner guidance
+</li>
+
+<li>
+About section setup
+</li>
+
+<li>
+Professional presentation
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 2 -->
+
+<div class="card">
+
+<h3>
+All Social Media Setup
+</h3>
+
+<p>
+Professional setup for YouTube,
+Instagram, Facebook and other platforms.
+</p>
+
+<button
+class="btn secondary"
+onclick="toggle('d2')"
+>
+View Details
+</button>
+
+<div
+id="d2"
+class="detail"
+>
+
+<ul>
+
+<li>
+Profile setup
+</li>
+
+<li>
+Bio and category guidance
+</li>
+
+<li>
+Brand consistency
+</li>
+
+<li>
+Cross-platform setup
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 3 -->
+
+<div class="card">
+
+<h3>
+Professional Digital Ideas
+</h3>
+
+<p>
+Turn an idea into a clean,
+useful digital project.
+</p>
+
+<button
+class="btn secondary"
+onclick="toggle('d3')"
+>
+View Details
+</button>
+
+<div
+id="d3"
+class="detail"
+>
+
+<ul>
+
+<li>
+Idea planning
+</li>
+
+<li>
+Website concept
+</li>
+
+<li>
+Digital workflow
+</li>
+
+<li>
+Future feature planning
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PAYMENT -->
+
+<div class="payment">
+
+<h3>
+Idea / Service Access
+</h3>
+
+<p class="section-text">
+1 month
+</p>
+
+<div class="price">
+₹399
+</div>
+
+<p class="upi">
+
+UPI:
+
+<strong>
+deepak.yadav.848502-3@okhdfcbank
+</strong>
+
+</p>
+
+
+<img
+class="qr"
+src="upi-qr.jpg"
+alt="UPI QR Code"
+>
+
+
+<div class="buttons">
+
+<button
+class="btn primary"
+onclick="payUPI()"
+>
+Pay ₹399 by UPI
+</button>
+
+<button
+class="btn secondary"
+onclick="copyUPI()"
+>
+Copy UPI ID
+</button>
+
+</div>
+
+
+<p class="notice">
+
+This opens a UPI payment app.
+It does not automatically verify payment.
+
+Real verified online payment can be
+connected later through a payment gateway.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section
+class="contact"
+id="contact"
+>
+
+<h2 class="section-title">
+Let's Connect
+</h2>
+
+<p class="section-text">
+
+Interested in the ₹399 monthly
+idea/service access or another project?
+
+</p>
+
+
+<form
+class="form"
+onsubmit="sendContact(event)"
+>
+
+<input
+class="field"
+id="name"
+placeholder="Your name"
+required
+>
+
+
+<input
+class="field"
+id="email"
+type="email"
+placeholder="Your email"
+required
+>
+
+
+<textarea
+class="field"
+id="message"
+placeholder="Tell us what you need"
+required
+></textarea>
+
+
+<button
+class="btn primary"
+type="submit"
+>
+Send Message
+</button>
+
+</form>
+
+</section>
+
+
+<!-- OWNER -->
+
+<section>
+
+<h2 class="section-title">
+Owner
+</h2>
+
+<p class="section-text">
+
+<strong style="color:#fff">
+Deepakyadav
+</strong>
+
+<br>
+
+Owner — D9E
+
+</p>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<span>
+© 2026 D9E. All rights reserved.
+</span>
+
+<span>
+D9E Official
+</span>
+
+</footer>
+
+
+<script>
+
+const UPI_ID =
+"deepak.yadav.848502-3@okhdfcbank";
+
+
+/* UPI PAYMENT */
+
+function payUPI(){
+
+  const upiUrl =
+    "upi://pay" +
+    "?pa=" +
+    encodeURIComponent(UPI_ID) +
+    "&pn=" +
+    encodeURIComponent("D9E") +
+    "&am=399" +
+    "&cu=INR";
+
+  window.location.href = upiUrl;
+
+}
+
+
+/* COPY UPI */
+
+async function copyUPI(){
+
+  try{
+
+    await navigator.clipboard.writeText(UPI_ID);
+
+    alert("UPI ID copied.");
+
+  }
+
+  catch(error){
+
+    prompt(
+      "Copy this UPI ID:",
+      UPI_ID
+    );
+
+  }
+
+}
+
+
+/* PROJECT DETAILS */
+
+function toggle(id){
+
+  const element =
+    document.getElementById(id);
+
+  element.classList.toggle("open");
+
+}
+
+
+/* RATING */
+
+function rate(value){
+
+  localStorage.setItem(
+    "d9e_rating",
+    value
+  );
+
+  let ratings =
+    JSON.parse(
+      localStorage.getItem(
+        "d9e_ratings"
+      ) || "[]"
+    );
+
+  ratings.push(value);
+
+  localStorage.setItem(
+    "d9e_ratings",
+    JSON.stringify(ratings)
+  );
+
+  renderRating();
+
+  alert(
+    "Thank you for your rating."
+  );
+
+}
+
+
+/* DISPLAY RATING */
+
+function renderRating(){
+
+  const ratings =
+    JSON.parse(
+      localStorage.getItem(
+        "d9e_ratings"
+      ) || "[]"
+    );
+
+  const text =
+    document.getElementById(
+      "ratingText"
+    );
+
+  const stats =
+    document.getElementById(
+      "ratingStats"
+    );
+
+
+  if(
+    ratings.length === 0
+  ){
+
+    text.textContent =
+      "Be the first to give a rating.";
+
+    stats.textContent =
+      "0 ratings";
+
+    return;
+
+  }
+
+
+  const total =
+    ratings.reduce(
+      (a,b) => a + b,
+      0
+    );
+
+  const average =
+    total / ratings.length;
+
+
+  text.textContent =
+    "Average rating: " +
+    average.toFixed(1) +
+    " / 5";
+
+  stats.textContent =
+    ratings.length +
+    " ratings";
+
+}
+
+
+/* CONTACT */
+
+function sendContact(event){
+
+  event.preventDefault();
+
+
+  const name =
+    document.getElementById(
+      "name"
+    ).value;
+
+  const email =
+    document.getElementById(
+      "email"
+    ).value;
+
+  const message =
+    document.getElementById(
+      "message"
+    ).value;
+
+
+  const subject =
+    encodeURIComponent(
+      "D9E Project / ₹399 Service Enquiry"
+    );
+
+
+  const body =
+    encodeURIComponent(
+      "Name: " +
+      name +
+      "\nEmail: " +
+      email +
+      "\n\nMessage:\n" +
+      message
+    );
+
+
+  window.location.href =
+    "mailto:deepak9eofficial@gmail.com" +
+    "?subject=" +
+    subject +
+    "&body=" +
+    body;
+
+}
+
+
+/* MOBILE MENU */
+
+function openMenu(){
+
+  alert(
+    "D9E\n\n" +
+    "Home\n" +
+    "About\n" +
+    "Projects\n" +
+    "Contact"
+  );
+
+}
+
+
+/* START */
+
+renderRating();
+
+</script>
+
+</body>
+</html>
