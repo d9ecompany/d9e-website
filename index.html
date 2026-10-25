@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#061225">
+<title>UNORA | Digital Wallet</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#061225;
+  color:#edf6ff;
+  font-family:Arial, sans-serif;
+}
+.app{
+  max-width:480px;
+  min-height:100vh;
+  margin:auto;
+  padding:20px 16px 100px;
+}
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:25px;
+}
+.logo{
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:linear-gradient(135deg,#16caff,#593cff);
+  font-size:28px;
+  font-weight:bold;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.brand h1{
+  margin:0;
+  letter-spacing:5px;
+  font-size:23px;
+}
+.brand small{
+  color:#91a8c4;
+  font-size:9px;
+}
+.badge{
+  font-size:10px;
+  color:#ffdf8d;
+  border:1px solid #70552c;
+  border-radius:20px;
+  padding:7px;
+}
+h2{font-size:24px}
+.muted{color:#91a8c4;font-size:13px}
+.balance{
+  padding:23px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#10558e,#122954,#191b4c);
+  border:1px solid #2877b6;
+  margin:20px 0;
+}
+.balance small{color:#c4ddf6}
+.amount{
+  font-size:33px;
+  font-weight:bold;
+  margin:12px 0;
+}
+.warning{
+  display:inline-block;
+  color:#ffdf8d;
+  background:#44351f;
+  padding:7px 10px;
+  border-radius:7px;
+  font-size:10px;
+}
+.actions{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin:25px 0;
+}
+.action{
+  background:none;
+  color:white;
+  font-size:12px;
+}
+.icon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#1685ff,#174cbb);
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  margin:0 auto 8px;
+}
+.card{
+  background:#0b1b32;
+  border:1px solid #193653;
+  padding:17px;
+  border-radius:17px;
+  margin:14px 0;
+}
+.coin{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.coinlogo{
+  background:linear-gradient(135deg,#27caff,#2454ef);
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:bold;
+  font-size:20px;
+}
+.coininfo{flex:1}
+.coininfo small{display:block;color:#91a8c4;margin-top:5px}
+.pages{display:none}
+.pages.active{display:block}
+button{cursor:pointer}
+.primary{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:12px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  background:linear-gradient(90deg,#1685ff,#315cff);
+  margin-top:14px;
+}
+.secondary{
+  background:#15314d;
+  color:white;
+  border:0;
+  border-radius:10px;
+  padding:12px;
+}
+.field{
+  display:block;
+  width:100%;
+  margin:9px 0 16px;
+  padding:14px;
+  border:1px solid #234567;
+  border-radius:11px;
+  background:#071529;
+  color:white;
+  font-size:15px;
+}
+label{font-size:13px;color:#c4ddf6}
+.back{
+  background:none;
+  border:0;
+  color:white;
+  padding:10px 0;
+  font-size:15px;
+}
+.address{
+  background:#071529;
+  border:1px solid #234567;
+  border-radius:10px;
+  padding:13px;
+  text-align:center;
+  overflow-wrap:anywhere;
+  font-size:13px;
+}
+.qr{
+  width:140px;
+  height:140px;
+  margin:15px auto;
+  background:white;
+  color:#071529;
+  display:grid;
+  place-items:center;
+  font-size:65px;
+  border-radius:10px;
+}
+.tx{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  border-bottom:1px solid #193653;
+  padding:14px 0;
+  font-size:12px;
+}
+.tx small{display:block;color:#91a8c4;margin-top:5px}
+.positive{color:#45e0a0}
+.negative{color:#ff7084}
+.notice{
+  background:#332b1b;
+  border:1px solid #5a492b;
+  color:#ffdda0;
+  border-radius:12px;
+  padding:13px;
+  font-size:11px;
+  line-height:1.6;
+  margin:20px 0;
+}
+.nav{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:480px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:12px 5px;
+  padding-bottom:calc(12px + env(safe-area-inset-bottom));
+  background:#071426;
+  border-top:1px solid #1a3653;
+}
+.nav button{
+  color:#91a8c4;
+  background:none;
+  border:0;
+  font-size:11px;
+  padding:5px;
+}
+.nav button span{
+  display:block;
+  font-size:21px;
+  margin-bottom:5px;
+}
+.nav button.active{color:#48baff}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<header>
+  <div class="brand">
+    <div class="logo">U</div>
+    <div>
+      <h1>UNORA</h1>
+      <small>ONE WORLD. ONE DIGITAL FUTURE.</small>
+    </div>
+  </div>
+  <div class="badge">DEMO MODE</div>
+</header>
+
+<!-- HOME -->
+<section id="home" class="pages active">
+  <div class="muted">Welcome back!</div>
+  <h2>Your Digital Wallet</h2>
+
+  <div class="balance">
+    <small>Total Demo Balance</small>
+    <div class="amount"><span id="balance">1250.00</span> UNO</div>
+    <small>Illustrative value only</small><br><br>
+    <span class="warning">DEMO TOKENS · NOT REAL MONEY</span>
+  </div>
+
+  <div class="actions">
+    <button class="action" onclick="page('send')">
+      <div class="icon">↗</div>Send
+    </button>
+    <button class="action" onclick="page('receive')">
+      <div class="icon">↙</div>Receive
+    </button>
+    <button class="action" onclick="alert('Trading is not available in this demo.')">
+      <div class="icon">⇄</div>Trade
+    </button>
+    <button class="action" onclick="page('profile')">
+      <div class="icon">•••</div>More
+    </button>
+  </div>
+
+  <h3>Your Asset</h3>
+  <div class="card coin">
+    <div class="coinlogo">U</div>
+    <div class="coininfo">
+      <b>UNORA</b>
+      <small>Demo Token · UNO</small>
+    </div>
+    <b><span id="asset">1250.00</span> UNO</b>
+  </div>
+
+  <div class="notice">
+    ⚠️ UNORA is currently a demo project. Balances and transfers are simulated in this browser. No real cryptocurrency or money is transferred.
+  </div>
+
+  <h3>Recent Activity</h3>
+  <div class="card" id="recent">
+    <div class="muted">No transactions yet.</div>
+  </div>
+</section>
+
+<!-- WALLET -->
+<section id="wallet" class="pages">
+  <button class="back" onclick="page('home')">← Back</button>
+  <h2>My Wallet</h2>
+  <p class="muted">Your demo-token balance.</p>
+
+  <div class="balance">
+    <small>Available Balance</small>
+    <div class="amount"><span id="walletbalance">1250.00</span> UNO</div>
+    <span class="warning">SIMULATED TOKENS</span>
+  </div>
+
+  <div class="card">
+    <div class="coin">
+      <div class="coinlogo">U</div>
+      <div class="coininfo">
+        <b>UNORA Demo Token</b>
+        <small>No live market price</small>
+      </div>
+    </div>
+  </div>
+
+  <button class="primary" onclick="page('send')">Send Demo UNO</button>
+  <button class="primary" onclick="page('receive')">Receive Demo UNO</button>
+</section>
+
+<!-- SEND -->
+<section id="send" class="pages">
+  <button class="back" onclick="page('home')">← Back</button>
+  <h2>Send UNO</h2>
+  <p class="muted">Simulate a transfer to another demo user.</p>
+
+  <label for="recipient">Recipient Name or Demo Address</label>
+  <input class="field" id="recipient" placeholder="Enter demo recipient">
+
+  <label for="sendamount">Amount (UNO)</label>
+  <input class="field" id="sendamount" type="number" min="0.01" step="0.01" placeholder="0.00">
+
+  <label for="note">Note (Optional)</label>
+  <input class="field" id="note" placeholder="Add a note">
+
+  <p class="muted">Available: <span id="available">1250.00</span> UNO</p>
+  <button class="primary" onclick="sendDemo()">Confirm Demo Transfer</button>
+
+  <div class="notice">This is a local demo only. No real money or crypto will be sent.</div>
+</section>
+
+<!-- RECEIVE -->
+<section id="receive" class="pages">
+  <button class="back" onclick="page('home')">← Back</button>
+  <h2>Receive UNO</h2>
+  <p class="muted">Sample address for this prototype.</p>
+
+  <div class="card">
+    <div class="qr">▦</div>
+    <p style="text-align:center">Your Demo Address</p>
+    <div class="address" id="address">UNORA-DEMO-7F29-3Q2M</div>
+    <button class="primary" onclick="copyAddress()">Copy Demo Address</button>
+  </div>
+
+  <div class="notice">This sample address cannot receive real cryptocurrency. The QR-style symbol is decorative, not a payment QR code.</div>
+</section>
+
+<!-- HISTORY -->
+<section id="history" class="pages">
+  <button class="back" onclick="page('home')">← Back</button>
+  <h2>Transaction History</h2>
+  <p class="muted">Demo transfers recorded in this browser.</p>
+  <div class="card" id="historylist">No demo transactions yet.</div>
+  <button class="secondary" onclick="clearHistory()">Clear Demo History</button>
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="pages">
+  <button class="back" onclick="page('home')">← Back</button>
+  <h2>Profile</h2>
+  <div class="card">
+    <div class="coin">
+      <div class="coinlogo">U</div>
+      <div class="coininfo">
+        <b>UNORA User</b>
+        <small>Local Demo Account</small>
+      </div>
+    </div>
+    <hr style="border-color:#193653;margin:18px 0">
+    <p>Account Type: Demo</p>
+    <p>Network: Not Connected</p>
+    <p>Version: Prototype 0.1</p>
+  </div>
+  <div class="notice">
+    Never enter real passwords, recovery phrases, or bank details into this prototype.
+  </div>
+</section>
+
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="nav">
+  <button class="active" data-id="home" onclick="page('home')"><span>⌂</span>Home</button>
+  <button data-id="wallet" onclick="page('wallet')"><span>▣</span>Wallet</button>
+  <button data-id="history" onclick="page('history')"><span>↔</span>Activity</button>
+  <button data-id="profile" onclick="page('profile')"><span>◉</span>Profile</button>
+</nav>
+
+<script>
+let balance = Number(localStorage.getItem('unoraBalance') || 1250);
+let transactions = JSON.parse(localStorage.getItem('unoraTransactions') || '[]');
+
+function money(n){
+  return Number(n).toLocaleString('en-US',{
+    minimumFractionDigits:2,
+    maximumFractionDigits:2
+  });
+}
+
+function save(){
+  localStorage.setItem('unoraBalance', balance);
+  localStorage.setItem('unoraTransactions', JSON.stringify(transactions));
+}
+
+function update(){
+  document.getElementById('balance').textContent = money(balance);
+  document.getElementById('asset').textContent = money(balance);
+  document.getElementById('walletbalance').textContent = money(balance);
+  document.getElementById('available').textContent = money(balance);
+  renderHistory();
+}
+
+function page(id){
+  document.querySelectorAll('.pages').forEach(function(el){
+    el.classList.toggle('active', el.id === id);
+  });
+
+  document.querySelectorAll('.nav button').forEach(function(btn){
+    btn.classList.toggle('active', btn.dataset.id === id);
+  });
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function sendDemo(){
+  const recipient = document.getElementById('recipient').value.trim();
+  const amount = Number(document.getElementById('sendamount').value);
+  const note = document.getElementById('note').value.trim();
+
+  if(!recipient){
+    alert('Please enter a demo recipient.');
+    return;
+  }
+
+  if(!Number.isFinite(amount) || amount <= 0){
+    alert('Enter an amount greater than zero.');
+    return;
+  }
+
+  if(amount > balance){
+    alert('Insufficient demo balance.');
+    return;
+  }
+
+  balance = Math.round((balance - amount) * 100) / 100;
+
+  transactions.unshift({
+    recipient:recipient,
+    amount:amount,
+    note:note,
+    date:new Date().toLocaleString()
+  });
+
+  save();
+  update();
+
+  document.getElementById('recipient').value='';
+  document.getElementById('sendamount').value='';
+  document.getElementById('note').value='';
+
+  alert('Demo transfer recorded. No real money was sent.');
+  page('history');
+}
+
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g,function(ch){
+    return {
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#39;'
+    }[ch];
+  });
+}
+
+function renderHistory(){
+  const container = document.getElementById('historylist');
+  const recent = document.getElementById('recent');
+
+  if(transactions.length === 0){
+    container.innerHTML = '<div class="muted">No demo transactions yet.</div>';
+    recent.innerHTML = '<div class="muted">No transactions yet. Try a demo transfer.</div>';
+    return;
+  }
+
+  const html = transactions.map(function(tx){
+    return '<div class="tx"><div><b>Sent to '+
+      escapeHTML(tx.recipient)+'</b><small>'+
+      escapeHTML(tx.date)+(tx.note?' · '+escapeHTML(tx.note):'')+
+      '</small></div><b class="negative">−'+money(tx.amount)+' UNO</b></div>';
+  }).join('');
+
+  container.innerHTML = html;
+  recent.innerHTML = html;
+}
+
+async function copyAddress(){
+  const address = document.getElementById('address').textContent;
+
+  try{
+    await navigator.clipboard.writeText(address);
+    alert('Demo address copied!');
+  }catch(error){
+    alert('Demo address: '+address);
+  }
+}
+
+function clearHistory(){
+  if(confirm('Clear demo transaction history?')){
+    transactions=[];
+    save();
+    update();
+  }
+}
+
+update();
+</script>
+</body>
+</html>
