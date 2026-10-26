@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Link Player</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#101114;
+  color:white;
+  text-align:center;
+}
+.container{
+  max-width:600px;
+  margin:50px auto;
+  padding:20px;
+}
+h1{color:#00e5ff}
+input,button{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  border-radius:9px;
+  font-size:16px;
+}
+input{
+  background:#22242a;
+  color:white;
+  border:1px solid #444;
+}
+button{
+  background:#00e5ff;
+  color:#111;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+#player{
+  margin-top:25px;
+  width:100%;
+  min-height:200px;
+}
+iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+  border-radius:10px;
+}
+.note{
+  color:#bbb;
+  font-size:13px;
+  line-height:1.6;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>VIDEO PLAYER</h1>
+  <p>अपना वीडियो लिंक डालो और देखो।</p>
+
+  <input id="videoLink"
+    type="url"
+    placeholder="YouTube वीडियो का लिंक डालें">
+
+  <button onclick="playVideo()">PLAY VIDEO</button>
+
+  <div id="player"></div>
+
+  <p class="note">
+    यह वेबसाइट वीडियो चलाती है। Views की गिनती
+    संबंधित प्लेटफॉर्म के नियमों से होती है।
+  </p>
+</div>
+
+<script>
+function playVideo(){
+  const input = document.getElementById("videoLink");
+  const player = document.getElementById("player");
+  const url = input.value.trim();
+
+  let id = "";
+
+  try {
+    const u = new URL(url);
+
+    if (u.hostname === "youtu.be") {
+      id = u.pathname.slice(1).split("/")[0];
+    } else if (
+      ["youtube.com","www.youtube.com","m.youtube.com"]
+      .includes(u.hostname)
+    ) {
+      if (u.pathname === "/watch") {
+        id = u.searchParams.get("v") || "";
+      } else {
+        const match = u.pathname.match(
+          /^\/(?:shorts|embed)\/([a-zA-Z0-9_-]+)/
+        );
+        if (match) id = match[1];
+      }
+    }
+  } catch(e) {}
+
+  if (!/^[a-zA-Z0-9_-]{11}$/.test(id)) {
+    player.innerHTML =
+      "<p>सही YouTube वीडियो लिंक डालें।</p>";
+    return;
+  }
+
+  player.innerHTML = "";
+
+  const iframe = document.createElement("iframe");
+  iframe.src = "https://www.youtube-nocookie.com/embed/" +
+    id;
+  iframe.title = "YouTube Video";
+  iframe.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  iframe.allowFullscreen = true;
+
+  player.appendChild(iframe);
+}
+</script>
+</body>
+</html>
