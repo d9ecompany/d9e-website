@@ -3,226 +3,615 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JALAO GAMING | RARE FRIENDS</title>
+<meta name="theme-color" content="#0b0b0b">
+<title>JALAO GAMING — Rare Friends Archive</title>
 
 <style>
+:root{
+  --bg:#0b0b0b;
+  --panel:#121212;
+  --gold:#d9b66f;
+  --cream:#f1eadc;
+  --muted:#96938c;
+  --line:rgba(217,182,111,.23);
+}
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#080808;
- color:#fff;
+  margin:0;
+  background:var(--bg);
+  color:var(--cream);
+  font-family:Arial,Helvetica,sans-serif;
 }
-header{
- text-align:center;
- padding:35px 15px;
- background:linear-gradient(135deg,#171717,#302000);
- border-bottom:1px solid #bd922e;
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(1100px,91%);margin:auto}
+
+/* NAVIGATION */
+.nav{
+  height:72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #24221d;
 }
-header h1{color:#e8bd54;letter-spacing:3px}
-header p{color:#ccc}
-.container{max-width:900px;margin:auto;padding:20px}
-h2{color:#e8bd54}
-.friends{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
- gap:14px;
+.brand{
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:2px;
 }
-.card{
- background:#151515;
- border:1px solid #393021;
- border-radius:12px;
- padding:20px 10px;
- text-align:center;
- cursor:pointer;
- transition:.2s;
+.brand span{color:var(--gold)}
+.nav-label{
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:2px;
 }
-.card:hover{border-color:#e8bd54;transform:translateY(-3px)}
-.avatar{
- width:55px;height:55px;border-radius:50%;
- margin:auto auto 12px;
- background:#30240b;
- color:#e8bd54;
- display:flex;align-items:center;justify-content:center;
- font-size:22px;font-weight:bold;
- border:1px solid #e8bd54;
+
+/* HERO */
+.hero{
+  padding:72px 0 48px;
+  position:relative;
+  overflow:hidden;
 }
-.card h3{margin:8px 0}
-.card p{font-size:12px;color:#aaa}
-.note{
- color:#aaa;font-size:13px;line-height:1.6;
- margin-top:25px;
+.hero:after{
+  content:"JG";
+  position:absolute;
+  right:-8px;
+  top:25px;
+  font-size:clamp(150px,32vw,330px);
+  line-height:1;
+  font-weight:900;
+  color:rgba(217,182,111,.035);
+  pointer-events:none;
 }
-footer{text-align:center;padding:25px;color:#777;font-size:12px}
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+.eyebrow:before{
+  content:"";
+  width:26px;
+  height:1px;
+  background:var(--gold);
+}
+.hero h1{
+  position:relative;
+  z-index:1;
+  font-size:clamp(42px,10vw,96px);
+  line-height:.95;
+  letter-spacing:-4px;
+  margin:27px 0 18px;
+  font-weight:800;
+}
+.hero h1 span{
+  display:block;
+  color:var(--gold);
+}
+.hero-desc{
+  max-width:470px;
+  font-size:14px;
+  line-height:1.9;
+  color:#aaa69d;
+}
+.hero-bottom{
+  margin-top:38px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.btn{
+  border:1px solid var(--line);
+  background:transparent;
+  color:var(--cream);
+  padding:13px 17px;
+  display:inline-block;
+  font-size:11px;
+  letter-spacing:.5px;
+  cursor:pointer;
+}
+.btn.primary{
+  background:var(--gold);
+  color:#111;
+  border-color:var(--gold);
+  font-weight:bold;
+}
+.btn:hover{opacity:.8}
+
+/* DIVIDER */
+.section-line{
+  border-top:1px solid #292721;
+  margin:15px 0 0;
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  padding:35px 0 22px;
+}
+.section-no{
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:2px;
+}
+.section-head h2{
+  font-size:clamp(24px,5vw,38px);
+  letter-spacing:-1px;
+  margin:9px 0 0;
+}
+.section-head p{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+}
+
+/* FRIENDS GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.friend{
+  min-height:210px;
+  position:relative;
+  padding:21px;
+  background:linear-gradient(145deg,#171715,#101010 70%);
+  border:1px solid #2c2a24;
+  cursor:pointer;
+  text-align:left;
+  color:var(--cream);
+  transition:border-color .2s,transform .2s;
+}
+.friend:hover{
+  border-color:var(--gold);
+  transform:translateY(-3px);
+}
+.friend-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.number{
+  color:#6e6a60;
+  font-size:10px;
+  letter-spacing:2px;
+}
+.arrow{
+  color:var(--gold);
+  font-size:20px;
+}
+.monogram{
+  width:47px;
+  height:47px;
+  margin:25px 0 17px;
+  border:1px solid #6e5a32;
+  color:var(--gold);
+  display:grid;
+  place-items:center;
+  font-size:17px;
+  font-weight:bold;
+  background:#1d1a13;
+}
+.friend h3{
+  font-size:16px;
+  margin:0 0 8px;
+  font-weight:600;
+}
+.friend .tag{
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:1px;
+}
+
+/* STORY */
+.story{
+  margin:55px 0;
+  padding:30px;
+  border:1px solid var(--line);
+  background:linear-gradient(110deg,#17150f,#101010);
+}
+.story .quote-mark{
+  font-family:Georgia,serif;
+  font-size:46px;
+  line-height:1;
+  color:var(--gold);
+}
+.story h2{
+  font-size:clamp(24px,5vw,38px);
+  line-height:1.2;
+  max-width:620px;
+  margin:8px 0 15px;
+}
+.story p{
+  color:#a9a59c;
+  font-size:13px;
+  line-height:1.9;
+  max-width:620px;
+}
+
+/* FOOTER */
+.footer{
+  border-top:1px solid #292721;
+  padding:28px 0 35px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:1px;
+  line-height:1.8;
+}
+.footer strong{color:var(--gold)}
+
+/* PROFILE MODAL */
 .modal{
- display:none;position:fixed;inset:0;background:#000d;
- align-items:center;justify-content:center;padding:18px;
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:10;
+  background:rgba(0,0,0,.86);
+  backdrop-filter:blur(8px);
+  align-items:center;
+  justify-content:center;
+  padding:18px;
 }
-.modal-box{
- width:100%;max-width:400px;background:#151515;
- border:1px solid #d4aa45;border-radius:15px;
- padding:22px;text-align:center;
+.modal.open{display:flex}
+.profile{
+  position:relative;
+  width:100%;
+  max-width:430px;
+  max-height:90vh;
+  overflow:auto;
+  padding:27px;
+  background:#11110f;
+  border:1px solid #66532f;
+  box-shadow:0 20px 90px #000;
 }
-.modal-box h2{margin-top:5px}
-.uid{
- background:#242424;padding:12px;border-radius:8px;
- overflow-wrap:anywhere;margin:12px 0;
+.close{
+  position:absolute;
+  top:13px;
+  right:13px;
+  background:transparent;
+  border:1px solid #37342c;
+  color:#ddd;
+  width:35px;
+  height:35px;
+  cursor:pointer;
 }
-button,.btn{
- display:inline-block;border:0;border-radius:7px;
- padding:11px 14px;margin:5px;cursor:pointer;
- background:#d9ad42;color:#111;font-weight:bold;
- text-decoration:none;font-size:13px;
+.profile-label{
+  font-size:10px;
+  color:var(--gold);
+  letter-spacing:2px;
 }
-.close{background:#333;color:white}
-.small{color:#aaa;font-size:12px}
+.profile-monogram{
+  margin:25px 0 18px;
+  width:68px;
+  height:68px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-size:25px;
+  background:#201b10;
+}
+.profile h2{
+  font-size:27px;
+  letter-spacing:-.7px;
+  margin:0 0 12px;
+}
+.profile-story{
+  color:#aaa69d;
+  font-size:13px;
+  line-height:1.9;
+  margin-bottom:25px;
+}
+.uid-label{
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:1.5px;
+}
+.uid-box{
+  margin-top:9px;
+  padding:13px;
+  border:1px solid #363229;
+  background:#191916;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+#uidText{
+  overflow-wrap:anywhere;
+  font-size:13px;
+}
+.copy{
+  flex-shrink:0;
+  background:transparent;
+  color:var(--gold);
+  border:1px solid #66532f;
+  padding:8px 10px;
+  font-size:10px;
+  cursor:pointer;
+}
+.profile-actions{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+.profile-actions .btn{flex:1;text-align:center}
+.profile-actions .disabled{
+  opacity:.4;
+  cursor:default;
+}
+#toast{
+  position:fixed;
+  z-index:20;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%);
+  background:var(--gold);
+  color:#111;
+  padding:12px 18px;
+  font-size:12px;
+  display:none;
+}
+
+@media(max-width:700px){
+  .hero{padding-top:55px}
+  .hero h1{letter-spacing:-2.5px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .friend{padding:15px;min-height:185px}
+  .monogram{margin:21px 0 14px}
+  .friend h3{font-size:14px}
+  .section-head{align-items:start}
+  .section-head p{max-width:115px;text-align:right}
+  .story{padding:23px;margin:40px 0}
+}
+@media(max-width:360px){
+  .grid{grid-template-columns:1fr}
+  .friend{min-height:auto}
+  .monogram{margin:15px 0}
+  .nav-label{font-size:8px;letter-spacing:1px}
+}
 </style>
 </head>
 
 <body>
-<header>
- <h1>JALAO GAMING</h1>
- <p>RARE FRIENDS • MEMORIES THAT STAY FOREVER</p>
-</header>
+<div class="wrap">
 
-<main class="container">
- <h2>Our Friendship Archive</h2>
- <p class="small">Select a friend to view their profile.</p>
+  <nav class="nav">
+    <a href="#" class="brand">JALAO <span>GAMING</span></a>
+    <div class="nav-label">PERSONAL ARCHIVE / 001</div>
+  </nav>
 
- <div class="friends" id="friends"></div>
+  <header class="hero">
+    <div class="eyebrow">The people behind the memories</div>
+    <h1>RARE <span>FRIENDS.</span></h1>
+    <p class="hero-desc">
+      More than a game. More than a team.
+      A personal archive of the people, the moments,
+      and the friendships that became part of my journey.
+    </p>
+    <div class="hero-bottom">
+      <a href="#friends" class="btn primary">EXPLORE THE ARCHIVE ↘</a>
+      <a href="#story" class="btn">OUR STORY</a>
+    </div>
+  </header>
 
- <p class="note">
- This website is a personal archive of friendship, gaming memories,
- and the people who were part of the journey. Every friend has a story
- worth remembering.
- </p>
-</main>
+  <div class="section-line"></div>
 
-<footer>© JALAO GAMING — RARE FRIENDS</footer>
+  <section id="friends">
+    <div class="section-head">
+      <div>
+        <div class="section-no">01 / THE ARCHIVE</div>
+        <h2>People I Remember.</h2>
+      </div>
+      <p>Every name has<br>a different story.</p>
+    </div>
 
-<div class="modal" id="modal" onclick="outsideClose(event)">
- <div class="modal-box">
-  <div class="avatar" id="initial"></div>
-  <h2 id="name"></h2>
-  <p id="story"></p>
-  <div class="uid">Free Fire UID: <strong id="uid"></strong></div>
-  <button onclick="copyUID()">Copy UID</button>
-  <a class="btn" id="insta" target="_blank" rel="noopener">Instagram</a>
-  <br>
-  <button class="close" onclick="closeProfile()">Close Profile</button>
- </div>
+    <div class="grid" id="friendGrid"></div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="quote-mark">“</div>
+    <div class="section-no">02 / THE JOURNEY</div>
+    <h2>Some friendships become part of your history.</h2>
+    <p>
+      This archive is dedicated to the people who were part of
+      my Free Fire journey and the memories we created along
+      the way. Time changes routines, people move forward,
+      and some conversations become less frequent.
+      But the memories still deserve a place.
+    </p>
+    <p>
+      This is not about who stayed online the longest.
+      It is about remembering the journey and the people
+      who were part of it.
+    </p>
+  </section>
+
+  <footer class="footer">
+    <div><strong>JALAO GAMING</strong><br>RARE FRIENDS ARCHIVE</div>
+    <div style="text-align:right">
+      BUILT FROM MEMORIES<br>© JALAO GAMING
+    </div>
+  </footer>
+
 </div>
+
+<div class="modal" id="modal" role="dialog"
+     aria-modal="true" aria-labelledby="profileName">
+  <div class="profile">
+    <button class="close" onclick="closeProfile()" aria-label="Close">✕</button>
+    <div class="profile-label">RARE FRIENDS / PROFILE</div>
+    <div class="profile-monogram" id="profileInitial">A</div>
+    <h2 id="profileName">Friend Name</h2>
+    <p class="profile-story" id="profileStory"></p>
+
+    <div class="uid-label">FREE FIRE PLAYER UID</div>
+    <div class="uid-box">
+      <span id="uidText">Not added</span>
+      <button class="copy" id="copyButton" onclick="copyUID()">COPY</button>
+    </div>
+
+    <div class="profile-actions">
+      <a id="instagramButton" class="btn primary"
+         target="_blank" rel="noopener noreferrer">OPEN INSTAGRAM ↗</a>
+      <button class="btn" onclick="closeProfile()">CLOSE PROFILE</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" role="status"></div>
 
 <script>
 const friends = [
- {
-  name:"Antim Bhardwaj",
-  uid:"4102443189",
-  instagram:"https://www.instagram.com/a__for__antim/",
-  story:"One of the people who helped start the gaming journey. We spent long hours playing together and created memories that will always matter."
- },
- {
-  name:"Pandit Bhardwaj",
-  uid:"3822087888",
-  instagram:"https://www.instagram.com/royal___brahman___0.2/",
-  story:"A friend whose Free Fire gameplay inspired the beginning of this gaming journey."
- },
- {
-  name:"Amit Bhardwaj",
-  uid:"3212608090",
-  instagram:"https://www.instagram.com/__amit_bhardwaj_up_90/",
-  story:"A childhood friend. Even as time changes relationships, the memories and friendship remain part of the story."
- },
- {
-  name:"Sahil",
-  uid:"",
-  instagram:"",
-  story:"A friend from Agra. We lost touch around 2021, but he remains part of the old gaming memories."
- },
- {
-  name:"Jitendra",
-  uid:"1296458351",
-  instagram:"https://www.instagram.com/jeet_meena99/",
-  story:"A friend from Rajasthan who studies in Jaipur and sometimes comes online to play."
- },
- {
-  name:"Ankit",
-  uid:"",
-  instagram:"",
-  story:"A younger friend from Delhi who was once connected with the AG team channel. His chapter remains part of the team's history."
- }
+  {
+    name:"Antim Bhardwaj",
+    uid:"4102443189",
+    instagram:"https://www.instagram.com/a__for__antim/",
+    tag:"THE EARLY DAYS",
+    story:"One of the people who helped me learn gaming from scratch. We spent long hours playing together and built memories through those early days. Life and gaming have changed since then, but those moments remain an important part of my journey."
+  },
+  {
+    name:"Pandit Bhardwaj",
+    uid:"3822087888",
+    instagram:"https://www.instagram.com/royal___brahman___0.2/",
+    tag:"THE INSPIRATION",
+    story:"Watching him play Free Fire was part of what inspired me to start playing. Every journey has a beginning, and he is part of mine."
+  },
+  {
+    name:"Amit Bhardwaj",
+    uid:"3212608090",
+    instagram:"https://www.instagram.com/__amit_bhardwaj_up_90/",
+    tag:"CHILDHOOD FRIEND",
+    story:"A childhood friend with a place in my personal history. We still talk, and the years we have known each other are part of this story."
+  },
+  {
+    name:"Sahil",
+    uid:"",
+    instagram:"",
+    tag:"A DISTANT MEMORY",
+    story:"A friend from Agra. We lost touch around 2021, but the time we shared remains part of the old gaming memories."
+  },
+  {
+    name:"Jitendra",
+    uid:"1296458351",
+    instagram:"https://www.instagram.com/jeet_meena99/",
+    tag:"STILL CONNECTED",
+    story:"A friend from Rajasthan who studies in Jaipur. We sometimes connect when he comes online, keeping a link to the old gaming days."
+  },
+  {
+    name:"Ankit",
+    uid:"",
+    instagram:"",
+    tag:"PART OF THE TEAM",
+    story:"A younger friend from Delhi who was once connected with the AG team channel. Even though that chapter has changed, he remains part of the team's history."
+  }
 ];
 
-const grid = document.getElementById("friends");
+const grid = document.getElementById("friendGrid");
 
-friends.forEach((f,i)=>{
- const card=document.createElement("div");
- card.className="card";
- card.innerHTML=`
-  <div class="avatar">${f.name.charAt(0)}</div>
-  <h3>${f.name}</h3>
-  <p>VIEW FRIEND PROFILE ↗</p>
- `;
- card.addEventListener("click",()=>openProfile(i));
- grid.appendChild(card);
+friends.forEach((friend,index)=>{
+  const card = document.createElement("button");
+  card.type = "button";
+  card.className = "friend";
+  card.innerHTML = `
+    <div class="friend-top">
+      <span class="number">FRIEND / ${String(index+1).padStart(2,"0")}</span>
+      <span class="arrow">↗</span>
+    </div>
+    <div class="monogram">${getInitials(friend.name)}</div>
+    <h3></h3>
+    <div class="tag"></div>
+  `;
+  card.querySelector("h3").textContent = friend.name;
+  card.querySelector(".tag").textContent = friend.tag;
+  card.addEventListener("click",()=>openProfile(index));
+  grid.appendChild(card);
 });
 
-function openProfile(i){
- const f=friends[i];
- document.getElementById("initial").textContent=f.name.charAt(0);
- document.getElementById("name").textContent=f.name;
- document.getElementById("story").textContent=f.story;
- document.getElementById("uid").textContent=f.uid||"Not added";
- const insta=document.getElementById("insta");
+function getInitials(name){
+  return name.split(" ").slice(0,2).map(word=>word[0]).join("").toUpperCase();
+}
 
- if(f.instagram){
-  insta.href=f.instagram;
-  insta.style.display="inline-block";
- }else{
-  insta.removeAttribute("href");
-  insta.style.display="none";
- }
+function openProfile(index){
+  const friend = friends[index];
 
- document.getElementById("modal").style.display="flex";
+  document.getElementById("profileInitial").textContent =
+    getInitials(friend.name);
+  document.getElementById("profileName").textContent = friend.name;
+  document.getElementById("profileStory").textContent = friend.story;
+  document.getElementById("uidText").textContent =
+    friend.uid || "Not added yet";
+
+  const copyButton = document.getElementById("copyButton");
+  copyButton.style.display = friend.uid ? "block" : "none";
+
+  const instagramButton = document.getElementById("instagramButton");
+  if(friend.instagram){
+    instagramButton.href = friend.instagram;
+    instagramButton.style.display = "block";
+  }else{
+    instagramButton.removeAttribute("href");
+    instagramButton.style.display = "none";
+  }
+
+  document.getElementById("modal").classList.add("open");
+  document.body.style.overflow = "hidden";
 }
 
 function closeProfile(){
- document.getElementById("modal").style.display="none";
+  document.getElementById("modal").classList.remove("open");
+  document.body.style.overflow = "";
 }
 
-function outsideClose(event){
- if(event.target.id==="modal") closeProfile();
+document.getElementById("modal").addEventListener("click",event=>{
+  if(event.target.id==="modal") closeProfile();
+});
+
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape") closeProfile();
+});
+
+function showToast(message){
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.style.display = "block";
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(()=>{
+    toast.style.display = "none";
+  },2200);
 }
 
-function copyUID(){
- const uid=document.getElementById("uid").textContent;
- if(!uid||uid==="Not added"){
-  alert("UID has not been added yet.");
-  return;
- }
- if(navigator.clipboard && window.isSecureContext){
-  navigator.clipboard.writeText(uid)
-   .then(()=>alert("UID copied!"))
-   .catch(()=>fallbackCopy(uid));
- }else{
-  fallbackCopy(uid);
- }
-}
+async function copyUID(){
+  const uid = document.getElementById("uidText").textContent;
+  if(!uid || uid==="Not added yet") return;
 
-function fallbackCopy(text){
- const input=document.createElement("textarea");
- input.value=text;
- input.style.position="fixed";
- input.style.left="-9999px";
- document.body.appendChild(input);
- input.select();
- try{
-  document.execCommand("copy");
-  alert("UID copied!");
- }catch(e){
-  alert("Please copy this UID manually: "+text);
- }
- input.remove();
+  try{
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(uid);
+    }else{
+      const input = document.createElement("textarea");
+      input.value = uid;
+      input.style.position = "fixed";
+      input.style.opacity = "0";
+      document.body.appendChild(input);
+      input.select();
+      const success = document.execCommand("copy");
+      input.remove();
+      if(!success) throw new Error("Copy unavailable");
+    }
+    showToast("Player UID copied");
+  }catch(error){
+    showToast("Please copy the UID manually");
+  }
 }
 </script>
 </body>
