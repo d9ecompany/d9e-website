@@ -18,348 +18,189 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--cream);
+  margin:0;background:var(--bg);color:var(--cream);
   font-family:Arial,Helvetica,sans-serif;
 }
 a{color:inherit;text-decoration:none}
-button{font:inherit}
+button,input{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+button{touch-action:manipulation}
 .wrap{width:min(1100px,91%);margin:auto}
 
 /* NAVIGATION */
 .nav{
-  height:72px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #24221d;
+  min-height:72px;display:flex;justify-content:space-between;
+  align-items:center;gap:12px;border-bottom:1px solid #24221d;
 }
-.brand{
-  font-size:15px;
-  font-weight:800;
-  letter-spacing:2px;
-}
+.brand{font-size:15px;font-weight:800;letter-spacing:2px}
 .brand span{color:var(--gold)}
-.nav-label{
-  color:var(--muted);
-  font-size:10px;
-  letter-spacing:2px;
-}
+.nav-label{color:var(--muted);font-size:10px;letter-spacing:2px}
 
 /* HERO */
-.hero{
-  padding:72px 0 48px;
-  position:relative;
-  overflow:hidden;
-}
+.hero{padding:72px 0 48px;position:relative;overflow:hidden}
 .hero:after{
-  content:"JG";
-  position:absolute;
-  right:-8px;
-  top:25px;
-  font-size:clamp(150px,32vw,330px);
-  line-height:1;
-  font-weight:900;
-  color:rgba(217,182,111,.035);
+  content:"JG";position:absolute;right:-8px;top:25px;
+  font-size:clamp(150px,32vw,330px);line-height:1;
+  font-weight:900;color:rgba(217,182,111,.035);
   pointer-events:none;
 }
 .eyebrow{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:var(--gold);
-  font-size:10px;
-  letter-spacing:3px;
-  text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;color:var(--gold);
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
 }
-.eyebrow:before{
-  content:"";
-  width:26px;
-  height:1px;
-  background:var(--gold);
-}
+.eyebrow:before{content:"";width:26px;height:1px;background:var(--gold)}
 .hero h1{
-  position:relative;
-  z-index:1;
-  font-size:clamp(42px,10vw,96px);
-  line-height:.95;
-  letter-spacing:-4px;
-  margin:27px 0 18px;
-  font-weight:800;
+  position:relative;z-index:1;font-size:clamp(42px,10vw,96px);
+  line-height:.95;letter-spacing:-4px;margin:27px 0 18px;font-weight:800;
 }
-.hero h1 span{
-  display:block;
-  color:var(--gold);
-}
-.hero-desc{
-  max-width:470px;
-  font-size:14px;
-  line-height:1.9;
-  color:#aaa69d;
-}
-.hero-bottom{
-  margin-top:38px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
+.hero h1 span{display:block;color:var(--gold)}
+.hero-desc{max-width:470px;font-size:14px;line-height:1.9;color:#aaa69d}
+.hero-bottom{margin-top:38px;display:flex;gap:12px;flex-wrap:wrap}
 .btn{
-  border:1px solid var(--line);
-  background:transparent;
-  color:var(--cream);
-  padding:13px 17px;
-  display:inline-block;
-  font-size:11px;
-  letter-spacing:.5px;
-  cursor:pointer;
+  border:1px solid var(--line);background:transparent;color:var(--cream);
+  padding:13px 17px;display:inline-flex;align-items:center;justify-content:center;
+  font-size:11px;letter-spacing:.5px;cursor:pointer;text-align:center;
+  min-height:42px;
 }
-.btn.primary{
-  background:var(--gold);
-  color:#111;
-  border-color:var(--gold);
-  font-weight:bold;
-}
-.btn:hover{opacity:.8}
+.btn.primary{background:var(--gold);color:#111;border-color:var(--gold);font-weight:bold}
+.btn:hover{opacity:.82}
 
-/* DIVIDER */
-.section-line{
-  border-top:1px solid #292721;
-  margin:15px 0 0;
-}
+/* SECTIONS */
+.section-line{border-top:1px solid #292721;margin:15px 0 0}
 .section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:20px;
-  padding:35px 0 22px;
+  display:flex;justify-content:space-between;align-items:end;
+  gap:20px;padding:35px 0 22px;
 }
-.section-no{
-  color:var(--gold);
-  font-size:10px;
-  letter-spacing:2px;
-}
-.section-head h2{
-  font-size:clamp(24px,5vw,38px);
-  letter-spacing:-1px;
-  margin:9px 0 0;
-}
-.section-head p{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.7;
-}
+.section-no{color:var(--gold);font-size:10px;letter-spacing:2px}
+.section-head h2{font-size:clamp(24px,5vw,38px);letter-spacing:-1px;margin:9px 0 0}
+.section-head p{color:var(--muted);font-size:11px;line-height:1.7}
 
-/* FRIENDS GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;
-}
+/* FRIENDS */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .friend{
-  min-height:210px;
-  position:relative;
-  padding:21px;
+  min-height:210px;position:relative;padding:21px;
   background:linear-gradient(145deg,#171715,#101010 70%);
-  border:1px solid #2c2a24;
-  cursor:pointer;
-  text-align:left;
-  color:var(--cream);
-  transition:border-color .2s,transform .2s;
+  border:1px solid #2c2a24;cursor:pointer;text-align:left;color:var(--cream);
+  transition:border-color .2s,transform .2s;width:100%;
 }
-.friend:hover{
-  border-color:var(--gold);
-  transform:translateY(-3px);
-}
-.friend-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.number{
-  color:#6e6a60;
-  font-size:10px;
-  letter-spacing:2px;
-}
-.arrow{
-  color:var(--gold);
-  font-size:20px;
-}
+.friend:hover{border-color:var(--gold);transform:translateY(-3px)}
+.friend-top{display:flex;justify-content:space-between;align-items:center}
+.number{color:#6e6a60;font-size:10px;letter-spacing:2px}
+.arrow{color:var(--gold);font-size:20px}
 .monogram{
-  width:47px;
-  height:47px;
-  margin:25px 0 17px;
-  border:1px solid #6e5a32;
-  color:var(--gold);
-  display:grid;
-  place-items:center;
-  font-size:17px;
-  font-weight:bold;
-  background:#1d1a13;
+  width:47px;height:47px;margin:25px 0 17px;border:1px solid #6e5a32;
+  color:var(--gold);display:grid;place-items:center;font-size:17px;
+  font-weight:bold;background:#1d1a13;
 }
-.friend h3{
-  font-size:16px;
-  margin:0 0 8px;
-  font-weight:600;
-}
-.friend .tag{
-  font-size:10px;
-  color:var(--muted);
-  letter-spacing:1px;
-}
+.friend h3{font-size:16px;margin:0 0 8px;font-weight:600}
+.friend .tag{font-size:10px;color:var(--muted);letter-spacing:1px}
 
 /* STORY */
 .story{
-  margin:55px 0;
-  padding:30px;
-  border:1px solid var(--line);
+  margin:55px 0;padding:30px;border:1px solid var(--line);
   background:linear-gradient(110deg,#17150f,#101010);
 }
-.story .quote-mark{
-  font-family:Georgia,serif;
-  font-size:46px;
-  line-height:1;
-  color:var(--gold);
+.quote-mark{font-family:Georgia,serif;font-size:46px;line-height:1;color:var(--gold)}
+.story h2{font-size:clamp(24px,5vw,38px);line-height:1.2;max-width:620px;margin:8px 0 15px}
+.story p{color:#a9a59c;font-size:13px;line-height:1.9;max-width:620px}
+
+/* OWNER SECTION — ADDED SEPARATELY */
+.owner-section{
+  margin:50px 0;background:linear-gradient(145deg,#171715,#101010);
+  border:1px solid var(--line);padding:clamp(22px,5vw,38px);
 }
-.story h2{
-  font-size:clamp(24px,5vw,38px);
-  line-height:1.2;
-  max-width:620px;
-  margin:8px 0 15px;
+.owner-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:20px;flex-wrap:wrap;
 }
-.story p{
-  color:#a9a59c;
-  font-size:13px;
-  line-height:1.9;
-  max-width:620px;
+.owner-badge{
+  color:var(--gold);border:1px solid var(--line);
+  padding:9px 12px;font-size:9px;letter-spacing:2px;
 }
+.owner-title{font-size:clamp(30px,7vw,52px);letter-spacing:-2px;margin:18px 0 8px}
+.owner-title span{color:var(--gold)}
+.owner-desc{color:#aaa69d;font-size:13px;line-height:1.8;max-width:540px}
+.owner-details{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:27px;
+}
+.owner-item{
+  background:#0d0d0c;border:1px solid #2b2923;padding:16px;min-width:0;
+}
+.detail-label{font-size:9px;letter-spacing:1.5px;color:var(--muted);margin-bottom:10px}
+.detail-value{font-size:14px;font-weight:bold;overflow-wrap:anywhere}
+.detail-value.gold{color:var(--gold)}
+.owner-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.owner-links .btn{flex:1;min-width:120px}
+.owner-links .btn.primary{color:#111}
+
+/* PAYMENT */
+.payment{
+  margin-top:30px;padding-top:27px;border-top:1px solid #343027;
+}
+.payment h3{font-size:22px;margin:10px 0}
+.payment p{font-size:12px;color:var(--muted);line-height:1.8}
+.amount-label{
+  display:block;color:var(--gold);font-size:10px;letter-spacing:1.5px;
+  margin:20px 0 9px;
+}
+.amount-input{
+  display:block;width:100%;max-width:400px;min-height:50px;
+  background:#0a0a09;border:1px solid #55472b;border-radius:0;
+  padding:14px;color:var(--cream);font-size:17px;outline:none;
+}
+.amount-input:focus{border-color:var(--gold);box-shadow:0 0 0 2px #d9b66f20}
+.amount-input::placeholder{color:#6f6b62}
+.pay-button{margin-top:13px;width:100%;max-width:400px;min-height:48px}
+.payment-note{
+  max-width:500px;margin-top:13px;color:#858178;font-size:11px;line-height:1.8;
+}
+.pay-status{color:var(--gold);font-size:12px;line-height:1.7;margin-top:12px}
 
 /* FOOTER */
 .footer{
-  border-top:1px solid #292721;
-  padding:28px 0 35px;
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  color:var(--muted);
-  font-size:10px;
-  letter-spacing:1px;
-  line-height:1.8;
+  border-top:1px solid #292721;padding:28px 0 35px;
+  display:flex;justify-content:space-between;gap:15px;
+  color:var(--muted);font-size:10px;letter-spacing:1px;line-height:1.8;
 }
 .footer strong{color:var(--gold)}
 
 /* PROFILE MODAL */
 .modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:10;
-  background:rgba(0,0,0,.86);
-  backdrop-filter:blur(8px);
-  align-items:center;
-  justify-content:center;
-  padding:18px;
+  display:none;position:fixed;inset:0;z-index:10;background:rgba(0,0,0,.86);
+  backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:18px;
 }
 .modal.open{display:flex}
 .profile{
-  position:relative;
-  width:100%;
-  max-width:430px;
-  max-height:90vh;
-  overflow:auto;
-  padding:27px;
-  background:#11110f;
-  border:1px solid #66532f;
-  box-shadow:0 20px 90px #000;
+  position:relative;width:100%;max-width:430px;max-height:90vh;overflow:auto;
+  padding:27px;background:#11110f;border:1px solid #66532f;box-shadow:0 20px 90px #000;
 }
 .close{
-  position:absolute;
-  top:13px;
-  right:13px;
-  background:transparent;
-  border:1px solid #37342c;
-  color:#ddd;
-  width:35px;
-  height:35px;
-  cursor:pointer;
+  position:absolute;top:13px;right:13px;background:transparent;
+  border:1px solid #37342c;color:#ddd;width:38px;height:38px;cursor:pointer;
 }
-.profile-label{
-  font-size:10px;
-  color:var(--gold);
-  letter-spacing:2px;
-}
+.profile-label{font-size:10px;color:var(--gold);letter-spacing:2px}
 .profile-monogram{
-  margin:25px 0 18px;
-  width:68px;
-  height:68px;
-  display:grid;
-  place-items:center;
-  border:1px solid var(--gold);
-  color:var(--gold);
-  font-size:25px;
-  background:#201b10;
+  margin:25px 0 18px;width:68px;height:68px;display:grid;place-items:center;
+  border:1px solid var(--gold);color:var(--gold);font-size:25px;background:#201b10;
 }
-.profile h2{
-  font-size:27px;
-  letter-spacing:-.7px;
-  margin:0 0 12px;
-}
-.profile-story{
-  color:#aaa69d;
-  font-size:13px;
-  line-height:1.9;
-  margin-bottom:25px;
-}
-.uid-label{
-  font-size:10px;
-  color:var(--muted);
-  letter-spacing:1.5px;
-}
+.profile h2{font-size:27px;letter-spacing:-.7px;margin:0 0 12px}
+.profile-story{color:#aaa69d;font-size:13px;line-height:1.9;margin-bottom:25px}
+.uid-label{font-size:10px;color:var(--muted);letter-spacing:1.5px}
 .uid-box{
-  margin-top:9px;
-  padding:13px;
-  border:1px solid #363229;
-  background:#191916;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
+  margin-top:9px;padding:13px;border:1px solid #363229;background:#191916;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
 }
-#uidText{
-  overflow-wrap:anywhere;
-  font-size:13px;
-}
+#uidText{overflow-wrap:anywhere;font-size:13px}
 .copy{
-  flex-shrink:0;
-  background:transparent;
-  color:var(--gold);
-  border:1px solid #66532f;
-  padding:8px 10px;
-  font-size:10px;
-  cursor:pointer;
+  flex-shrink:0;background:transparent;color:var(--gold);
+  border:1px solid #66532f;padding:9px 10px;font-size:10px;cursor:pointer;
 }
-.profile-actions{
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap;
-  margin-top:18px;
-}
-.profile-actions .btn{flex:1;text-align:center}
-.profile-actions .disabled{
-  opacity:.4;
-  cursor:default;
-}
+.profile-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.profile-actions .btn{flex:1}
 #toast{
-  position:fixed;
-  z-index:20;
-  left:50%;
-  bottom:25px;
-  transform:translateX(-50%);
-  background:var(--gold);
-  color:#111;
-  padding:12px 18px;
-  font-size:12px;
-  display:none;
+  position:fixed;z-index:20;left:50%;bottom:25px;transform:translateX(-50%);
+  background:var(--gold);color:#111;padding:12px 18px;font-size:12px;display:none;
+  width:max-content;max-width:90%;
 }
 
 @media(max-width:700px){
@@ -372,12 +213,15 @@ button{font:inherit}
   .section-head{align-items:start}
   .section-head p{max-width:115px;text-align:right}
   .story{padding:23px;margin:40px 0}
+  .owner-details{grid-template-columns:1fr}
+  .owner-section{padding:22px;margin:40px 0}
+  .nav-label{font-size:8px;letter-spacing:1px;text-align:right}
 }
 @media(max-width:360px){
   .grid{grid-template-columns:1fr}
   .friend{min-height:auto}
   .monogram{margin:15px 0}
-  .nav-label{font-size:8px;letter-spacing:1px}
+  .hero h1{font-size:42px}
 }
 </style>
 </head>
@@ -414,7 +258,6 @@ button{font:inherit}
       </div>
       <p>Every name has<br>a different story.</p>
     </div>
-
     <div class="grid" id="friendGrid"></div>
   </section>
 
@@ -436,6 +279,95 @@ button{font:inherit}
     </p>
   </section>
 
+  <!-- YOUR PERSONAL PROFILE: ADDED WITHOUT CHANGING THE ORIGINAL SECTIONS -->
+  <section class="owner-section" id="my-profile">
+    <div class="owner-top">
+      <div>
+        <div class="section-no">03 / THE OWNER</div>
+        <h2 class="owner-title">THE PLAYER.<br><span>THE CREATOR.</span></h2>
+        <p class="owner-desc">
+          The person behind Jalao Gaming. Follow my gaming journey,
+          explore my social profiles, and connect with me online.
+        </p>
+      </div>
+      <div class="owner-badge">OFFICIAL PLAYER PROFILE</div>
+    </div>
+
+    <div class="owner-details">
+      <div class="owner-item">
+        <div class="detail-label">GAMING NAME</div>
+        <div class="detail-value gold">JALAO GAMING</div>
+      </div>
+      <div class="owner-item">
+        <div class="detail-label">FREE FIRE UID</div>
+        <div class="detail-value">4208179939</div>
+        <button class="copy" onclick="copyText('4208179939','UID copied')">
+          COPY UID
+        </button>
+      </div>
+      <div class="owner-item">
+        <div class="detail-label">GUILD ID</div>
+        <div class="detail-value">3044316623</div>
+        <button class="copy" onclick="copyText('3044316623','Guild ID copied')">
+          COPY GUILD ID
+        </button>
+      </div>
+      <div class="owner-item">
+        <div class="detail-label">WEBSITE SECTION</div>
+        <div class="detail-value gold">PERSONAL • GAMING • COMMUNITY</div>
+      </div>
+    </div>
+
+    <div class="owner-links">
+      <a class="btn" href="https://www.facebook.com/share/1CfocZN2Eg/"
+         target="_blank" rel="noopener noreferrer">FACEBOOK ↗</a>
+
+      <a class="btn" href="https://www.instagram.com/jalaogaminghq/"
+         target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+
+      <a class="btn primary" href="https://youtube.com/@jalaogaming"
+         target="_blank" rel="noopener noreferrer">YOUTUBE ↗</a>
+    </div>
+
+    <!-- CUSTOM AMOUNT UPI PAYMENT -->
+    <div class="payment" id="support">
+      <div class="section-no">04 / DIRECT UPI</div>
+      <h3>Make a Payment</h3>
+      <p>
+        Enter the amount you want to pay. Your UPI app will open
+        with the amount and recipient details for you to review.
+      </p>
+
+      <label class="amount-label" for="paymentAmount">
+        ENTER AMOUNT (INR ₹)
+      </label>
+      <input
+        class="amount-input"
+        id="paymentAmount"
+        type="number"
+        inputmode="decimal"
+        min="1"
+        max="100000"
+        step="1"
+        placeholder="Enter any amount, e.g. 100"
+        autocomplete="off"
+      >
+
+      <button class="btn primary pay-button" type="button" onclick="startPayment()">
+        CONTINUE TO UPI PAYMENT ↗
+      </button>
+
+      <div class="pay-status" id="paymentStatus" aria-live="polite"></div>
+
+      <p class="payment-note">
+        UPI ID: deepak.yadav.848502-3@okhdfcbank<br>
+        Review the recipient and amount in your UPI app before approving.
+        Payment is not automatic. This website does not verify payment
+        completion or store payment details.
+      </p>
+    </div>
+  </section>
+
   <footer class="footer">
     <div><strong>JALAO GAMING</strong><br>RARE FRIENDS ARCHIVE</div>
     <div style="text-align:right">
@@ -445,6 +377,7 @@ button{font:inherit}
 
 </div>
 
+<!-- FRIEND PROFILE POPUP -->
 <div class="modal" id="modal" role="dialog"
      aria-modal="true" aria-labelledby="profileName">
   <div class="profile">
@@ -457,7 +390,7 @@ button{font:inherit}
     <div class="uid-label">FREE FIRE PLAYER UID</div>
     <div class="uid-box">
       <span id="uidText">Not added</span>
-      <button class="copy" id="copyButton" onclick="copyUID()">COPY</button>
+      <button class="copy" id="copyButton" onclick="copyFriendUID()">COPY</button>
     </div>
 
     <div class="profile-actions">
@@ -543,21 +476,17 @@ function getInitials(name){
 
 function openProfile(index){
   const friend = friends[index];
-
-  document.getElementById("profileInitial").textContent =
-    getInitials(friend.name);
+  document.getElementById("profileInitial").textContent = getInitials(friend.name);
   document.getElementById("profileName").textContent = friend.name;
   document.getElementById("profileStory").textContent = friend.story;
-  document.getElementById("uidText").textContent =
-    friend.uid || "Not added yet";
+  document.getElementById("uidText").textContent = friend.uid || "Not added yet";
 
-  const copyButton = document.getElementById("copyButton");
-  copyButton.style.display = friend.uid ? "block" : "none";
+  document.getElementById("copyButton").style.display = friend.uid ? "block" : "none";
 
   const instagramButton = document.getElementById("instagramButton");
   if(friend.instagram){
     instagramButton.href = friend.instagram;
-    instagramButton.style.display = "block";
+    instagramButton.style.display = "inline-flex";
   }else{
     instagramButton.removeAttribute("href");
     instagramButton.style.display = "none";
@@ -585,34 +514,63 @@ function showToast(message){
   toast.textContent = message;
   toast.style.display = "block";
   clearTimeout(window.toastTimer);
-  window.toastTimer = setTimeout(()=>{
-    toast.style.display = "none";
-  },2200);
+  window.toastTimer = setTimeout(()=>{toast.style.display="none"},2200);
 }
 
-async function copyUID(){
-  const uid = document.getElementById("uidText").textContent;
-  if(!uid || uid==="Not added yet") return;
-
+async function copyText(text,message){
   try{
     if(navigator.clipboard && window.isSecureContext){
-      await navigator.clipboard.writeText(uid);
+      await navigator.clipboard.writeText(text);
     }else{
-      const input = document.createElement("textarea");
-      input.value = uid;
-      input.style.position = "fixed";
-      input.style.opacity = "0";
+      const input=document.createElement("textarea");
+      input.value=text;
+      input.style.position="fixed";
+      input.style.opacity="0";
       document.body.appendChild(input);
       input.select();
-      const success = document.execCommand("copy");
+      const ok=document.execCommand("copy");
       input.remove();
-      if(!success) throw new Error("Copy unavailable");
+      if(!ok) throw new Error("Copy unavailable");
     }
-    showToast("Player UID copied");
+    showToast(message);
   }catch(error){
-    showToast("Please copy the UID manually");
+    showToast("Please copy manually: "+text);
   }
 }
-</script>
-</body>
-</html>
+
+function copyFriendUID(){
+  const uid=document.getElementById("uidText").textContent;
+  if(uid && uid!=="Not added yet") copyText(uid,"Player UID copied");
+}
+
+/* CUSTOM AMOUNT UPI INTENT */
+function startPayment(){
+  const input=document.getElementById("paymentAmount");
+  const status=document.getElementById("paymentStatus");
+  const amount=Number(input.value);
+
+  if(!input.value.trim() || !Number.isFinite(amount) || amount<1 || amount>100000){
+    status.textContent="Enter an amount between ₹1 and ₹1,00,000.";
+    input.focus();
+    return;
+  }
+
+  const upiID="deepak.yadav.848502-3@okhdfcbank";
+  const payeeName="Deepak Yadav";
+
+  const params=new URLSearchParams({
+    pa:upiID,
+    pn:payeeName,
+    am:amount.toFixed(2),
+    cu:"INR",
+    tn:"Jalao Gaming payment"
+  });
+
+  const upiURL="upi://pay?"+params.toString();
+  status.textContent="Opening your UPI app. Please review the details before paying.";
+
+  window.location.href=upiURL;
+}
+
+document.getElementById("paymentAmount").addEventListener("keydown",event=>{
+  if(event.k
