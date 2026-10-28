@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#0b0b0d">
+<meta name="description"
+content="Official digital home of Deepak Yadav — Jalao Gaming, Deepak9E and Bhaveerji.">
+
+<title>Deepak Yadav | Official Digital World</title>
+
+<style>
+:root {
+    --bg: #09090b;
+    --card: #131316;
+    --gold: #d7b56d;
+    --white: #f6f3ec;
+    --muted: #aaa6a0;
+    --border: rgba(215,181,109,.23);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(9,9,11,.94);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav {
+    display: flex;
+    gap: 19px;
+    overflow-x: auto;
+    max-width: 68%;
+    scrollbar-width: none;
+}
+
+nav a {
+    color: var(--muted);
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    min-height: 530px;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    background:
+      radial-gradient(ellipse at 80% 20%,
+      rgba(215,181,109,.12), transparent 45%);
+}
+
+.eyebrow {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(42px, 8vw, 82px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin: 22px 0;
+}
+
+h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 570px;
+    font-size: 16px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border);
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: #111;
+    border-color: var(--gold);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: .9;
+}
+
+section {
+    padding: 75px 0;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+    max-width: 650px;
+    font-size: 14px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: linear-gradient(145deg, #171719, #101012);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 25px;
+    min-width: 0;
+    transition: .25s;
+}
+
+.card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+}
+
+.card-label {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.card h3 {
+    font-size: 25px;
+    margin: 12px 0;
+    overflow-wrap: anywhere;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.links {
+    display: grid;
+    gap: 9px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 11px 12px;
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 7px;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.social-link span:last-child {
+    color: var(--gold);
+}
+
+.social-link:hover {
+    border-color: var(--gold);
+}
+
+.info-box {
+    border: 1px solid var(--border);
+    background: #111113;
+    border-radius: 12px;
+    padding: 22px;
+    margin-top: 20px;
+}
+
+.info-box h3 {
+    color: var(--gold);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.info-box p {
+    color: var(--muted);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.family-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 13px;
+}
+
+.family-member {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+}
+
+.family-member h3 {
+    color: var(--gold);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.family-member p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.payment-card {
+    max-width: 650px;
+    margin: auto;
+    padding: clamp(22px, 5vw, 40px);
+    background: linear-gradient(145deg, #171719, #101012);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.payment-card label {
+    display: block;
+    font-size: 13px;
+    margin: 20px 0 8px;
+}
+
+.payment-card input,
+.payment-card select {
+    width: 100%;
+    padding: 14px;
+    background: #09090b;
+    color: white;
+    border: 1px solid #39393d;
+    border-radius: 7px;
+    outline: none;
+}
+
+.payment-card input:focus,
+.payment-card select:focus {
+    border-color: var(--gold);
+}
+
+.payment-card button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.notice {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 16px;
+}
+
+.status {
+    font-size: 13px;
+    color: var(--gold);
+    margin-top: 15px;
+    overflow-wrap: anywhere;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 35px 0;
+    text-align: center;
+}
+
+footer h3 {
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin: 18px 0;
+    font-size: 12px;
+    color: var(--gold);
+}
+
+@media(max-width: 760px) {
+    .nav {
+        min-height: 65px;
+        flex-wrap: wrap;
+        padding: 13px 0;
+    }
+
+    nav {
+        max-width: 100%;
+        width: 100%;
+        gap: 18px;
+        padding-bottom: 3px;
+    }
+
+    .hero {
+        min-height: 450px;
+        padding: 65px 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .family-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+    section {
+        padding: 55px 0;
+    }
+}
+
+@media(max-width: 380px) {
+    .family-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+
+        <a class="logo" href="#home">
+            DEEPAK<span>9E</span>
+        </a>
+
+        <nav aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#brands">Brands</a>
+            <a href="#gaming">Gaming</a>
+            <a href="#family">Family</a>
+            <a href="#support">Support</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="container">
+
+        <div class="eyebrow">
+            Official Digital Presence
+        </div>
+
+        <h1>
+            DEEPAK<br>
+            <span>YADAV.</span>
+        </h1>
+
+        <p>
+            One identity. Three creative worlds.
+            Gaming, real-life content and news —
+            connected through a single digital home.
+        </p>
+
+        <div class="actions">
+            <a class="btn btn-primary" href="#brands">
+                Explore My World →
+            </a>
+
+            <a class="btn" href="#contact">
+                Business Contact
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BRANDS -->
+
+<section id="brands">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">My Digital Identity</div>
+            <h2>Three Brands.<br>One Vision.</h2>
+            <p>
+                Explore my official channels, creative work
+                and updates through the three dedicated brands.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <!-- JALAO GAMING -->
+
+            <article class="card" id="gaming">
+
+                <div class="card-label">01 / GAMING</div>
+
+                <h3>JALAO GAMING</h3>
+
+                <p>
+                    Free Fire MAX gameplay, gaming highlights,
+                    competitive moments and creator updates.
+                </p>
+
+                <div class="links">
+
+                    <a class="social-link"
+                       href="https://youtube.com/@jalaogaming"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>YouTube</span><span>↗</span>
+                    </a>
+
+                    <a class="social-link"
+                       href="https://www.facebook.com/share/19fjmKhqai/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>Facebook</span><span>↗</span>
+                    </a>
+
+                    <a class="social-link"
+                       href="https://www.instagram.com/jalaogaminghq/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>Instagram</span><span>↗</span>
+                    </a>
+
+                </div>
+
+                <div class="info-box">
+                    <h3>Free Fire Profile</h3>
+                    <p>
+                        Player UID: 4208179939
+                    </p>
+                    <p>
+                        Guild ID: 3044316623
+                    </p>
+                </div>
+
+                <div class="info-box">
+                    <h3>Business Enquiries</h3>
+                    <p>
+                        <a href="mailto:Deepak.yadav.848502@gmail.com">
+                            Deepak.yadav.848502@gmail.com
+                        </a>
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- DEEPAK9E -->
+
+            <article class="card">
+
+                <div class="card-label">02 / PERSONAL BRAND</div>
+
+                <h3>DEEPAK9E</h3>
+
+                <p>
+                    Real-life stories, lifestyle, personal
+                    experiences and creative content.
+                </p>
+
+                <div class="links">
+
+                    <a class="social-link"
+                       href="https://youtube.com/@deepak9e"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>YouTube</span><span>↗</span>
+                    </a>
+
+                    <a class="social-link"
+                       href="https://www.facebook.com/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>Facebook · Deepak9e</span><span>↗</span>
+                    </a>
+
+                    <a class="social-link"
+                       href="https://www.instagram.com/deepak9e/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>Instagram · Deepak9e</span><span>↗</span>
+                    </a>
+
+                    <a class="social-link"
+                       href="https://x.com/Deepakyadav9e"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>X · Deepakyadav9e</span><span>↗</span>
+                    </a>
+
+                </div>
+
+                <div class="info-box">
+                    <h3>Business Enquiries</h3>
+                    <p>
+                        <a href="mailto:deepak9eofficial@gmail.com">
+                            deepak9eofficial@gmail.com
+                        </a>
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- BHAVEERJI -->
+
+            <article class="card">
+
+                <div class="card-label">03 / NEWS & UPDATES</div>
+
+                <h3>BHAVEERJI</h3>
+
+                <p>
+                    News, informative updates and topics
+                    that matter to the community.
+                </p>
+
+                <div class="links">
+
+                    <a class="social-link"
+                       href="https://www.youtube.com/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>YouTube · Bhaveerji</span><span>↗</span>
+                    </a>
+
+                    <a class="social-link"
+                       href="https://www.instagram.com/bhaveerji/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>Instagram · Bhaveerji</span><span>↗</span>
+                    </a>
+
+                    <a class="social-link"
+                       href="https://www.facebook.com/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>Facebook · Bhaveerji</span><span>↗</span>
+                    </a>
+
+                    <a class="social-link"
+                       href="https://x.com/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span>X · Bhaveeji</span><span>↗</span>
+                    </a>
+
+                </div>
+
+                <div class="info-box">
+                    <h3>Business Enquiries</h3>
+                    <p>
+                        <a href="mailto:deepak.yadav.848502@gmail.com">
+                            Contact by Email
+                        </a>
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">About The Creator</div>
+            <h2>Beyond The Screen.</h2>
+            <p>
+                A creator building different digital identities
+                with a focus on gaming, real-life experiences
+                and informative content.
+            </p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-label">CREATIVITY</div>
+                <h3>Gaming</h3>
+                <p>
+                    Gameplay, highlights, competitive moments
+                    and the journey of Jalao Gaming.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-label">REAL LIFE</div>
+                <h3>Experiences</h3>
+                <p>
+                    Personal stories, lifestyle and moments
+                    worth sharing.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-label">INFORMATION</div>
+                <h3>News & Updates</h3>
+                <p>
+                    An independent space for informative
+                    content and community updates.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- FAMILY -->
+
+<section id="family">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">Roots & Relationships</div>
+            <h2>My Family.</h2>
+            <p>
+                Family is an important part of my life.
+                This space is dedicated to the people
+                closest to me.
+            </p>
+        </div>
+
+        <div class="family-grid">
+
+            <div class="family-member">
+                <h3>Father</h3>
+                <p>Sharda</p>
+            </div>
+
+            <div class="family-member">
+                <h3>Mother</h3>
+                <p>Beta Devi</p>
+            </div>
+
+            <div class="family-member">
+                <h3>Grandfather</h3>
+                <p>Kalicharan</p>
+            </div>
+
+            <div class="family-member">
+                <h3>Grandmother</h3>
+                <p>Beloved family member</p>
+            </div>
+
+            <div class="family-member">
+                <h3>Deepak Yadav</h3>
+                <p>Eldest of three brothers</p>
+            </div>
+
+            <div class="family-member">
+                <h3>Kuldeep</h3>
+                <p>Middle brother</p>
+            </div>
+
+            <div class="family-member">
+                <h3>Sandeep</h3>
+                <p>Youngest brother</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- LOCATION -->
+
+<section id="location">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">My Roots</div>
+            <h2>From India.</h2>
+            <p>
+                Proud of my roots and connected to a
+                wider digital world.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-label">LOCATION</div>
+            <h3>Banda, Uttar Pradesh, India</h3>
+            <p>
+                Based in India · Creating for a global audience.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SUPPORT / PAYMENT -->
+
+<section id="support">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">Support The Journey</div>
+            <h2>Support My Work.</h2>
+            <p>
+                If you appreciate my content, you can choose
+                an amount to support my creative journey.
+                Contributions are voluntary.
+            </p>
+        </div>
+
+        <div class="payment-card">
+
+            <div class="card-label">VOLUNTARY CONTRIBUTION</div>
+
+            <h3 style="font-size:26px;margin-top:10px">
+                Choose Your Amount
+            </h3>
+
+            <form id="supportForm">
+
+                <label for="amount">
+                    Contribution amount (INR)
+                </label>
+
+                <input
+                    type="number"
+                    id="amount"
+                    name="amount"
+                    min="1"
+                    max="100000"
+                    step="1"
+                    placeholder="Enter an amount"
+                    required
+                >
+
+                <label for="purpose">
+                    Select a category
+                </label>
+
+                <select id="purpose" name="purpose">
+                    <option value="General Support">
+                        General Support
+                    </option>
+                    <option value="Jalao Gaming">
+                        Jalao Gaming
+                    </option>
+                    <option value="Deepak9E">
+                        Deepak9E
+                    </option>
+                    <option value="Bhaveerji">
+                        Bhaveerji
+                    </option>
+                </select>
+
+                <button
+                    class="btn btn-primary"
+                    type="submit">
+                    Continue to Payment →
+                </button>
+
+                <div
+                    id="paymentStatus"
+                    class="status"
+                    role="status"
+                    aria-live="polite">
+                </div>
+
+            </form>
+
+            <p class="notice">
+                Payment processing will be available after
+                the official payment gateway is configured.
+                Never share your UPI PIN or OTP with anyone.
+            </p>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+    <div class="container">
+
+        <div class="section-heading">
+            <div class="eyebrow">Let's Connect</div>
+            <h2>Business & Contact.</h2>
+            <p>
+                For collaborations, business proposals,
+                partnerships and professionenquiries, use the appropriate email address below.
+
+</p> </div>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="card-label">GAMING</div>
+
+<h3>Jalao Gaming</h3>
+
+<p>
+
+<a href="mailto:Deepak.yadav.848502@gmail.com"> Deepak.yadav.848502@gmail.com
+
+</a>
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-label">PERSONAL BRAND</div>
+
+<h3>Deepak9E</h3>
+
+<p>
+
+<a href="mailto:deepak9eofficial@gmail.com">
+
+deepak9eofficial@gmail.com </a>
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-label">NEWS & UPDATES</div> <h3>Bhaveerji</h3>
+
+<p>
+
+<a href="mailto:deepak.yadav.848502@gmail.com">
+
+Contact by Email
+
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main><!-- FOOTER -->
+
+<footer> <div class="container">
+
+<h3>DEEPAK<span style="color:var(--gold)">9E</span></h3>
+
+<div class="footer-links">
+
+<a href="#gaming">Jalao Gaming</a>
+
+<a href="#brands">Deepak9E</a>
+
+<a href="#brands">Bhaveerji</a>
+
+<a href="#family">Family</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+<p>
+
+<span id="year"></span> Deepak Yadav. All rights reserved.
+
+</p>
+
+<p>
+
+An independent creator website.
+
+</p>
+
+</div> </footer>
+
+<script> "use strict";
+
+// Automatically update the copyright year. document.getElementByld("year").textContent = new Date().getFullYear();
+
+// Payment form validation.
+
+// A real payment gateway must be connected before // any money can be collected. document.getElementByld("supportForm")
+
+.addEventListener ("submit", function(event) (
+
+event.preventDefault();
+
+const amountField = document.getElementByld ("amount"); const purposeField = document.getElementByld ("purpose"); const status = document.getElementByld ("paymentStatus");const amount = Number (amountField.value);
+
+const purpose = purposeField value
+
+if (
+
+!Number.isFinite(amount)
+
+!Number.isInteger(amount) ||
+
+amount <1||
+
+amount > 100000
+
+)
+
+}
+
+status.textContent =
+
+"Please enter a whole amount between ₹1 and ₹1,00,000.";
+
+return;
+
+status.textContent =
+
+"Amount selected: " + amount.toLocaleString("en-IN") +
+
+". Payment gateway setup is required before payment can proceed ("+
+
+purpose + ").";
+
+});
+
+</script>
+
+</body> </html>
