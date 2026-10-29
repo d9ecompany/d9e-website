@@ -794,3 +794,155 @@ render();
 </script>
 </body>
 </html>
+
+<!-- ADMIN PASSWORD DIALOG -->
+<dialog id="loginDialog">
+  <div style="padding:20px;background:#19253b;color:white;border-radius:14px">
+    <h2 style="color:#f1ce83;margin-top:0">Admin Login</h2>
+    <p>वेबसाइट का एडमिन पासवर्ड डालें।</p>
+
+    <form id="loginForm">
+      <input
+        id="adminPassword"
+        type="password"
+        placeholder="Enter password"
+        autocomplete="current-password"
+        required
+        style="width:100%;padding:12px;margin:8px 0 14px;
+        box-sizing:border-box;border-radius:9px"
+      >
+
+      <p id="loginError" style="color:#ff9ba9"></p>
+
+      <button type="submit" style="padding:10px 16px">
+        Login
+      </button>
+
+      <button type="button" onclick="closeLogin()"
+        style="padding:10px 16px">
+        Cancel
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<script>
+function openLogin() {
+  const dialog = document.getElementById("loginDialog");
+  if (!dialog) {
+    alert("Login dialog नहीं मिला।");
+    return;
+  }
+
+  document.getElementById("loginError").textContent = "";
+  document.getElementById("adminPassword").value = "";
+
+  if (!dialog.open) {
+    dialog.showModal();
+  }
+}
+
+function closeLogin() {
+  document.getElementById("loginDialog").close();
+}
+
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const password = document.getElementById("adminPassword").value;
+
+  if (password === "RAM") {
+    document.body.classList.add("admin-mode");
+    document.getElementById("status").textContent =
+      "Admin Mode चालू है";
+
+    document.getElementById("loginButton").textContent =
+      "✓ Admin Login";
+
+    document.getElementById("loginDialog").close();
+
+    alert("Login सफल हुआ!");
+  } else {
+    document.getElementById("loginError").textContent =
+      "गलत पासवर्ड। दोबारा कोशिश करें।";
+  }
+});
+</script>
+</body>
+</html>
+
+<!-- ADMIN PASSWORD DIALOG -->
+<dialog id="loginDialog">
+  <div style="padding:20px;background:#19253b;color:white;border-radius:14px">
+    <h2 style="color:#f1ce83;margin-top:0">Admin Login</h2>
+    <p>वेबसाइट का एडमिन पासवर्ड डालें।</p>
+
+    <form id="loginForm">
+      <input
+        id="adminPassword"
+        type="password"
+        placeholder="Enter password"
+        autocomplete="current-password"
+        required
+        style="width:100%;padding:12px;margin:8px 0 14px;
+        box-sizing:border-box;border-radius:9px"
+      >
+
+      <p id="loginError" style="color:#ff9ba9"></p>
+
+      <button type="submit" style="padding:10px 16px">
+        Login
+      </button>
+
+      <button type="button" onclick="closeLogin()"
+        style="padding:10px 16px">
+        Cancel
+      </button>
+    </form>
+  </div>
+</dialog>
+
+<script>
+function openLogin() {
+  const dialog = document.getElementById("loginDialog");
+  if (!dialog) {
+    alert("Login dialog नहीं मिला।");
+    return;
+  }
+
+  document.getElementById("loginError").textContent = "";
+  document.getElementById("adminPassword").value = "";
+
+  if (!dialog.open) {
+    dialog.showModal();
+  }
+}
+
+function closeLogin() {
+  document.getElementById("loginDialog").close();
+}
+
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const password = document.getElementById("adminPassword").value;
+
+  if (password === "RAM") {
+    document.body.classList.add("admin-mode");
+    document.getElementById("status").textContent =
+      "Admin Mode चालू है";
+
+    document.getElementById("loginButton").textContent =
+      "✓ Admin Login";
+
+    document.getElementById("loginDialog").close();
+
+    alert("Login सफल हुआ!");
+  } else {
+    document.getElementById("loginError").textContent =
+      "गलत पासवर्ड। दोबारा कोशिश करें।";
+  }
+});
+</script>
+</body>
+</html>
