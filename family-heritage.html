@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10172a">
+<title>Family Heritage | पारिवारिक वंशावली</title>
+
+<style>
+:root{
+  --bg:#0b1020;
+  --text:#f5f7ff;
+  --muted:#b4bfd4;
+  --gold:#e5c77a;
+  --cyan:#7bdff2;
+  --purple:#c7a6ff;
+  --green:#7fe0b2;
+  --red:#ff9aab;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--text);
+  font-family:system-ui,"Noto Sans Devanagari",sans-serif;
+  line-height:1.65;
+  background:
+    radial-gradient(ellipse at 10% 0%,#203c62,transparent 35%),
+    radial-gradient(ellipse at 95% 10%,#392451,transparent 30%),
+    #0b1020;
+}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.wrap{max-width:1050px;margin:auto;padding:18px 13px 45px}
+.hero{
+  text-align:center;padding:35px 16px;
+  border:1px solid #53658a;border-radius:24px;
+  background:linear-gradient(130deg,#1c3454,#28203f,#172a3b);
+  box-shadow:0 20px 50px #0005;position:relative;overflow:hidden;
+}
+.hero:before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#7bdff2,#c7a6ff,#e5c77a,#ffb6d2);
+}
+.logo{
+  width:60px;height:60px;display:grid;place-items:center;
+  margin:0 auto 12px;border-radius:18px;
+  background:linear-gradient(135deg,#324e7c,#674583);
+  border:1px solid var(--purple);color:var(--gold);
+  font-size:21px;font-weight:900;
+}
+.eyebrow{color:var(--cyan);letter-spacing:3px;font-size:12px}
+h1{color:var(--gold);font-size:clamp(26px,5vw,42px);margin:8px 0}
+.hero p{margin:0;color:var(--muted)}
+nav{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:8px;margin:20px 0;
+}
+nav a{
+  text-decoration:none;color:var(--text);
+  border:1px solid #425475;
+  background:linear-gradient(135deg,#1b2b45,#302344);
+  padding:8px 13px;border-radius:30px;font-size:13px;
+}
+nav a:hover{border-color:var(--cyan);color:var(--cyan)}
+.adminbar{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:8px;margin:18px 0 8px;
+}
+.statusline{text-align:center;color:var(--muted);font-size:12px}
+.section{margin:30px 0;scroll-margin-top:15px}
+.heading{
+  border-left:3px solid var(--cyan);
+  padding-left:12px;margin-bottom:14px;
+}
+.heading h2{margin:0;color:var(--gold);font-size:20px}
+.heading p{margin:3px 0 0;color:var(--muted);font-size:13px}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));
+  gap:13px;
+}
+.card{
+  position:relative;overflow:hidden;padding:17px;border-radius:17px;
+  border:1px solid #40516f;
+  background:linear-gradient(145deg,#1b2b45,#151b2d);
+  box-shadow:0 8px 22px #0002;transition:.2s;
+}
+.card:before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--cyan),#8fb8ff);
+}
+.card:nth-child(4n+2){
+  background:linear-gradient(145deg,#302548,#1b1c32);
+  border-color:#55466f;
+}
+.card:nth-child(4n+2):before{
+  background:linear-gradient(90deg,var(--purple),#ffb6d2);
+}
+.card:nth-child(4n+3){
+  background:linear-gradient(145deg,#173b3d,#17242f);
+  border-color:#35605d;
+}
+.card:nth-child(4n+3):before{
+  background:linear-gradient(90deg,#79e0c1,var(--cyan));
+}
+.card:nth-child(4n){
+  background:linear-gradient(145deg,#423324,#242235);
+  border-color:#66503c;
+}
+.card:nth-child(4n):before{
+  background:linear-gradient(90deg,var(--gold),#ffb6d2);
+}
+.card:hover{transform:translateY(-3px);border-color:var(--cyan)}
+.card h3{margin:0 0 5px;font-size:19px;overflow-wrap:anywhere}
+.tag{
+  display:inline-block;padding:3px 9px;border-radius:20px;
+  background:#283852;border:1px solid #5d6d8b;
+  color:#d9e8ff;font-size:12px;margin-bottom:8px;
+}
+.muted{color:var(--muted);font-size:13px}
+.btn{
+  border:1px solid #bca45e;
+  background:linear-gradient(135deg,#6a5428,#44391f);
+  color:#fff2c5;border-radius:10px;
+  padding:9px 13px;font-weight:700;
+}
+.btn:hover{filter:brightness(1.15)}
+.btn.secondary{
+  border-color:#53658a;
+  background:linear-gradient(135deg,#263e60,#382b54);
+  color:#f5f7ff;
+}
+.btn.danger{background:#512735;border-color:#a95368;color:#ffe1e8}
+.btn.small{font-size:12px;padding:6px 9px}
+.admin-only{display:none!important}
+.admin-mode .admin-only{display:inline-block!important}
+.admin-mode .admin-section{display:block}
+.admin-section{display:none}
+.card-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.notice{
+  padding:14px;border:1px dashed #596b8e;border-radius:12px;
+  background:linear-gradient(135deg,#18263c,#201c35);
+  color:var(--muted);font-size:13px;margin:15px 0;
+}
+.empty{color:var(--muted);font-size:14px;padding:12px}
+footer{
+  text-align:center;color:var(--muted);font-size:12px;
+  padding:22px 5px;border-top:1px solid #2f3b55;margin-top:30px;
+}
+dialog{
+  width:min(650px,calc(100% - 22px));
+  max-height:88vh;overflow:auto;
+  border:1px solid #68749a;border-radius:18px;
+  background:linear-gradient(145deg,#192740,#211c35);
+  color:var(--text);padding:0;
+  box-shadow:0 24px 100px #000a;
+}
+dialog::backdrop{background:#02040bc9;backdrop-filter:blur(5px)}
+.modal-head{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:10px;padding:15px;border-bottom:1px solid #3d4c68;
+}
+.modal-head h2{font-size:19px;color:var(--gold);margin:0}
+.modal-body{padding:16px}
+.close{
+  background:#29344b;border:1px solid #53658a;
+  color:white;border-radius:9px;padding:7px 10px;
+}
+.form-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.field label{font-size:13px;color:var(--muted)}
+.field input,.field textarea,.field select{
+  width:100%;min-width:0;background:#10192a;color:var(--text);
+  border:1px solid #4a5d7f;border-radius:10px;padding:11px;
+  outline:none;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  border-color:var(--cyan);box-shadow:0 0 0 3px #7bdff21c;
+}
+.field textarea{min-height:90px;resize:vertical}
+.field select option{background:#10192a;color:white}
+.full{grid-column:1/-1}
+.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.detail{
+  background:linear-gradient(135deg,#17253b,#201d35);
+  border:1px solid #3d5070;padding:12px;border-radius:11px;
+  margin:9px 0;overflow-wrap:anywhere;
+}
+.detail b{display:block;color:var(--cyan);font-size:12px;margin-bottom:4px}
+.detail div{white-space:pre-wrap}
+#search{
+  width:100%;padding:12px;border-radius:12px;
+  border:1px solid #425475;background:#111a2b;color:white;
+  margin-bottom:15px;
+}
+@media(max-width:520px){
+  .wrap{padding:10px}
+  .hero{padding:28px 12px}
+  .form-grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .section{margin:24px 0}
+}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="logo">FH</div>
+  <div class="eyebrow">OUR ROOTS · OUR HERITAGE</div>
+  <h1>Family Heritage</h1>
+  <p>हमारी पारिवारिक वंशावली और परिवार का इतिहास</p>
+  <p style="margin-top:10px">यदुवंशी परिवार की यादें, रिश्ते और विरासत</p>
+</header>
+
+<nav>
+  <a href="#devta">हमारे आराध्य</a>
+  <a href="#ancestors">पूर्वज</a>
+  <a href="#elders">बड़े-बुज़ुर्ग</a>
+  <a href="#parents">माता-पिता</a>
+  <a href="#siblings">भाई</a>
+</nav>
+
+<div class="adminbar">
+  <button class="btn secondary" id="loginButton" onclick="openLogin()">🔒 व्यवस्थापक लॉगिन</button>
+  <button class="btn secondary admin-only" onclick="logout()">लॉगआउट</button>
+</div>
+<div class="statusline" id="status">
+  सार्वजनिक दृश्य · परिवार की जानकारी देख सकते हैं
+</div>
+
+<section class="section" id="devta">
+  <div class="heading">
+    <h2>✦ हमारे आराध्य देवता</h2>
+    <p>परिवार की आस्था और श्रद्धा</p>
+  </div>
+  <div class="grid" id="deityGrid"></div>
+  <div class="notice">
+    यह भाग आराध्य देवताओं के लिए है। यहाँ आम इंसानों की तरह जन्म,
+    विवाह या पारिवारिक विवरण भरने का फ़ॉर्म नहीं है।
+  </div>
+</section>
+
+<section class="section" id="ancestors">
+  <div class="heading">
+    <h2>01 · हमारे पूर्वज</h2>
+    <p>हमारी जड़ों और पुरानी पीढ़ियों की जानकारी</p>
+  </div>
+  <div class="grid" id="ancestorGrid"></div>
+  <button class="btn admin-only" onclick="addPerson('पूर्वज')">＋ पूर्वज जोड़ें</button>
+</section>
+
+<section class="section" id="elders">
+  <div class="heading">
+    <h2>02 · बड़े-बुज़ुर्ग</h2>
+    <p>परिवार के वरिष्ठ सदस्य</p>
+  </div>
+  <div class="grid" id="elderGrid"></div>
+  <button class="btn admin-only" onclick="addPerson('बड़े-बुज़ुर्ग')">＋ सदस्य जोड़ें</button>
+</section>
+
+<section class="section" id="parents">
+  <div class="heading">
+    <h2>03 · माता-पिता</h2>
+    <p>परिवार की आधारशिला</p>
+  </div>
+  <div class="grid" id="parentGrid"></div>
+  <button class="btn admin-only" onclick="addPerson('माता-पिता')">＋ सदस्य जोड़ें</button>
+</section>
+
+<section class="section" id="siblings">
+  <div class="heading">
+    <h2>04 · भाई</h2>
+    <p>भाइयों का परिचय और यादें</p>
+  </div>
+  <div class="grid" id="brotherGrid"></div>
+  <button class="btn admin-only" onclick="addPerson('भाई')">＋ भाई जोड़ें</button>
+</section>
+
+<section class="section admin-section">
+  <div class="heading">
+    <h2>05 · परिवार प्रबंधन</h2>
+    <p>जानकारी जोड़ें, खोजें और बैकअप सुरक्षित रखें</p>
+  </div>
+  <div class="notice">
+    किसी सदस्य के कार्ड पर क्लिक करके उसका परिचय देख सकते हैं।
+    व्यवस्थापक लॉगिन के बाद बदलाव के बटन दिखाई देंगे।
+  </div>
+  <input id="search" placeholder="परिवार के सदस्य का नाम खोजें…" oninput="render()">
+  <button class="btn secondary" onclick="exportBackup()">बैकअप डाउनलोड करें</button>
+  <div class="field" style="margin-top:14px">
+    <label>बैकअप फ़ाइल से जानकारी वापस लाएँ</label>
+    <input type="file" id="backupFile" accept=".json,application/json" onchange="importBackup(event)">
+  </div>
+</section>
+
+<footer>
+  Family Heritage · परिवार की विरासत, पीढ़ियों के लिए
+</footer>
+</div>
+
+<dialog id="loginDialog">
+  <div class="modal-head">
+    <h2>व्यवस्थापक लॉगिन</h2>
+    <button class="close" onclick="closeDialog('loginDialog')">बंद करें</button>
+  </div>
+  <div class="modal-body">
+    <p class="muted">जानकारी जोड़ने या संपादित करने के लिए पासवर्ड डालें।</p>
+    <form onsubmit="login(event)">
+      <div class="field">
+        <label for="password">पासवर्ड</label>
+        <input id="password" type="password" required autocomplete="current-password">
+      </div>
+      <p id="loginError" style="display:none;color:var(--red)">पासवर्ड सही नहीं है।</p>
+      <button class="btn" type="submit">लॉगिन करें</button>
+    </form>
+  </div>
+</dialog>
+
+<dialog id="personDialog">
+  <div class="modal-head">
+    <h2 id="personTitle">सदस्य की जानकारी</h2>
+    <button class="close" onclick="closeDialog('personDialog')">बंद करें</button>
+  </div>
+  <div class="modal-body" id="personBody"></div>
+</dialog>
+
+<dialog id="editDialog">
+  <div class="modal-head">
+    <h2 id="editTitle">नई जानकारी जोड़ें</h2>
+    <button class="close" onclick="closeDialog('editDialog')">बंद करें</button>
+  </div>
+  <div class="modal-body">
+    <form id="memberForm" onsubmit="savePerson(event)">
+      <input type="hidden" id="memberId">
+      <div class="form-grid">
+        <div class="field">
+          <label for="category">श्रेणी</label>
+          <select id="category" required>
+            <option value="पूर्वज">पूर्वज</option>
+            <option value="बड़े-बुज़ुर्ग">बड़े-बुज़ुर्ग</option>
+            <option value="माता-पिता">माता-पिता</option>
+            <option value="भाई">भाई</option>
+            <option value="अन्य सदस्य">अन्य सदस्य</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="name">पूरा नाम *</label>
+          <input id="name" required maxlength="120">
+        </div>
+        <div class="field">
+          <label for="relation">रिश्ता / परिचय</label>
+          <input id="relation" maxlength="120" placeholder="जैसे: दादा, पिता, पुत्र">
+        </div>
+        <div class="field">
+          <label for="birthDate">जन्मतिथि</label>
+          <input id="birthDate" type="date">
+        </div>
+        <div class="field">
+          <label for="statusPerson">स्थिति</label>
+          <select id="statusPerson">
+            <option value="">जानकारी उपलब्ध नहीं</option>
+            <option value="जीवित">जीवित</option>
+            <option value="दिवंगत">दिवंगत</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="birthPlace">जन्मस्थान</label>
+          <input id="birthPlace" maxlength="180">
+        </div>
+        <div class="field full">
+          <label for="marriage">विवाह / जीवनसाथी की जानकारी</label>
+          <textarea id="marriage" maxlength="3000"></textarea>
+        </div>
+        <div class="field full">
+          <label for="familyBefore">विवाह से पहले का परिवार (यदि लागू हो)</label>
+          <textarea id="familyBefore" maxlength="3000"></textarea>
+        </div>
+        <div class="field full">
+          <label for="story">जीवन परिचय और कहानी</label>
+          <textarea id="story" maxlength="5000"></textarea>
+        </div>
+        <div class="field full">
+          <label for="notes">अन्य जानकारी / यादें</label>
+          <textarea id="notes" maxlength="3000"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="submit">जानकारी सेव करें</button>
+        <button class="btn secondary" type="button" onclick="closeDialog('editDialog')">रद्द करें</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<script>
+"use strict";
+
+/*
+  यह सरल फ्रंट-एंड उदाहरण है।
+  वास्तविक सुरक्षित सार्वजनिक वेबसाइट के लिए सर्वर लॉगिन और डेटाबेस चाहिए।
+*/
+const ADMIN_PASSWORD = "RAM";
+const STORAGE_KEY = "family_heritage_records_v1";
+
+let adminMode = false;
+
+const deities = [
+  {name:"भैरम बाबा", subtitle:"हमारे आराध्य देवता"},
+  {name:"वीर बाबा", subtitle:"हमारे आराध्य देवता"}
+];
+
+const defaultPeople = [
+  {
+    id:"ancestor-lotan",category:"पूर्वज",name:"लोटन बाबा",
+    relation:"पूर्वज",birthDate:"",status:"दिवंगत",
+    birthPlace:"",marriage:"",familyBefore:"",
+    story:"परिवार की मौखिक जानकारी के अनुसार पूर्वज।",
+    notes:"इस परिचय की पुष्टि और आगे की जानकारी बाद में जोड़ी जा सकती है।"
+  },
+  {
+    id:"ancestor-kalicharan",category:"पूर्वज",name:"कालिचरण बाबा",
+    relation:"पूर्वज",birthDate:"",status:"दिवंगत",
+    birthPlace:"",marriage:"",familyBefore:"",
+    story:"परिवार की मौखिक जानकारी के अनुसार पूर्वज।",
+    notes:"आगे की जानकारी बाद में जोड़ी जा सकती है।"
+  },
+  {
+    id:"elder-kisratiya",category:"बड़े-बुज़ुर्ग",
+    name:"किसरतिया देवी",relation:"दादी",
+    birthDate:"1961-01-01",status:"जीवित",
+    birthPlace:"",marriage:"",familyBefore:"",
+    story:"परिवार की वरिष्ठ सदस्य।",
+    notes:"जन्मतिथि परिवार द्वारा बताई गई जानकारी पर आधारित है।"
+  },
+  {
+    id:"parent-sharda",category:"माता-पिता",name:"शारदा",
+    relation:"पिता",birthDate:"1975-01-01",status:"जीवित",
+    birthPlace:"",marriage:"",familyBefore:"",
+    story:"परिवार के पिता।",notes:""
+  },
+  {
+    id:"parent-beta-devi",category:"माता-पिता",name:"बेटा देवी",
+    relation:"माता",birthDate:"",status:"जीवित",
+    birthPlace:"",marriage:"",familyBefore:"",
+    story:"परिवार की माता।",notes:""
+  },
+  {
+    id:"brother-deepak",category:"भाई",name:"दीपक",
+    relation:"भाई",birthDate:"2008-01-01",status:"जीवित",
+    birthPlace:"",marriage:"",familyBefore:"",
+    story:"",notes:""
+  },
+  {
+    id:"brother-kuldeep",category:"भाई",name:"कुलदीप",
+    relation:"भाई",birthDate:"2010-01-01",status:"जीवित",
+    birthPlace:"",marriage:"",familyBefore:"",
+    story:"",notes:""
+  },
+  {
+    id:"brother-sandeep",category:"भाई",name:"संदीप",
+    relation:"भाई",birthDate:"2013-01-01",status:"जीवित",
+    birthPlace:"",marriage:"",familyBefore:"",
+    story:"",notes:""
+  }
+];
+
+function loadPeople(){
+  try{
+    const saved=localStorage.getItem(STORAGE_KEY);
+    if(saved){
+      const parsed=JSON.parse(saved);
+      if(Array.isArray(parsed)) return parsed;
+    }
+  }catch(error){
+    console.warn("Saved data could not be loaded.",error);
+  }
+  return defaultPeople.map(p=>({...p}));
+}
+
+let people=loadPeople();
+
+function saveToStorage(){
+  try{
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(people));
+    return true;
+  }catch(error){
+    alert("जानकारी इस ब्राउज़र में सेव नहीं हो सकी। बैकअप डाउनलोड करके सुरक्षित रखें।");
+    return false;
+  }
+}
+
+function escapeHTML(value){
+  return String(value??"").replace(/[&<>"']/g,char=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[char]));
+}
+
+function closeDialog(id){
+  document.getElementById(id).close();
+}
+
+function openLogin(){
+  document.getElementById("password").value="";
+  document.getElementById("loginError").style.display="none";
+  document.getElementById("loginDialog").showModal();
+}
+
+function login(event){
+  event.preventDefault();
+  if(document.getElementById("password").value===ADMIN_PASSWORD){
+    adminMode=true;
+    document.body.classList.add("admin-mode");
+    document.getElementById("loginButton").style.display="none";
+    document.getElementById("status").textContent=
+      "व्यवस्थापक मोड · अब परिवार की जानकारी जोड़ और बदल सकते हैं";
+    closeDialog("loginDialog");
+    render();
+  }else{
+    document.getElementById("loginError").style.display="block";
+  }
+}
+
+function logout(){
+  adminMode=false;
+  document.body.classList.remove("admin-mode");
+  document.getElementById("loginButton").style.display="";
+  document.getElementById("status").textContent=
+    "सार्वजनिक दृश्य · परिवार की जानकारी देख सकते हैं";
+  closeDialogIfOpen("personDialog");
+  render();
+}
+
+function closeDialogIfOpen(id){
+  const dialog=document.getElementById(id);
+  if(dialog.open) dialog.close();
+}
+
+function deityCard(deity){
+  return `<article class="card">
+    <span class="tag">आराध्य देवता</span>
+    <h3>${escapeHTML(deity.name)}</h3>
+    <div class="muted">${escapeHTML(deity.subtitle)}</div>
+    <div class="hint">श्रद्धा · आस्था · परंपरा</div>
+  </article>`;
+}
+
+function personCard(person){
+  const alive=person.status==="जीवित";
+  const status=person.status
+    ? `<div class="muted" style="color:${alive?"var(--green)":"var(--gold)"}">
+       ${escapeHTML(person.status)}</div>`:"";
+  return `<article class="card">
+    <span class="tag">${escapeHTML(person.category)}</span>
+    <h3>${escapeHTML(person.name)}</h3>
+    <div class="muted">${escapeHTML(person.relation||person.category)}</div>
+    ${status}
+    <div class="card-actions">
+      <button class="btn secondary small" onclick="viewPerson('${person.id}')">परिचय देखें</button>
+      ${adminMode?`
+        <button class="btn small" onclick="editPerson('${person.id}')">संपादित करें</button>
+        <button class="btn danger small" onclick="deletePerson('${person.id}')">हटाएँ</button>
+      `:""}
+    </div>
+  </article>`;
+}
+
+function render(){
+  document.getElementById("deityGrid").innerHTML=deities.map(deityCard).join("");
+
+  const query=adminMode
+    ? (document.getElementById("search")?.value||"").trim().toLowerCase()
+    : "";
+
+  const filtered=people.filter(p=>
+    !query || [p.name,p.category,p.relation,p.story]
+      .some(v=>String(v||"").toLowerCase().includes(query))
+  );
+
+  const groups=[
+    ["पूर्वज","ancestorGrid"],
+    ["बड़े-बुज़ुर्ग","elderGrid"],
+    ["माता-पिता","parentGrid"],
+    ["भाई","brotherGrid"]
+  ];
+
+  for(const [category,elementId] of groups){
+    const group=filtered.filter(p=>p.category===category);
+    document.getElementById(elementId).innerHTML=group.length
+      ?group.map(personCard).join("")
+      :'<div class="empty">अभी कोई जानकारी उपलब्ध नहीं है।</div>';
+  }
+
+  const known=new Set(groups.map(g=>g[0]));
+  const other=filtered.filter(p=>!known.has(p.category));
+  let otherSection=document.getElementById("otherSection");
+
+  if(other.length){
+    if(!otherSection){
+      otherSection=document.createElement("section");
+      otherSection.id="otherSection";
+      otherSection.className="section";
+      otherSection.innerHTML='<div class="heading"><h2>अन्य सदस्य</h2><p>परिवार के दूसरे सदस्य</p></div><div class="grid" id="otherGrid"></div>';
+      document.querySelector("footer").before(otherSection);
+    }
+    document.getElementById("otherGrid").innerHTML=group.length
+      ?group.map(personCard).join("")
+      :'<div class="empty">अभी कोई जानकारी उपलब्ध नहीं है।</div>';
+  }
+
+  const known=new Set(groups.map(g=>g[0]));
+  const other=filtered.filter(p=>!known.has(p.category));
+  let otherSection=document.getElementById("otherSection");
+
+  if(other.length){
+    if(!otherSection){
+      otherSection=document.createElement("section");
+      otherSection.id="otherSection";
+      otherSection.className="section";
+      otherSection.innerHTML='<div class="heading"><h2>अन्य सदस्य</h2><p>परिवार के दूसरे सदस्य</p></div><div class="grid" id="otherGrid"></div>';
+      document.querySelector("footer").before(otherSection);
+    }
+    document.getElementById("otherGrid").innerHTML=other.map(personCard).join("");
+  }else if(otherSection){
+    otherSection.remove();
+  }
+}
+
+function viewPerson(id){
+  const person=people.find(p=>p.id===id);
+  if(!person)return;
+
+  const fields=[
+    ["पूरा नाम",person.name],
+    ["रिश्ता / परिचय",person.relation],
+    ["जन्मतिथि",person.birthDate],
+    ["स्थिति",person.status],
+    ["जन्मस्थान",person.birthPlace],
+    ["विवाह / जीवनसाथी",person.marriage],
+    ["विवाह से पहले का परिवार",person.familyBefore],
+    ["जीवन परिचय",person.story],
+    ["अन्य जानकारी",person.notes]
+  ];
+
+ document.getElementById("personTitle").textContent=person.name;
+  document.getElementById("personBody").innerHTML=
+    fields.filter(([label,value])=>String(value||"").trim())
+      .map(([label,value])=>`<div class="detail">
+        <b>${escapeHTML(label)}</b><div>${escapeHTML(value)}</div>
+      </div>`).join("")+
+      (adminMode?`<button class="btn" onclick="closeDialog('personDialog');editPerson('${person.id}')">जानकारी संपादित करें</button>`:"");
+
+  document.getElementById("personDialog").showModal();
+}
+
+function addPerson(category){
+  if(!adminMode){openLogin();return}
+  document.getElementById("memberForm").reset();
+  document.getElementById("memberId").value="";
+  document.getElementById("category").value=category;
+  document.getElementById("editTitle").textContent="नया सदस्य जोड़ें";
+  document.getElementById("editDialog").showModal();
+}
+
+function editPerson(id){
+  if(!adminMode)return;
+  const p=people.find(person=>person.id===id);
+  if(!p)return;
+
+  document.getElementById("memberId").value=p.id;
+  document.getElementById("category").value=p.category;
+  document.getElementById("name").value=p.name||"";
+  document.getElementById("relation").value=p.relation||"";
+  document.getElementById("birthDate").value=p.birthDate||"";
+  document.getElementById("statusPerson").value=p.status||"";
+  document.getElementById("birthPlace").value=p.birthPlace||"";
+  document.getElementById("marriage").value=p.marriage||"";
+  document.getElementById("familyBefore").value=p.familyBefore||"";
+  document.getElementById("story").value=p.story||"";
+  document.getElementById("notes").value=p.notes||"";
+  document.getElementById("editTitle").textContent="जानकारीसंपादित करें";
+  document.getElementById("editDialog").showModal();
+}
+
+function savePerson(event){
+  event.preventDefault();
+  if(!adminMode)return;
+
+  const id=document.getElementById("memberId").value;
+  const person={
+    id:id||("person-"+Date.now()+"-"+Math.random().toString(36).slice(2,7)),
+    category:document.getElementById("category").value,
+    name:document.getElementById("name").value.trim(),
+    relation:document.getElementById("relation").value.trim(),
+    birthDate:document.getElementById("birthDate").value,
+    status:document.getElementById("statusPerson").value,
+    birthPlace:document.getElementById("birthPlace").value.trim(),
+    marriage:document.getElementById("marriage").value.trim(),
+    familyBefore:document.getElementById("familyBefore").value.trim(),
+    story:document.getElementById("story").value.trim(),
+    notes:document.getElementById("notes").value.trim()
+  };
+
+  if(!person.name){
+    alert("कृपया सदस्य का नाम लिखें।");
+    return;
+  }
+
+  const index=people.findIndex(p=>p.id===id);
+  if(index>=0) people[index]=person;
+  else people.push(person);
+
+  saveToStorage();
+  closeDialog("editDialog");
+  render();
+}
+
+function deletePerson(id){
+  if(!adminMode)return;
+  const person=people.find(p=>p.id===id);  if(!person)return;
+
+  if(confirm(`क्या आप "${person.name}" की जानकारी हटाना चाहते हैं?`)){
+    people=people.filter(p=>p.id!==id);
+    saveToStorage();
+    render();
+  }
+}
+
+function exportBackup(){
+  if(!adminMode)return;
+  const blob=new Blob([JSON.stringify(people,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;
+  a.download="family-heritage-backup.json";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function importBackup(event){
+  if(!adminMode){
+    event.target.value="";
+    openLogin();
+    return;
+  }
+
+  const file=event.target.files?.[0];
+  if(!file)return;
+
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const imported=JSON.parse(reader.result);
+      if(!Array.isArray(imported))throw new Error("Invalid format");
+
+      const valid=imported.every(p=>
+        p && typeof p==="object" &&
+        typeof p.name==="string" &&
+        typeof p.category==="string" &&p.category!=="देवता"
+      );
+      if(!valid)throw new Error("Invalid member data");
+
+      if(confirm("बैकअप इम्पोर्ट करने से वर्तमान सदस्य-सूची बदल जाएगी। आगे बढ़ें?")){
+        people=imported.map(p=>({
+          id:String(p.id||("person-"+Math.random().toString(36).slice(2))),
+          category:p.category,
+          name:p.name,
+          relation:String(p.relation||""),
+          birthDate:String(p.birthDate||""),
+          status:String(p.status||""),
+          birthPlace:String(p.birthPlace||""),
+          marriage:String(p.marriage||""),
+          familyBefore:String(p.familyBefore||""),
+          story:String(p.story||""),
+          notes:String(p.notes||"")
+        }));
+        saveToStorage();
+        render();
+        alert("बैकअप इम्पोर्ट हो गया।");
+      }
+    }catch(error){
+      alert("यह बैकअप फ़ाइल सही नहीं है।");
+    }
+    event.target.value="";
+  };
+  reader.readAsText(file);
+}
+
+render();
+</script>
+</body>
+</html>
