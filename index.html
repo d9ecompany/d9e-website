@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>DEEPAK YADAV 9E</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  color: #182235;
+}
+
+header {
+  background: #101827;
+  color: white;
+  padding: 25px 18px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 27px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+header p {
+  color: #b9c3d2;
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 13px;
+  background: white;
+  border-bottom: 1px solid #e5e9ef;
+}
+
+nav button {
+  border: none;
+  background: #eef1f5;
+  padding: 10px 15px;
+  border-radius: 7px;
+  color: #182235;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+nav button.active,
+nav button:hover {
+  background: #182235;
+  color: white;
+}
+
+.container {
+  max-width: 1050px;
+  margin: auto;
+  padding: 22px 15px;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+.heading {
+  font-size: 21px;
+  margin-bottom: 8px;
+}
+
+.subheading {
+  color: #718096;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.hero {
+  background: white;
+  border: 1px solid #e6eaf0;
+  border-radius: 12px;
+  padding: 28px 20px;
+  margin-bottom: 22px;
+}
+
+.hero h2 {
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #667085;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.stat {
+  background: white;
+  padding: 18px 10px;
+  border: 1px solid #e6eaf0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  font-size: 23px;
+  color: #182235;
+}
+
+.stat span {
+  color: #718096;
+  font-size: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  border: 1px solid #e5e9ef;
+  border-radius: 10px;
+}
+
+.card h3 {
+  font-size: 17px;
+  margin-bottom: 9px;
+}
+
+.card p {
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.tag {
+  display: inline-block;
+  background: #eef2f7;
+  color: #34445c;
+  border-radius: 5px;
+  padding: 5px 8px;
+  margin-top: 10px;
+  font-size: 11px;
+}
+
+.search {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #dce2e9;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search:focus,
+input:focus,
+textarea:focus {
+  border-color: #34445c;
+}
+
+.tree {
+  border-left: 2px solid #cbd5e1;
+  margin: 20px 0 20px 12px;
+  padding-left: 22px;
+}
+
+.tree-item {
+  position: relative;
+  background: white;
+  border: 1px solid #e5e9ef;
+  padding: 15px;
+  margin-bottom: 14px;
+  border-radius: 9px;
+}
+
+.tree-item::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 23px;
+  width: 22px;
+  border-top: 2px solid #cbd5e1;
+}
+
+.tree-item h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.tree-item p {
+  font-size: 13px;
+  color: #718096;
+}
+
+form {
+  background: white;
+  border: 1px solid #e5e9ef;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+form label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 13px 0 6px;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dce2e9;
+  border-radius: 7px;
+  font-size: 14px;
+  background: white;
+}
+
+form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.primary {
+  background: #182235;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 18px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.secondary {
+  background: #eef1f5;
+  color: #182235;
+  border: none;
+  padding: 9px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  color: #8993a2;
+  font-size: 12px;
+  margin-top: 30px;
+  border-top: 1px solid #e5e9ef;
+}
+
+.notice {
+  background: #fff8e8;
+  color: #76551c;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 15px 0;
+}
+
+@media(max-width:500px) {
+  header h1 {
+    font-size: 22px;
+  }
+
+  .stats {
+    gap: 7px;
+  }
+
+  .stat {
+    padding: 14px 5px;
+  }
+
+  .stat strong {
+    font-size: 19px;
+  }
+
+  nav button {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>DEEPAK YADAV 9E</h1>
+  <p>FAMILY RECORD &amp; HISTORY</p>
+</header>
+
+<nav>
+  <button class="active" onclick="showSection('home',this)">Home</button>
+  <button onclick="showSection('tree',this)">Family Tree</button>
+  <button onclick="showSection('members',this)">Members</button>
+  <button onclick="showSection('history',this)">History</button>
+  <button onclick="showSection('add',this)">Add Member</button>
+</nav>
+
+<main class="container">
+
+<!-- HOME -->
+<section id="home" class="section active">
+
+  <div class="hero">
+    <h2>Family Archive</h2>
+    <p>
+      A private place to organize family members,
+      family history, relationships and important records.
+    </p>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong id="totalCount">7</strong>
+      <span>Family Records</span>
+    </div>
+
+    <div class="stat">
+      <strong>3</strong>
+      <span>Generations &amp; Children</span>
+    </div>
+
+    <div class="stat">
+      <strong>1800</strong>
+      <span>Approx. Earliest Year</span>
+    </div>
+  </div>
+
+  <h2 class="heading">Family Overview</h2>
+  <p class="subheading">Explore the available family records.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Family Tree</h3>
+      <p>View the recorded family generations and known ancestors.</p>
+      <button class="primary" onclick="showSection('tree')">Open Family Tree</button>
+    </div>
+
+    <div class="card">
+      <h3>Family Members</h3>
+      <p>Find names and available details of family members.</p>
+      <button class="primary" onclick="showSection('members')">View Members</button>
+    </div>
+
+    <div class="card">
+      <h3>Family History</h3>
+      <p>Explore the earliest known family records.</p>
+      <button class="primary" onclick="showSection('history')">View History</button>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY TREE -->
+<section id="tree" class="section">
+  <h2 class="heading">Family Tree</h2>
+  <p class="subheading">Known family records, arranged by generation.</p>
+
+  <div class="tree">
+    <div class="tree-item">
+      <h3>Gilli Baba</h3>
+      <p>Birth: Approximately 1800</p>
+      <span class="tag">Earliest known ancestor</span>
+    </div>
+
+    <div class="tree-item">
+      <h3>Baba Kalicharan</h3>
+      <p>Born: 1926</p>
+      <p>Died: 1996</p>
+      <span class="tag">Ancestor record</span>
+    </div>
+
+    <div class="tree-item">
+      <h3>Recorded Names</h3>
+      <p>Dai Jashodiya Veva</p>
+      <p>Ratiya Devi</p>
+      <p>Jasudiya Devi</p>
+      <span class="tag">Name verification pending</span>
+    </div>
+
+    <div class="tree-item">
+      <h3>Sharda</h3>
+      <p>Born: 01 January 1975</p>
+      <span class="tag">Father</span>
+    </div>
+
+    <div class="tree-item">
+      <h3>Beta Devi</h3>
+      <p>Date of birth: Not provided</p>
+      <span class="tag">Mother</span>
+    </div>
+
+    <div class="tree-item">
+      <h3>Deepak</h3>
+      <p>Born: 01 January 2008</p>
+      <span class="tag">Family member</span>
+    </div>
+
+    <div class="tree-item">
+      <h3>Kuldeep</h3>
+      <p>Born: 01 January 2010</p>
+      <span class="tag">Family member</span>
+    </div>
+
+    <div class="tree-item">
+      <h3>Sandeep</h3>
+      <p>Born: 01 January 2014</p>
+      <span class="tag">Family member</span>
+    </div>
+  </div>
+
+  <div class="notice">
+    Some historical relationships and name spellings are still being verified.
+    This is a preliminary record, not a confirmed relationship chart.
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section id="members" class="section">
+  <h2 class="heading">Family Members</h2>
+  <p class="subheading">Search through the saved family records.</p>
+
+  <input class="search" id="searchBox"
+    type="text" placeholder="Search by name..."
+    oninput="searchMembers()">
+
+  <div class="grid" id="memberList"></div>
+</section>
+
+<!-- HISTORY -->
+<section id="history" class="section">
+  <h2 class="heading">Family History</h2>
+  <p class="subheading">Historical information currently available.</p>
+
+  <div class="card">
+    <h3>Gilli Baba</h3>
+    <p>Earliest known ancestor in the current family records.</p>
+    <p>Approximate birth year: 1800</p>
+  </div>
+
+  <br>
+
+  <div class="card">
+    <h3>Baba Kalicharan</h3>
+    <p>Birth year: 1926</p>
+    <p>Year of death: 1996</p>
+  </div>
+
+  <br>
+
+  <div class="card">
+    <h3>Historical Name Records</h3>
+    <p>Dai Jashodiya Veva</p>
+    <p>Ratiya Devi</p>
+    <p>Jasudiya Devi</p>
+    <p>These names are retained until the correct name is confirmed.</p>
+  </div>
+</section>
+
+<!-- ADD MEMBER -->
+<section id="add" class="section">
+  <h2 class="heading">Add Family Member</h2>
+  <p class="subheading">Add another record to this device's family archive.</p>
+
+  <form id="memberForm">
+    <label>Full Name</label>
+    <input id="personName" type="text" required placeholder="Enter name">
+
+    <label>Date of Birth</label>
+    <input id="personDob" type="date">
+
+    <label>Relationship</label>
+    <input id="personRelation" type="text" placeholder="Example: Uncle, Aunt">
+
+    <label>Additional Information</label>
+    <textarea id="personInfo" placeholder="Enter any additional details"></textarea>
+
+    <button class="primary" type="submit">Save Member</button>
+  </form>
+
+  <p class="subheading" style="margin-top:15px">
+    Records are saved in this browser on this device.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  DEEPAK YADAV 9E
+  <br><br>
+  Family Records &amp; History
+</footer>
+
+<script>
+const defaultMembers = [
+  {name:"Gilli Baba",dob:"",relation:"Earliest known ancestor",info:"Approximate birth year 1800"},
+  {name:"Baba Kalicharan",dob:"",relation:"Ancestor",info:"Born 1926; died 1996"},
+  {name:"Dai Jashodiya Veva",dob:"",relation:"Recorded name",info:"Name verification pending"},
+  {name:"Ratiya Devi",dob:"",relation:"Recorded name",info:"Possible name; not confirmed"},
+  {name:"Jasudiya Devi",dob:"",relation:"Recorded name",info:"Alternative recorded name"},
+  {name:"Sharda",dob:"1975-01-01",relation:"Father",info:""},
+  {name:"Beta Devi",dob:"",relation:"Mother",info:"Date of birth not provided"},
+  {name:"Deepak",dob:"2008-01-01",relation:"Family member",info:""},
+  {name:"Kuldeep",dob:"2010-01-01",relation:"Family member",info:""},
+  {name:"Sandeep",dob:"2014-01-01",relation:"Family member",info:""}
+];
+
+let members = JSON.parse(localStorage.getItem("dy9e_members") || "null");
+
+if (!members) {
+  members = defaultMembers;
+  saveMembers();
+}
+
+function saveMembers() {
+  localStorage.setItem("dy9e_members", JSON.stringify(members));
+}
+
+function showSection(id, button) {
+  document.querySelectorAll(".section").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+
+  document.querySelectorAll("nav button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  if (button) button.classList.add("active");
+
+  if (id === "members") renderMembers();
+}
+
+function renderMembers(list = members) {
+  const container = document.getElementById("memberList");
+  container.innerHTML = "";
+
+  list.forEach((person, index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const heading = document.createElement("h3");
+    heading.textContent = person.name;
+
+    const relation = document.createElement("p");
+    relation.textContent = person.relation || "Relationship not specified";
+
+    const dob = document.createElement("p");
+    dob.textContent = person.dob
+      ? "Date of birth: " + person.dob
+      : "Date of birth: Not provided";
+
+    const info = document.createElement("p");
+    info.textContent = person.info || "";
+
+    card.append(heading, relation, dob, info);
+
+    if (index >= defaultMembers.length) {
+      const remove = document.createElement("button");
+      remove.className = "secondary";
+      remove.style.marginTop = "12px";
+      remove.textContent = "Delete Record";
+      remove.onclick = () => {
+        if (confirm("Delete this family record?")) {
+          members.splice(index, 1);
+          saveMembers();
+          renderMembers();
+          updateCount();
+        }
+      };
+      card.appendChild(remove);
+    }
+
+    container.appendChild(card);
+  });
+}
+
+function searchMembers() {
+  const query = document.getElementById("searchBox").value.toLowerCase();
+
+  const filtered = members.filter(person =>
+    (person.name + " " + person.relation + " " + person.info)
+    .toLowerCase().includes(query)
+  );
+
+  renderMembers(filtered);
+}
+
+document.getElementById("memberForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("personName").value.trim();
+  const dob = document.getElementById("personDob").value;
+  const relation = document.getElementById("personRelation").value.trim();
+  const info = document.getElementById("personInfo").value.trim();
+
+  if (!name) return;
+
+  members.push({name, dob, relation, info});
+  saveMembers();
+
+  this.reset();
+  updateCount();
+
+  alert("Family member saved successfully.");
+  showSection("members");
+  renderMembers();
+});
+
+function updateCount() {
+  document.getElementById("totalCount").textContent = members.length;
+}
+
+updateCount();
+renderMembers();
+</script>
+
+</body>
+</html>
