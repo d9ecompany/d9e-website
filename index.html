@@ -2,442 +2,701 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1020">
 <title>DEEPAK 9E PRIVATE HUB</title>
 
 <style>
+:root{
+ --bg:#090e1b;--panel:#121c30;--panel2:#192740;
+ --gold:#d8b66e;--gold2:#f2d99d;
+ --white:#f5f5f5;--muted:#aab5c8;
+ --line:#2b3b56;--red:#8c3d48;--blue:#28476c;
+}
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#0b0d12;
-  color:#f5f5f5;
+body{margin:0;background:var(--bg);color:var(--white);
+ font-family:Arial,sans-serif}
+header{padding:24px 18px;background:linear-gradient(120deg,#172844,#090e1b);
+ border-bottom:1px solid var(--line)}
+.header-inner,.container{max-width:1100px;margin:auto}
+.logo{font-size:25px;font-weight:800;letter-spacing:2px;color:var(--gold2)}
+.subtitle{font-size:11px;color:var(--muted);margin-top:7px;letter-spacing:1px}
+.container{padding:20px}
+.welcome{padding:23px;border:1px solid #665535;border-radius:15px;
+ background:linear-gradient(120deg,#1d2b45,#111a2b);margin-bottom:23px}
+.welcome h2{color:var(--gold2);margin:0 0 8px}
+p{color:var(--muted);line-height:1.6}
+h2,h3{color:var(--gold2)}
+h2{font-size:21px}
+h3{font-size:16px}
+.system-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+ gap:13px;margin:17px 0 25px}
+.system-card{min-height:125px;text-align:left;padding:17px;
+ border-radius:13px;background:var(--panel);border:1px solid var(--line);
+ color:white;cursor:pointer;transition:.2s}
+.system-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.system-icon{font-size:27px;display:block;margin-bottom:13px}
+.system-card strong{display:block;color:var(--gold2);font-size:14px}
+.system-card small{display:block;color:var(--muted);margin-top:7px}
+.panel{display:none;background:var(--panel);border:1px solid var(--line);
+ border-radius:15px;padding:20px;margin:18px 0}
+.panel.active{display:block}
+.panel-head{display:flex;align-items:center;justify-content:space-between;
+ flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--line);
+ padding-bottom:13px;margin-bottom:17px}
+.tag{display:inline-block;border:1px solid #6b5936;color:var(--gold2);
+ padding:5px 10px;border-radius:20px;font-size:11px}
+.btn{padding:11px 15px;background:#263955;color:white;
+ border:1px solid #425775;border-radius:8px;cursor:pointer;margin:4px 3px 4px 0}
+.btn:hover{border-color:var(--gold);background:#304766}
+.btn.gold{background:var(--gold);color:#161616;border-color:var(--gold);font-weight:bold}
+.btn.red{background:#542c36;border-color:#77424c}
+.btn.small{padding:7px 10px;font-size:12px}
+input,textarea,select{width:100%;padding:12px;margin:6px 0 13px;
+ background:#090f1b;color:white;border:1px solid #354762;
+ border-radius:8px;font-size:14px}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+textarea{min-height:95px;resize:vertical}
+label{font-size:12px;color:var(--gold2)}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px 13px}
+.card{background:var(--panel2);border:1px solid var(--line);
+ border-radius:11px;padding:15px;margin:12px 0;overflow-wrap:anywhere}
+.card strong{color:var(--gold2)}
+.card p{margin:6px 0}
+.profile{background:#101a2d;border:1px solid #4d4b3c;border-radius:12px;padding:18px}
+.profile-name{font-size:23px;color:var(--gold2);font-weight:bold}
+.muted{color:var(--muted);font-size:12px}
+.empty{text-align:center;padding:20px;color:var(--muted)}
+a{color:#a9cbff;overflow-wrap:anywhere}
+.hidden{display:none!important}
+hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+footer{text-align:center;color:#77849a;font-size:12px;padding:25px}
+#toast{display:none;position:fixed;bottom:18px;left:50%;
+ transform:translateX(-50%);background:#1d3451;border:1px solid var(--gold);
+ color:white;padding:12px 18px;border-radius:9px;z-index:99}
+@media(max-width:600px){
+ .container{padding:13px}.panel{padding:14px}.logo{font-size:21px}
+ .system-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-header{
-  padding:25px 18px;
-  background:#141821;
-  border-bottom:1px solid #303642;
-  text-align:center;
-}
-header h1{margin:0;font-size:25px;letter-spacing:1px}
-header p{color:#aeb5c2;font-size:12px}
-.container{max-width:1050px;margin:auto;padding:18px}
-nav{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:10px;
-  margin-bottom:22px;
-}
-nav button,.action{
-  background:#202632;
-  color:white;
-  border:1px solid #394354;
-  padding:13px;
-  border-radius:9px;
-  cursor:pointer;
-}
-nav button:hover,.action:hover{background:#303b4d}
-section{
-  display:none;
-  background:#141821;
-  border:1px solid #303642;
-  border-radius:13px;
-  padding:20px;
-  margin-bottom:18px;
-}
-section.active{display:block}
-h2{margin-top:0}
-h3{color:#dce3ef}
-p,.muted{color:#b8c0ce;line-height:1.6}
-.card{
-  background:#1c222e;
-  border:1px solid #343d4c;
-  border-radius:10px;
-  padding:15px;
-  margin:12px 0;
-  overflow-wrap:anywhere;
-}
-input,textarea{
-  width:100%;
-  padding:12px;
-  margin:6px 0 12px;
-  background:#0e1219;
-  color:white;
-  border:1px solid #394354;
-  border-radius:7px;
-}
-textarea{min-height:85px;resize:vertical}
-button{font-size:14px}
-.action{margin:4px 3px 4px 0}
-.danger{background:#51252b}
-a{color:#9dc4ff;overflow-wrap:anywhere}
-footer{text-align:center;color:#828b9a;padding:25px;font-size:12px}
-.small{font-size:12px;color:#9ca6b5}
 </style>
 </head>
 
 <body>
-
 <header>
-  <h1>DEEPAK 9E PRIVATE HUB</h1>
-  <p>Personal Management • Family • Life • Gaming • Payment</p>
+ <div class="header-inner">
+  <div class="logo">DEEPAK 9E</div>
+  <div class="subtitle">PRIVATE HUB · PERSONAL MANAGEMENT SYSTEM</div>
+ </div>
 </header>
 
-<div class="container">
+<main class="container">
 
-<nav>
-  <button onclick="showSection('family')">Family System</button>
-  <button onclick="showSection('real')">Deepak9E Real Life</button>
-  <button onclick="showSection('data')">Data Centre</button>
-  <button onclick="showSection('gaming')">Jalao Gaming</button>
-  <button onclick="showSection('payment')">Payment System</button>
-</nav>
-
-<!-- 1. FAMILY SYSTEM -->
-<section id="family" class="active">
-  <h2>Family System</h2>
-  <p>Family members, family records and family history.</p>
-
-  <button class="action" onclick="unlock('family')">Unlock Family</button>
-  <div id="familyContent" style="display:none">
-    <h3>Family Members</h3>
-    <div id="familyRecords"></div>
-
-    <h3>Add Family Member</h3>
-    <input id="familyName" placeholder="Full Name">
-    <input id="familyDob" placeholder="Date of Birth">
-    <input id="familyRelation" placeholder="Relationship">
-    <textarea id="familyInfo" placeholder="Additional information"></textarea>
-    <button class="action" onclick="addRecord('family')">Save Family Member</button>
-  </div>
-</section>
-
-<!-- 2. DEEPAK9E REAL LIFE -->
-<section id="real">
-  <h2>Deepak9E Real Life System</h2>
-
-  <div class="card">
-    <h3>About Deepak9E</h3>
-    <p>Personal Profile • Life History • Memories • Future Goals</p>
-    <p><b>Contact Email:</b>
-      <a href="mailto:deepak.yadav.84850@gmail.com">
-        deepak.yadav.84850@gmail.com
-      </a>
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Social Media</h3>
-    <p>YouTube: <a href="https://youtube.com/@deepak9e" target="_blank">@deepak9e</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/deepak9e_" target="_blank">@deepak9e_</a></p>
-    <p>Facebook: <a href="https://www.facebook.com/share/18fCSUMbzC/" target="_blank">Deepak9E</a></p>
-    <p>X: <a href="https://x.com/Deepakyadav9e" target="_blank">@Deepakyadav9e</a></p>
-  </div>
-
-  <h3>Personal Notes</h3>
-  <textarea id="realNotes" placeholder="Write your introduction, life history, memories and goals..."></textarea>
-  <button class="action" onclick="saveNotes()">Save Personal Notes</button>
-</section>
-
-<!-- 3. DATA CENTRE -->
-<section id="data">
-  <h2>Data Centre</h2>
-  <p>Manage up to 1,520 account information records.</p>
-
-  <button class="action" onclick="unlock('data')">Unlock Data Centre</button>
-
-  <div id="dataContent" style="display:none">
-    <input id="dataSearch" placeholder="Search account records..." oninput="renderRecords('data')">
-
-    <h3>Add Account Record</h3>
-    <input id="dataName" placeholder="Account / Platform Name">
-    <input id="dataUser" placeholder="Username / User ID">
-    <input id="dataEmail" placeholder="Email Address">
-    <input id="dataRecovery" placeholder="Recovery Email (optional)">
-    <input id="dataLink" placeholder="Login Link">
-    <textarea id="dataInfo" placeholder="Notes (do not enter passwords here)"></textarea>
-    <button class="action" onclick="addRecord('data')">Save Account Record</button>
-
-    <h3>Saved Account Records</h3>
-    <div id="dataRecords"></div>
-  </div>
-</section>
-
-<!-- 4. JALAO GAMING -->
-<section id="gaming">
-  <h2>Jalao Gaming System</h2>
-
-  <div class="card">
-    <h3>Gaming Profile</h3>
-    <p><b>Brand:</b> JALAO GAMING</p>
-    <p><b>Free Fire UID:</b> 4208179939</p>
-    <p><b>Guild ID:</b> 3044316623</p>
-    <p><b>Email:</b>
-      <a href="mailto:Deepak.yadav.848502@gmail.com">
-        Deepak.yadav.848502@gmail.com
-      </a>
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Gaming Social Media</h3>
-    <p>Instagram: <a href="https://www.instagram.com/jalaogaminghq" target="_blank">@jalaogaminghq</a></p>
-    <p>YouTube: <a href="https://youtube.com/@jalaogaming" target="_blank">@jalaogaming</a></p>
-    <p>Facebook: <a href="https://www.facebook.com/share/1FUDg87qo6/" target="_blank">Jalao Gaming</a></p>
-  </div>
-
-  <h3>Gaming History & Projects</h3>
-  <textarea id="gamingNotes" placeholder="Add gaming history, channel details and future projects..."></textarea>
-  <button class="action" onclick="saveNotes()">Save Gaming Notes</button>
-</section>
-
-<!-- 5. PAYMENT SYSTEM -->
-<section id="payment">
-  <h2>Payment System</h2>
-
-  <div class="card">
-    <h3>UPI Payment</h3>
-    <p>Use the button below to open a supported UPI payment app.</p>
-    <button class="action" onclick="payNow()">Pay Now</button>
-    <p class="small">The UPI ID is not displayed on this page.</p>
-  </div>
-
-  <div class="card">
-    <h3>Payment Records</h3>
-    <input id="paymentNote" placeholder="Payment purpose / reference">
-    <input id="paymentAmount" type="number" placeholder="Amount (₹)">
-    <button class="action" onclick="addPayment()">Add Payment Record</button>
-    <div id="paymentRecords"></div>
-  </div>
-</section>
-
+<div class="welcome">
+ <h2>Welcome to Private Hub</h2>
+ <p>One place to manage family records, personal life, gaming information and payments.</p>
 </div>
 
-<footer>
-  DEEPAK 9E PRIVATE HUB<br>
-  Personal Website
-</footer>
+<h3>MAIN SYSTEMS</h3>
+
+<div class="system-grid">
+ <button class="system-card" onclick="openSystem('family')">
+  <span class="system-icon">♧</span><strong>Family System</strong>
+  <small>Family members and history</small>
+ </button>
+ <button class="system-card" onclick="openSystem('real')">
+  <span class="system-icon">◈</span><strong>Deepak9E Real Life</strong>
+  <small>Profile, memories and goals</small>
+ </button>
+ <button class="system-card" onclick="openSystem('data')">
+  <span class="system-icon">▣</span><strong>Data Centre</strong>
+  <small>Account information records</small>
+ </button>
+ <button class="system-card" onclick="openSystem('gaming')">
+  <span class="system-icon">✦</span><strong>Jalao Gaming</strong>
+  <small>Gaming profile and channels</small>
+ </button>
+ <button class="system-card" onclick="openSystem('payment')">
+  <span class="system-icon">₹</span><strong>Payment System</strong>
+  <small>UPI and payment records</small>
+ </button>
+</div>
+
+<!-- FAMILY SYSTEM -->
+<section id="family" class="panel">
+ <div class="panel-head">
+  <div><span class="tag">SYSTEM 01</span><h2>Family System</h2></div>
+  <button class="btn" onclick="goHome()">← Dashboard</button>
+ </div>
+
+ <div id="familyLocked">
+  <h3>Family Security</h3>
+  <p>Enter your shared 8-digit PIN.</p>
+  <input id="familyPin" type="password" inputmode="numeric" maxlength="8"
+   placeholder="Enter 8-digit PIN">
+  <button class="btn gold" onclick="unlockSystem('family')">Unlock Family</button>
+ </div>
+
+ <div id="familyContent" class="hidden">
+  <div class="panel-head">
+   <h3>Family Members</h3>
+   <button class="btn red small" onclick="lockSystem('family')">Lock System</button>
+  </div>
+  <input id="familySearch" placeholder="Search family member..." oninput="renderFamily()">
+  <div id="familyRecords"></div>
+  <hr>
+  <h3 id="familyFormTitle">Add Family Member</h3>
+  <input type="hidden" id="familyEditIndex" value="-1">
+  <div class="form-grid">
+   <div><label>Full Name</label><input id="fName" placeholder="Full name"></div>
+   <div><label>Other Names</label><input id="fOther" placeholder="Other names"></div>
+   <div><label>Date of Birth</label><input id="fDob" placeholder="DD-MM-YYYY or unknown"></div>
+   <div><label>Place of Birth</label><input id="fPlace" placeholder="Birth place"></div>
+   <div><label>Date of Death</label><input id="fDeath" placeholder="If applicable"></div>
+   <div><label>Relationship</label><input id="fRelation" placeholder="Relationship"></div>
+   <div><label>Father's Name</label><input id="fFather" placeholder="Father's name"></div>
+   <div><label>Mother's Name</label><input id="fMother" placeholder="Mother's name"></div>
+   <div><label>Grandfather's Name</label><input id="fGrandfather" placeholder="Grandfather"></div>
+   <div><label>Grandmother's Name</label><input id="fGrandmother" placeholder="Grandmother"></div>
+  </div>
+  <label>Personal Introduction / Life History</label>
+  <textarea id="fHistory" placeholder="Write the person's life history..."></textarea>
+  <label>Important Events / Additional Information</label>
+  <textarea id="fExtra" placeholder="Add important memories and information..."></textarea>
+  <button class="btn gold" onclick="saveFamily()">Save Family Member</button>
+  <button class="btn" onclick="clearFamilyForm()">Clear Form</button>
+ </div>
+</section>
+
+<!-- REAL LIFE -->
+<section id="real" class="panel">
+ <div class="panel-head">
+  <div><span class="tag">SYSTEM 02</span><h2>Deepak9E Real Life</h2></div>
+  <button class="btn" onclick="goHome()">← Dashboard</button>
+ </div>
+
+ <div class="card">
+  <h3>Personal Profile</h3>
+  <p><strong>Name:</strong> Deepak Yadav</p>
+  <p><strong>Brand:</strong> Deepak9E</p>
+  <p><strong>Official Contact:</strong>
+   <a href="mailto:deepak.yadav.84850@gmail.com">deepak.yadav.84850@gmail.com</a></p>
+  <p><strong>Other Contact:</strong>
+   <a href="mailto:deepak.yadav.848502@gmail.com">deepak.yadav.848502@gmail.com</a></p>
+ </div>
+
+ <div class="card">
+  <h3>Social Media Profiles</h3>
+  <p>YouTube: <a href="https://youtube.com/@deepak9e" target="_blank">@deepak9e</a></p>
+  <p>Instagram: <a href="https://www.instagram.com/deepak9e_" target="_blank">@deepak9e_</a></p>
+  <p>Facebook: <a href="https://www.facebook.com/share/18fCSUMbzC/" target="_blank">Deepak9E</a></p>
+  <p>X: <a href="https://x.com/Deepakyadav9e" target="_blank">@Deepakyadav9e</a></p>
+ </div>
+
+ <h3>Personal Information</h3>
+ <label>About Me</label>
+ <textarea id="realAbout" placeholder="Write about yourself..."></textarea>
+ <label>Life History</label>
+ <textarea id="realHistory" placeholder="Write your life history..."></textarea>
+ <label>Important Memories</label>
+ <textarea id="realMemories" placeholder="Write your memories..."></textarea>
+ <label>Future Goals</label>
+ <textarea id="realGoals" placeholder="Write your future goals..."></textarea>
+ <button class="btn gold" onclick="saveReal()">Save Personal Details</button>
+</section>
+
+<!-- DATA CENTRE -->
+<section id="data" class="panel">
+ <div class="panel-head">
+  <div><span class="tag">SYSTEM 03</span><h2>Data Centre</h2></div>
+  <button class="btn" onclick="goHome()">← Dashboard</button>
+ </div>
+
+ <div id="dataLocked">
+  <h3>Data Centre Security</h3>
+  <p>Enter your shared 8-digit PIN.</p>
+  <input id="dataPin" type="password" inputmode="numeric" maxlength="8"
+   placeholder="Enter 8-digit PIN">
+  <button class="btn gold" onclick="unlockSystem('data')">Unlock Data Centre</button>
+ </div>
+
+ <div id="dataContent" class="hidden">
+  <div class="panel-head">
+   <h3>Account Records <span class="tag">Maximum 1,520</span></h3>
+   <button class="btn red small" onclick="lockSystem('data')">Lock System</button>
+  </div>
+  <p class="muted">For real account passwords, use a trusted password manager. This browser-only version is not a secure password vault.</p>
+  <input id="dataSearch" placeholder="Search accounts..." oninput="renderData()">
+
+  <h3 id="dataFormTitle">Add Account Record</h3>
+  <input type="hidden" id="dataEditIndex" value="-1">
+  <div class="form-grid">
+   <div><label>Platform / Account Name</label><input id="dName" placeholder="Platform name"></div>
+   <div><label>Username / User ID</label><input id="dUser" placeholder="Username"></div>
+   <div><label>Email Address</label><input id="dEmail" placeholder="Email"></div>
+   <div><label>Recovery Email</label><input id="dRecovery" placeholder="Recovery email"></div>
+   <div><label>Mobile Number (optional)</label><input id="dMobile" placeholder="Mobile"></div>
+   <div><label>Login Link</label><input id="dLink" placeholder="https://..."></div>
+  </div>
+  <label>Notes (no passwords)</label>
+  <textarea id="dNotes" placeholder="Add account notes. Keep passwords in a trusted password manager."></textarea>
+  <button class="btn gold" onclick="saveData()">Save Account</button>
+  <button class="btn" onclick="clearDataForm()">Clear Form</button>
+
+  <hr>
+  <h3>Saved Accounts</h3>
+  <div id="dataRecords"></div>
+ </div>
+</section>
+
+<!-- JALAO GAMING -->
+<section id="gaming" class="panel">
+ <div class="panel-head">
+  <div><span class="tag">SYSTEM 04</span><h2>Jalao Gaming</h2></div>
+  <button class="btn" onclick="goHome()">← Dashboard</button>
+ </div>
+
+ <div class="card">
+  <h3>Gaming Profile</h3>
+  <p><strong>Gaming Brand:</strong> JALAO GAMING</p>
+  <p><strong>Free Fire UID:</strong> 4208179939</p>
+  <p><strong>Guild ID:</strong> 3044316623</p>
+  <p><strong>Email:</strong> <a href="mailto:Deepak.yadav.848502@gmail.com">Deepak.yadav.848502@gmail.com</a></p>
+ </div>
+
+ <div class="card">
+  <h3>Gaming Social Media</h3>
+  <p>Instagram: <a href="https://www.instagram.com/jalaogaminghq" target="_blank">@jalaogaminghq</a></p>
+  <p>YouTube: <a href="https://youtube.com/@jalaogaming" target="_blank">@jalaogaming</a></p>
+  <p>Facebook: <a href="https://www.facebook.com/share/1FUDg87qo6/" target="_blank">Jalao Gaming</a></p>
+ </div>
+
+ <label>Gaming History</label>
+ <textarea id="gHistory" placeholder="Write gaming history..."></textarea>
+ <label>Channel Information</label>
+ <textarea id="gChannels" placeholder="Write channel information..."></textarea>
+ <label>Future Gaming Projects</label>
+ <textarea id="gProjects" placeholder="Write future projects..."></textarea>
+ <button class="btn gold" onclick="saveGaming()">Save Gaming Details</button>
+</section>
+
+<!-- PAYMENT -->
+<section id="payment" class="panel">
+ <div class="panel-head">
+  <div><span class="tag">SYSTEM 05</span><h2>Payment System</h2></div>
+  <button class="btn" onclick="goHome()">← Dashboard</button>
+ </div>
+
+ <div class="card">
+  <h3>UPI Payment</h3>
+  <p>Use the button to open a supported UPI app.</p>
+  <label>Payment Amount (₹)</label>
+  <input id="payAmount" type="number" min="1" placeholder="Enter amount">
+  <label>Payment Purpose</label>
+  <input id="payPurpose" placeholder="Enter payment purpose">
+  <button class="btn gold" onclick="payNow()">Pay Now</button>
+  <p class="muted">The UPI ID is hidden from the page. Payment confirmation must be checked in your UPI app or bank account.</p>
+ </div>
+
+ <h3>Payment Records</h3>
+ <div id="paymentRecords"></div>
+</section>
+
+</main>
+
+<footer>DEEPAK 9E PRIVATE HUB · Personal Management</footer>
+<div id="toast"></div>
 
 <script>
-const STORAGE_KEY = "deepak9e_private_hub_v1";
+const KEY="D9E_PRIVATE_HUB_DATA_V2";
+const PINKEY="D9E_PRIVATE_HUB_PIN_HASH";
+const UPI="deepak.yadav.848502-3@okhdfcbank";
 
-let records = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-  family: [
-    {name:"Gilli Baba",dob:"Approx. 1800 (exact date unknown)",relation:"Family ancestor",info:"Exact details not available."},
-    {name:"Baba Kalicharan",dob:"1926 – 1996",relation:"Family ancestor",info:""},
-    {name:"Jashodiya Veva / Ratiya Devi / Jasudiya Devi",dob:"Not Available",relation:"Family member",info:"Names preserved as provided; exact name not confirmed."},
-    {name:"Sharda",dob:"01-01-1975",relation:"Father",info:""},
-    {name:"Beta Devi",dob:"Not Available",relation:"Mother",info:""},
-    {name:"Deepak Yadav",dob:"01-01-2008",relation:"Self",info:""},
-    {name:"Kuldeep",dob:"01-01-2010",relation:"Brother",info:""},
-    {name:"Sandeep",dob:"01-01-2014",relation:"Brother",info:""}
-  ],
-  data: [],
-  payment: []
+const initial={
+ family:[
+  {name:"Gilli Baba",other:"",dob:"Approx. 1800",place:"Not Available",death:"Not Available",relation:"Family ancestor",father:"Not Available",mother:"Not Available",grandfather:"Not Available",grandmother:"Not Available",history:"Exact birth date and life history are not available yet.",extra:"Approximate birth year provided."},
+  {name:"Baba Kalicharan",other:"",dob:"1926",place:"Not Available",death:"1996",relation:"Family ancestor",father:"Not Available",mother:"Not Available",grandfather:"Not Available",grandmother:"Not Available",history:"Detailed life history not added yet.",extra:""},
+  {name:"Jashodiya Veva",other:"Ratiya Devi; Jasudiya Devi",dob:"Not Available",place:"Not Available",death:"Not Available",relation:"Family member",father:"Not Available",mother:"Not Available",grandfather:"Not Available",grandmother:"Not Available",history:"Names are preserved as provided. Exact name and life history are not confirmed.",extra:"Aadhaar-card name: Jashodiya Veva."},
+  {name:"Sharda",other:"",dob:"01-01-1975",place:"Not Available",death:"",relation:"Father",father:"Not Available",mother:"Not Available",grandfather:"Not Available",grandmother:"Not Available",history:"",extra:""},
+  {name:"Beta Devi",other:"",dob:"Not Available",place:"Not Available",death:"",relation:"Mother",father:"Not Available",mother:"Not Available",grandfather:"Not Available",grandmother:"Not Available",history:"",extra:""},
+  {name:"Deepak Yadav",other:"",dob:"01-01-2008",place:"Not Available",death:"",relation:"Self",father:"Sharda",mother:"Beta Devi",grandfather:"Not Available",grandmother:"Not Available",history:"",extra:""},
+  {name:"Kuldeep",other:"",dob:"01-01-2010",place:"Not Available",death:"",relation:"Brother",father:"Sharda",mother:"Beta Devi",grandfather:"Not Available",grandmother:"Not Available",history:"",extra:""},
+  {name:"Sandeep",other:"",dob:"01-01-2014",place:"Not Available",death:"",relation:"Brother",father:"Sharda",mother:"Beta Devi",grandfather:"Not Available",grandmother:"Not Available",history:"",extra:""}
+ ],
+ data:[],
+ payments:[],
+ real:{about:"",history:"",memories:"",goals:""},
+ gaming:{history:"",channels:"",projects:""}
 };
 
-function saveAll(){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+let db;
+try{
+ const saved=localStorage.getItem(KEY);
+ db=saved?JSON.parse(saved):structuredClone(initial);
+}catch(e){db=JSON.parse(JSON.stringify(initial));}
+
+function persist(){
+ try{localStorage.setItem(KEY,JSON.stringify(db));}
+ catch(e){toast("Storage full or unavailable.");}
+}
+function toast(message){
+ const t=document.getElementById("toast");
+ t.textContent=message;t.style.display="block";
+ setTimeout(()=>t.style.display="none",2300);
+}
+function esc(v){
+ return String(v??"").replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[c]));
+}
+function openSystem(id){
+ document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ if(id==="family")renderFamily();
+ if(id==="data")renderData();
+ if(id==="payment")renderPayments();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function goHome(){
+ document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+ window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function showSection(id){
-  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-  renderRecords(id);
+/* Shared PIN setup and verification.
+   This browser-only lock is not a substitute for server authentication. */
+async function hashPin(pin){
+ const bytes=new TextEncoder().encode(pin);
+ const hash=await crypto.subtle.digest("SHA-256",bytes);
+ return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,"0")).join("");
 }
-
-function unlock(id){
-  const key = "hub_lock_" + id;
-  let saved = localStorage.getItem(key);
-
-  if(!saved){
-    let first = prompt("Create a new lock password for " + id + ":");
-    if(!first) return;
-    let second = prompt("Enter the same password again:");
-    if(first !== second){
-      alert("Passwords do not match.");
-      return;
-    }
-    localStorage.setItem(key, first);
-    alert("Lock created. This is only a basic browser lock, not secure authentication.");
-  } else {
-    let entered = prompt("Enter " + id + " password:");
-    if(entered !== saved){
-      alert("Incorrect password.");
-      return;
-    }
+async function unlockSystem(id){
+ const field=document.getElementById(id+"Pin");
+ const pin=field.value.trim();
+ if(!/^\d{8}$/.test(pin)){
+  toast("Enter exactly 8 digits.");return;
+ }
+ let stored=localStorage.getItem(PINKEY);
+ if(!stored){
+  const confirmPin=prompt("Confirm your new shared 8-digit PIN:");
+  if(confirmPin!==pin){
+   toast("PIN confirmation did not match.");return;
   }
-
-  document.getElementById(id + "Content").style.display = "block";
-  renderRecords(id);
-}
-
-function addRecord(type){
-  let item;
-
-  if(type === "family"){
-    item = {
-      name: document.getElementById("familyName").value.trim(),
-      dob: document.getElementById("familyDob").value.trim(),
-      relation: document.getElementById("familyRelation").value.trim(),
-      info: document.getElementById("familyInfo").value.trim()
-    };
-    if(!item.name){alert("Enter a name.");return;}
-    ["familyName","familyDob","familyRelation","familyInfo"].forEach(id=>document.getElementById(id).value="");
+  stored=await hashPin(pin);
+  localStorage.setItem(PINKEY,stored);
+  toast("Shared PIN created.");
+ }else{
+  if(await hashPin(pin)!==stored){
+   toast("Incorrect PIN.");return;
   }
-
-  if(type === "data"){
-    item = {
-      name: document.getElementById("dataName").value.trim(),
-      user: document.getElementById("dataUser").value.trim(),
-      email: document.getElementById("dataEmail").value.trim(),
-      recovery: document.getElementById("dataRecovery").value.trim(),
-      link: document.getElementById("dataLink").value.trim(),
-      info: document.getElementById("dataInfo").value.trim()
-    };
-    if(!item.name){alert("Enter an account name.");return;}
-    if(records.data.length >= 1520){alert("Record limit reached.");return;}
-    ["dataName","dataUser","dataEmail","dataRecovery","dataLink","dataInfo"].forEach(id=>document.getElementById(id).value="");
-  }
-
-  records[type].push(item);
-  saveAll();
-  renderRecords(type);
+ }
+ field.value="";
+ document.getElementById(id+"Locked").classList.add("hidden");
+ document.getElementById(id+"Content").classList.remove("hidden");
+ if(id==="family")renderFamily();
+ if(id==="data")renderData();
+}
+function lockSystem(id){
+ document.getElementById(id+"Locked").classList.remove("hidden");
+ document.getElementById(id+"Content").classList.add("hidden");
+ toast("System locked.");
 }
 
-function escapeHTML(value){
-  return String(value || "").replace(/[&<>"']/g, c => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[c]));
+/* FAMILY */
+const familyFields=["fName","fOther","fDob","fPlace","fDeath","fRelation",
+ "fFather","fMother","fGrandfather","fGrandmother","fHistory","fExtra"];
+const familyProps=["name","other","dob","place","death","relation",
+ "father","mother","grandfather","grandmother","history","extra"];
+
+function clearFamilyForm(){
+ familyFields.forEach(id=>document.getElementById(id).value="");
+ document.getElementById("familyEditIndex").value="-1";
+ document.getElementById("familyFormTitle").textContent="Add Family Member";
+}
+function saveFamily(){
+ const item={};
+ familyFields.forEach((id,i)=>item[familyProps[i]]=document.getElementById(id).value.trim());
+ if(!item.name){toast("Enter the member's name.");return;}
+ const index=Number(document.getElementById("familyEditIndex").value);
+ if(index>=0)db.family[index]=item;else db.family.push(item);
+ persist();clearFamilyForm();renderFamily();toast("Family record saved.");
+}
+function renderFamily(){
+ const box=document.getElementById("familyRecords");
+ if(!box)return;
+ const q=(document.getElementById("familySearch").value||"").toLowerCase();
+ const list=db.family.map((r,i)=>({r,i})).filter(x=>
+  JSON.stringify(x.r).toLowerCase().includes(q));
+ if(!list.length){box.innerHTML='<div class="empty">No family records found.</div>';return;}
+ box.innerHTML=list.map(({r,i})=>`
+ <div class="card">
+  <div class="profile-name">${esc(r.name)}</div>
+  <p><strong>Relationship:</strong> ${esc(r.relation||"Not Available")}</p>
+  <p><strong>Date of Birth:</strong> ${esc(r.dob||"Not Available")}</p>
+  <button class="btn gold small" onclick="viewFamily(${i})">View Full Profile</button>
+  <button class="btn small" onclick="editFamily(${i})">Edit</button>
+  <button class="btn red small" onclick="deleteItem('family',${i})">Delete</button>
+ </div>`).join("");
+}
+function viewFamily(i){
+ con
+ const r=db.family[i];
+ const details=[
+  ["Full Name",r.name],
+  ["Other Names",r.other],
+  ["Date of Birth",r.dob],
+  ["Place of Birth",r.place],
+  ["Date of Death",r.death],
+  ["Relationship",r.relation],
+  ["Father",r.father],
+  ["Mother",r.mother],
+  ["Grandfather",r.grandfather],
+  ["Grandmother",r.grandmother],
+  ["Life History",r.history],
+  ["Important Events / Additional Information",r.extra]
+ ];
+
+ const box=document.getElementById("familyRecords");
+ box.innerHTML=`
+ <div class="profile">
+  <div class="profile-name">${esc(r.name)}</div>
+  <p class="muted">FAMILY MEMBER PROFILE</p>
+  ${details.map(([k,v])=>`
+   <div class="card">
+    <strong>${esc(k)}</strong>
+    <p>${esc(v||"Not Available")}</p>
+   </div>
+  `).join("")}
+  <button class="btn" onclick="renderFamily()">← Back to Family Members</button>
+  <button class="btn" onclick="editFamily(${i})">Edit Profile</button>
+ </div>`;
 }
 
-function renderRecords(type){
-  if(type === "family"){
-    const box = document.getElementById("familyRecords");
-    if(!box) return;
-    box.innerHTML = records.family.map((r,i)=>`
-      <div class="card">
-        <b>${escapeHTML(r.name)}</b>
-        <p>Date: ${escapeHTML(r.dob)}</p>
-        <p>Relationship: ${escapeHTML(r.relation)}</p>
-        <p>${escapeHTML(r.info)}</p>
-        <button class="action" onclick="editRecord('family',${i})">Edit</button>
-        <button class="action danger" onclick="deleteRecord('family',${i})">Delete</button>
-      </div>`).join("");
-  }
-
-  if(type === "data"){
-    const box = document.getElementById("dataRecords");
-    if(!box) return;
-    const q = (document.getElementById("dataSearch")?.value || "").toLowerCase();
-
-    box.innerHTML = records.data.map((r,i)=>({r,i}))
-      .filter(x=>JSON.stringify(x.r).toLowerCase().includes(q))
-      .map(({r,i})=>`
-      <div class="card">
-        <b>${escapeHTML(r.name)}</b>
-        <p>Username: ${escapeHTML(r.user)}</p>
-        <p>Email: ${escapeHTML(r.email)}</p>
-        <p>Recovery: ${escapeHTML(r.recovery)}</p>
-        <p>Login: ${escapeHTML(r.link)}</p>
-        <p>${escapeHTML(r.info)}</p>
-        <button class="action" onclick="editRecord('data',${i})">Edit</button>
-        <button class="action danger" onclick="deleteRecord('data',${i})">Delete</button>
-      </div>`).join("") || "<p>No records found.</p>";
-  }
-
-  if(type === "payment"){
-    const box = document.getElementById("paymentRecords");
-    if(!box) return;
-    box.innerHTML = records.payment.map((r,i)=>`
-      <div class="card">
-        <b>${escapeHTML(r.note)}</b>
-        <p>Amount: ₹${escapeHTML(r.amount)}</p>
-        <p>Status: ${escapeHTML(r.status)}</p>
-        <button class="action" onclick="togglePayment(${i})">Change Status</button>
-        <button class="action danger" onclick="deleteRecord('payment',${i})">Delete</button>
-      </div>`).join("");
-  }
+function editFamily(i){
+ const r=db.family[i];
+ familyFields.forEach((id,n)=>{
+  document.getElementById(id).value=r[familyProps[n]]||"";
+ });
+ document.getElementById("familyEditIndex").value=i;
+ document.getElementById("familyFormTitle").textContent="Edit Family Member";
+ document.getElementById("familyFormTitle").scrollIntoView({behavior:"smooth"});
 }
 
-function editRecord(type,index){
-  let r = records[type][index];
-  let name = prompt("Edit name:",r.name);
-  if(name === null) return;
-  r.name = name;
+function deleteItem(type,i){
+ if(!confirm("Are you sure you want to delete this record?"))return;
+ db[type].splice(i,1);
+ persist();
 
-  if(type === "family"){
-    r.dob = prompt("Edit date:",r.dob) ?? r.dob;
-    r.relation = prompt("Edit relationship:",r.relation) ?? r.relation;
-    r.info = prompt("Edit information:",r.info) ?? r.info;
-  }
+ if(type==="family")renderFamily();
+ if(type==="data")renderData();
+ if(type==="payments")renderPayments();
 
-  if(type === "data"){
-    r.user = prompt("Edit username:",r.user) ?? r.user;
-    r.email = prompt("Edit email:",r.email) ?? r.email;
-    r.recovery = prompt("Edit recovery email:",r.recovery) ?? r.recovery;
-    r.link = prompt("Edit login link:",r.link) ?? r.link;
-    r.info = prompt("Edit notes:",r.info) ?? r.info;
-  }
-
-  saveAll();
-  renderRecords(type);
+ toast("Record deleted.");
 }
 
-function deleteRecord(type,index){
-  if(!confirm("Are you sure you want to delete this record?")) return;
-  records[type].splice(index,1);
-  saveAll();
-  renderRecords(type);
+/* DATA CENTRE */
+
+const dataFields=[
+ "dName","dUser","dEmail","dRecovery","dMobile","dLink","dNotes"
+];
+
+const dataProps=[
+ "name","user","email","recovery","mobile","link","notes"
+];
+
+function clearDataForm(){
+ dataFields.forEach(id=>{
+  document.getElementById(id).value="";
+ });
+ document.getElementById("dataEditIndex").value="-1";
+ document.getElementById("dataFormTitle").textContent="Add Account Record";
 }
 
-function saveNotes(){
-  localStorage.setItem("deepak9e_notes",JSON.stringify({
-    real:document.getElementById("realNotes").value,
-    gaming:document.getElementById("gamingNotes").value
-  }));
-  alert("Notes saved on this browser.");
+function saveData(){
+ const item={};
+
+ dataFields.forEach((id,i)=>{
+  item[dataProps[i]]=document.getElementById(id).value.trim();
+ });
+
+ if(!item.name){
+  toast("Enter account name.");
+  return;
+ }
+
+ const index=Number(document.getElementById("dataEditIndex").value);
+
+ if(index<0&&db.data.length>=1520){
+  toast("Maximum 1,520 records reached.");
+  return;
+ }
+
+ if(index>=0){
+  db.data[index]=item;
+ }else{
+  db.data.push(item);
+ }
+
+ persist();
+ clearDataForm();
+ renderData();
+ toast("Account record saved.");
 }
 
-function loadNotes(){
-  const n = JSON.parse(localStorage.getItem("deepak9e_notes") || "{}");
-  document.getElementById("realNotes").value = n.real || "";
-  document.getElementById("gamingNotes").value = n.gaming || "";
+function renderData(){
+ const box=document.getElementById("dataRecords");
+ if(!box)return;
+
+ const q=(document.getElementById("dataSearch").value||"").toLowerCase();
+
+ const list=db.data.map((r,i)=>({r,i})).filter(x=>
+  JSON.stringify(x.r).toLowerCase().includes(q)
+ );
+
+ if(!list.length){
+  box.innerHTML='<div class="empty">No account records found.</div>';
+  return;
+ }
+
+ box.innerHTML=list.map(({r,i})=>`
+ <div class="card">
+  <strong>${esc(r.name)}</strong>
+  <p>Username: ${esc(r.user||"Not Available")}</p>
+  <p>Email: ${esc(r.email||"Not Available")}</p>
+  <p>Recovery: ${esc(r.recovery||"Not Available")}</p>
+  <p>Mobile: ${esc(r.mobile||"Not Available")}</p>
+  <p>Login: ${r.link
+   ? `<a href="${esc(r.link)}" target="_blank" rel="noopener">Open login page</a>`
+   : "Not Available"}</p>
+  <p>Notes: ${esc(r.notes||"")}</p>
+  <button class="btn small" onclick="editData(${i})">Edit</button>
+  <button class="btn red small" onclick="deleteItem('data',${i})">Delete</button>
+ </div>
+ `).join("");
 }
+
+function editData(i){
+ const r=db.data[i];
+
+ dataFields.forEach((id,n)=>{
+  document.getElementById(id).value=r[dataProps[n]]||"";
+ });
+
+ document.getElementById("dataEditIndex").value=i;
+ document.getElementById("dataFormTitle").textContent="Edit Account Record";
+ document.getElementById("dataFormTitle").scrollIntoView({behavior:"smooth"});
+}
+
+/* PERSONAL AND GAMING DETAILS */
+
+function loadTextFields(){
+ document.getElementById("realAbout").value=db.real.about||"";
+ document.getElementById("realHistory").value=db.real.history||"";
+ document.getElementById("realMemories").value=db.real.memories||"";
+ document.getElementById("realGoals").value=db.real.goals||"";
+
+ document.getElementById("gHistory").value=db.gaming.history||"";
+ document.getElementById("gChannels").value=db.gaming.channels||"";
+ document.getElementById("gProjects").value=db.gaming.projects||"";
+}
+
+function saveReal(){
+ db.real={
+  about:document.getElementById("realAbout").value,
+  history:document.getElementById("realHistory").value,
+  memories:document.getElementById("realMemories").value,
+  goals:document.getElementById("realGoals").value
+ };
+
+ persist();
+ toast("Personal details saved.");
+}
+
+function saveGaming(){
+ db.gaming={
+  history:document.getElementById("gHistory").value,
+  channels:document.getElementById("gChannels").value,
+  projects:document.getElementById("gProjects").value
+ };
+
+ persist();
+ toast("Gaming details saved.");
+}
+
+/* PAYMENT SYSTEM */
 
 function payNow(){
-  const upi = "deepak.yadav.848502-3@okhdfcbank";
-  const uri = "upi://pay?pa=" + encodeURIComponent(upi) + "&cu=INR";
-  window.location.href = uri;
+ const amount=document.getElementById("payAmount").value;
+ const purpose=document.getElementById("payPurpose").value.trim();
+
+ if(!amount||Number(amount)<=0){
+  toast("Enter a valid amount.");
+  return;
+ }
+
+ const uri="upi://pay?pa="+encodeURIComponent(UPI)+
+ "&am="+encodeURIComponent(amount)+
+ "&cu=INR&tn="+encodeURIComponent(purpose||"Payment");
+
+ window.location.href=uri;
 }
 
-function addPayment(){
-  const note = document.getElementById("paymentNote").value.trim();
-  const amount = document.getElementById("paymentAmount").value.trim();
-  if(!note || !amount || Number(amount)<=0){
-    alert("Enter a payment purpose and valid amount.");
-    return;
-  }
-  records.payment.push({note,amount,status:"Pending"});
-  saveAll();
-  document.getElementById("paymentNote").value="";
-  document.getElementById("paymentAmount").value="";
-  renderRecords("payment");
+function renderPayments(){
+ const box=document.getElementById("paymentRecords");
+ if(!box)return;
+
+ if(!db.payments.length){
+  box.innerHTML='<div class="empty">No payment records yet.</div>';
+  return;
+ }
+
+ box.innerHTML=db.payments.map((r,i)=>`
+ <div class="card">
+  <strong>${esc(r.purpose)}</strong>
+  <p>Amount: ₹${esc(r.amount)}</p>
+  <p>Status: ${esc(r.status)}</p>
+  <button class="btn small" onclick="markPayment(${i})">Update Status</button>
+  <button class="btn red small" onclick="deleteItem('payments',${i})">Delete</button>
+ </div>
+ `).join("");
 }
 
-function togglePayment(index){
-  records.payment[index].status =
-    records.payment[index].status === "Pending" ? "Paid (manually marked)" : "Pending";
-  saveAll();
-  renderRecords("payment");
+function markPayment(i){
+ const value=prompt("Enter status: Pending, Paid (verified), or Failed");
+
+ if(!value)return;
+
+ db.payments[i].status=value;
+ persist();
+ renderPayments();
 }
 
-saveAll();
-loadNotes();
-renderRecords("family");
-renderRecords("data");
-renderRecords("payment");
+function addPaymentRecord(purpose,amount){
+ db.payments.push({
+  purpose,
+  amount,
+  status:"Pending"
+ });
+
+ persist();
+ renderPayments();
+}
+
+document.getElementById("payAmount").addEventListener("change",()=>{
+ const amount=document.getElementById("payAmount").value;
+ const purpose=document.getElementById("payPurpose").value.trim();
+
+ if(amount&&Number(amount)>0){
+  addPaymentRecord(purpose||"UPI Payment",amount);
+ }
+});
+
+/* INITIALIZE WEBSITE */
+
+loadTextFields();
+renderFamily();
+renderData();
+renderPayments();
+persist();
+
 </script>
-
 </body>
 </html>
