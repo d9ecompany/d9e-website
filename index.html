@@ -2,433 +2,442 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#111827">
-<title>DEEPAK YADAV 9E</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEEPAK 9E PRIVATE HUB</title>
+
 <style>
-:root{--dark:#111827;--ink:#202b3c;--muted:#718096;--line:#e5eaf0;--bg:#f5f7fa;--white:#fff}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif}
-header{background:var(--dark);color:white;padding:25px 18px;text-align:center}
-header h1{font-size:25px;letter-spacing:2px;margin:0}
-header p{font-size:11px;letter-spacing:2px;color:#aeb9ca;margin:9px 0 0}
-nav{display:flex;gap:7px;overflow-x:auto;padding:12px;background:white;border-bottom:1px solid var(--line)}
-nav button{white-space:nowrap;border:0;background:#eef1f5;padding:10px 13px;border-radius:7px;color:var(--ink);font-weight:bold}
-nav button.active{background:var(--dark);color:white}
-main{max-width:1100px;margin:auto;padding:20px 14px}
-.page{display:none}.page.active{display:block}
-h2{font-size:22px;margin:0 0 7px}
-.sub{font-size:13px;color:var(--muted);margin:0 0 18px}
-.hero,.card,.panel{background:white;border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px}
-.hero{padding:27px 20px}
-.hero h2{font-size:25px}
-.hero p,.card p{color:var(--muted);font-size:14px;line-height:1.6}
-.stats,.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin:16px 0}
-.stat{background:white;border:1px solid var(--line);padding:17px 10px;border-radius:10px;text-align:center}
-.stat strong{display:block;font-size:24px}.stat span{font-size:12px;color:var(--muted)}
-.card h3{margin:0 0 8px;font-size:17px}
-input,textarea,select{width:100%;padding:12px;border:1px solid #d9e0e8;border-radius:7px;font:inherit;background:white;margin:5px 0 12px}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#0b0d12;
+  color:#f5f5f5;
+}
+header{
+  padding:25px 18px;
+  background:#141821;
+  border-bottom:1px solid #303642;
+  text-align:center;
+}
+header h1{margin:0;font-size:25px;letter-spacing:1px}
+header p{color:#aeb5c2;font-size:12px}
+.container{max-width:1050px;margin:auto;padding:18px}
+nav{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:10px;
+  margin-bottom:22px;
+}
+nav button,.action{
+  background:#202632;
+  color:white;
+  border:1px solid #394354;
+  padding:13px;
+  border-radius:9px;
+  cursor:pointer;
+}
+nav button:hover,.action:hover{background:#303b4d}
+section{
+  display:none;
+  background:#141821;
+  border:1px solid #303642;
+  border-radius:13px;
+  padding:20px;
+  margin-bottom:18px;
+}
+section.active{display:block}
+h2{margin-top:0}
+h3{color:#dce3ef}
+p,.muted{color:#b8c0ce;line-height:1.6}
+.card{
+  background:#1c222e;
+  border:1px solid #343d4c;
+  border-radius:10px;
+  padding:15px;
+  margin:12px 0;
+  overflow-wrap:anywhere;
+}
+input,textarea{
+  width:100%;
+  padding:12px;
+  margin:6px 0 12px;
+  background:#0e1219;
+  color:white;
+  border:1px solid #394354;
+  border-radius:7px;
+}
 textarea{min-height:85px;resize:vertical}
-label{font-size:13px;font-weight:bold;display:block}
-.btn{border:0;background:var(--dark);color:white;padding:11px 15px;border-radius:7px;font-weight:bold;cursor:pointer;margin:3px 4px 3px 0}
-.btn.light{background:#edf1f5;color:var(--ink)}
-.btn.red{background:#a83232}
-.btn.small{font-size:12px;padding:8px 10px}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.row>*{flex:1}
-.member{background:white;border:1px solid var(--line);border-radius:10px;padding:15px;min-width:0}
-.member img,.memory img{width:100%;height:150px;object-fit:cover;border-radius:8px;margin-bottom:10px}
-.tag{display:inline-block;background:#eef2f7;color:#46566d;padding:5px 8px;border-radius:5px;font-size:11px;margin:4px 0}
-.tree{border-left:2px solid #cbd5e1;margin:15px 0 15px 10px;padding-left:20px}
-.treeitem{background:white;border:1px solid var(--line);border-radius:9px;padding:14px;margin-bottom:12px;position:relative}
-.treeitem:before{content:"";position:absolute;left:-22px;top:22px;width:20px;border-top:2px solid #cbd5e1}
-.notice{background:#fff7e6;color:#75531b;padding:13px;border-radius:8px;font-size:12px;line-height:1.6;margin:12px 0}
-.empty{padding:22px;text-align:center;color:var(--muted);background:white;border:1px dashed #ccd5df;border-radius:9px}
-footer{text-align:center;padding:25px;color:#8993a2;font-size:12px}
-hr{border:0;border-top:1px solid var(--line);margin:18px 0}
-@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
+button{font-size:14px}
+.action{margin:4px 3px 4px 0}
+.danger{background:#51252b}
+a{color:#9dc4ff;overflow-wrap:anywhere}
+footer{text-align:center;color:#828b9a;padding:25px;font-size:12px}
+.small{font-size:12px;color:#9ca6b5}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>DEEPAK YADAV 9E</h1>
-<p>FAMILY RECORD &amp; HISTORY</p>
+  <h1>DEEPAK 9E PRIVATE HUB</h1>
+  <p>Personal Management • Family • Life • Gaming • Payment</p>
 </header>
 
-<nav id="nav">
-<button class="active" data-page="home">Home</button>
-<button data-page="tree">Family Tree</button>
-<button data-page="members">Members</button>
-<button data-page="history">History</button>
-<button data-page="memories">Photos &amp; Memories</button>
-<button data-page="dates">Important Dates</button>
-<button data-page="documents">Documents</button>
-<button data-page="admin">Admin Dashboard</button>
+<div class="container">
+
+<nav>
+  <button onclick="showSection('family')">Family System</button>
+  <button onclick="showSection('real')">Deepak9E Real Life</button>
+  <button onclick="showSection('data')">Data Centre</button>
+  <button onclick="showSection('gaming')">Jalao Gaming</button>
+  <button onclick="showSection('payment')">Payment System</button>
 </nav>
 
-<main>
+<!-- 1. FAMILY SYSTEM -->
+<section id="family" class="active">
+  <h2>Family System</h2>
+  <p>Family members, family records and family history.</p>
 
-<section class="page active" id="home">
-<div class="hero">
-<h2>Family Archive</h2>
-<p>A place to preserve family names, relationships, history, photographs and important records.</p>
-<button class="btn" onclick="go('members')">Explore Family</button>
-</div>
-<div class="stats">
-<div class="stat"><strong id="countMembers">10</strong><span>Family Records</span></div>
-<div class="stat"><strong id="countDates">0</strong><span>Important Dates</span></div>
-<div class="stat"><strong id="countPhotos">0</strong><span>Memories</span></div>
-</div>
-<h2>Explore</h2>
-<div class="grid">
-<div class="card"><h3>Family Tree</h3><p>Explore recorded family generations.</p><button class="btn" onclick="go('tree')">Open</button></div>
-<div class="card"><h3>Family Members</h3><p>View and manage family profiles.</p><button class="btn" onclick="go('members')">Open</button></div>
-<div class="card"><h3>Family History</h3><p>Preserve historical information.</p><button class="btn" onclick="go('history')">Open</button></div>
-<div class="card"><h3>Photos & Memories</h3><p>Keep family photographs and memories.</p><button class="btn" onclick="go('memories')">Open</button></div>
-<div class="card"><h3>Important Dates</h3><p>Record birthdays and anniversaries.</p><button class="btn" onclick="go('dates')">Open</button></div>
-<div class="card"><h3>Documents</h3><p>Maintain a list of family records.</p><button class="btn" onclick="go('documents')">Open</button></div>
-</div>
+  <button class="action" onclick="unlock('family')">Unlock Family</button>
+  <div id="familyContent" style="display:none">
+    <h3>Family Members</h3>
+    <div id="familyRecords"></div>
+
+    <h3>Add Family Member</h3>
+    <input id="familyName" placeholder="Full Name">
+    <input id="familyDob" placeholder="Date of Birth">
+    <input id="familyRelation" placeholder="Relationship">
+    <textarea id="familyInfo" placeholder="Additional information"></textarea>
+    <button class="action" onclick="addRecord('family')">Save Family Member</button>
+  </div>
 </section>
 
-<section class="page" id="tree">
-<h2>Family Tree</h2>
-<p class="sub">Currently known historical and family records.</p>
-<div id="treeList" class="tree"></div>
-<div class="notice">Some historical relationships are not confirmed yet. The names below are records, not a verified parent-child tree. Confirm relationships before connecting generations.</div>
+<!-- 2. DEEPAK9E REAL LIFE -->
+<section id="real">
+  <h2>Deepak9E Real Life System</h2>
+
+  <div class="card">
+    <h3>About Deepak9E</h3>
+    <p>Personal Profile • Life History • Memories • Future Goals</p>
+    <p><b>Contact Email:</b>
+      <a href="mailto:deepak.yadav.84850@gmail.com">
+        deepak.yadav.84850@gmail.com
+      </a>
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Social Media</h3>
+    <p>YouTube: <a href="https://youtube.com/@deepak9e" target="_blank">@deepak9e</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/deepak9e_" target="_blank">@deepak9e_</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/share/18fCSUMbzC/" target="_blank">Deepak9E</a></p>
+    <p>X: <a href="https://x.com/Deepakyadav9e" target="_blank">@Deepakyadav9e</a></p>
+  </div>
+
+  <h3>Personal Notes</h3>
+  <textarea id="realNotes" placeholder="Write your introduction, life history, memories and goals..."></textarea>
+  <button class="action" onclick="saveNotes()">Save Personal Notes</button>
 </section>
 
-<section class="page" id="members">
-<h2>Family Members</h2>
-<p class="sub">Search and view saved family profiles.</p>
-<input id="memberSearch" placeholder="Search by name or relationship..." oninput="renderMembers()">
-<div id="memberList" class="grid"></div>
+<!-- 3. DATA CENTRE -->
+<section id="data">
+  <h2>Data Centre</h2>
+  <p>Manage up to 1,520 account information records.</p>
+
+  <button class="action" onclick="unlock('data')">Unlock Data Centre</button>
+
+  <div id="dataContent" style="display:none">
+    <input id="dataSearch" placeholder="Search account records..." oninput="renderRecords('data')">
+
+    <h3>Add Account Record</h3>
+    <input id="dataName" placeholder="Account / Platform Name">
+    <input id="dataUser" placeholder="Username / User ID">
+    <input id="dataEmail" placeholder="Email Address">
+    <input id="dataRecovery" placeholder="Recovery Email (optional)">
+    <input id="dataLink" placeholder="Login Link">
+    <textarea id="dataInfo" placeholder="Notes (do not enter passwords here)"></textarea>
+    <button class="action" onclick="addRecord('data')">Save Account Record</button>
+
+    <h3>Saved Account Records</h3>
+    <div id="dataRecords"></div>
+  </div>
 </section>
 
-<section class="page" id="history">
-<h2>Family History</h2>
-<p class="sub">Preserve the history of your family.</p>
-<div class="panel">
-<h3>Add a historical record</h3>
-<form id="historyForm">
-<label>Title</label><input id="historyTitle" required placeholder="Record title">
-<label>Year (optional)</label><input id="historyYear" placeholder="Example: 1926">
-<label>Details</label><textarea id="historyDetails" required placeholder="Write the historical information"></textarea>
-<button class="btn">Save History</button>
-</form>
-</div>
-<div id="historyList"></div>
+<!-- 4. JALAO GAMING -->
+<section id="gaming">
+  <h2>Jalao Gaming System</h2>
+
+  <div class="card">
+    <h3>Gaming Profile</h3>
+    <p><b>Brand:</b> JALAO GAMING</p>
+    <p><b>Free Fire UID:</b> 4208179939</p>
+    <p><b>Guild ID:</b> 3044316623</p>
+    <p><b>Email:</b>
+      <a href="mailto:Deepak.yadav.848502@gmail.com">
+        Deepak.yadav.848502@gmail.com
+      </a>
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Gaming Social Media</h3>
+    <p>Instagram: <a href="https://www.instagram.com/jalaogaminghq" target="_blank">@jalaogaminghq</a></p>
+    <p>YouTube: <a href="https://youtube.com/@jalaogaming" target="_blank">@jalaogaming</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/share/1FUDg87qo6/" target="_blank">Jalao Gaming</a></p>
+  </div>
+
+  <h3>Gaming History & Projects</h3>
+  <textarea id="gamingNotes" placeholder="Add gaming history, channel details and future projects..."></textarea>
+  <button class="action" onclick="saveNotes()">Save Gaming Notes</button>
 </section>
 
-<section class="page" id="memories">
-<h2>Photos &amp; Memories</h2>
-<p class="sub">Add family photographs and captions.</p>
-<div class="panel">
-<form id="memoryForm">
-<label>Photo</label><input id="memoryFile" type="file" accept="image/*" required>
-<label>Caption</label><input id="memoryCaption" placeholder="Write a caption">
-<label>Date (optional)</label><input id="memoryDate" type="date">
-<button class="btn">Save Memory</button>
-</form>
-</div>
-<div id="memoryList" class="grid"></div>
+<!-- 5. PAYMENT SYSTEM -->
+<section id="payment">
+  <h2>Payment System</h2>
+
+  <div class="card">
+    <h3>UPI Payment</h3>
+    <p>Use the button below to open a supported UPI payment app.</p>
+    <button class="action" onclick="payNow()">Pay Now</button>
+    <p class="small">The UPI ID is not displayed on this page.</p>
+  </div>
+
+  <div class="card">
+    <h3>Payment Records</h3>
+    <input id="paymentNote" placeholder="Payment purpose / reference">
+    <input id="paymentAmount" type="number" placeholder="Amount (₹)">
+    <button class="action" onclick="addPayment()">Add Payment Record</button>
+    <div id="paymentRecords"></div>
+  </div>
 </section>
 
-<section class="page" id="dates">
-<h2>Important Dates</h2>
-<p class="sub">Birthdays, anniversaries and family occasions.</p>
-<div class="panel">
-<form id="dateForm">
-<label>Event name</label><input id="dateName" required placeholder="Example: Birthday">
-<label>Person or occasion</label><input id="datePerson" placeholder="Name">
-<label>Date</label><input id="dateValue" type="date" required>
-<label>Type</label>
-<select id="dateType"><option>Birthday</option><option>Anniversary</option><option>Memorial Day</option><option>Family Event</option><option>Other</option></select>
-<button class="btn">Add Date</button>
-</form>
 </div>
-<div id="dateList"></div>
-</section>
-
-<section class="page" id="documents">
-<h2>Documents &amp; Records</h2>
-<p class="sub">Keep a catalogue of family documents.</p>
-<div class="notice">This section stores document titles and descriptions only. Do not upload identity cards, bank details or sensitive personal documents to a public website.</div>
-<div class="panel">
-<form id="documentForm">
-<label>Document title</label><input id="docTitle" required placeholder="Example: Old family record">
-<label>Document category</label>
-<select id="docCategory"><option>Family Record</option><option>Historical Record</option><option>Property Record</option><option>Other</option></select>
-<label>Details</label><textarea id="docDetails" placeholder="Description or storage location"></textarea>
-<button class="btn">Save Record</button>
-</form>
-</div>
-<div id="documentList"></div>
-</section>
-
-<section class="page" id="admin">
-<h2>Admin Dashboard</h2>
-<p class="sub">Manage this browser's family archive.</p>
-<div class="grid">
-<div class="stat"><strong id="adminMembers">0</strong><span>Members</span></div>
-<div class="stat"><strong id="adminHistory">0</strong><span>History Records</span></div>
-<div class="stat"><strong id="adminDocs">0</strong><span>Documents</span></div>
-</div>
-
-<div class="panel">
-<h3>Add a Family Member</h3>
-<form id="memberForm">
-<label>Full name</label><input id="newName" required placeholder="Full name">
-<label>Date of birth</label><input id="newDob" type="date">
-<label>Relationship</label><input id="newRelation" placeholder="Example: Uncle, Aunt, Cousin">
-<label>Birthplace</label><input id="newPlace" placeholder="Village or city">
-<label>Additional details</label><textarea id="newInfo" placeholder="Other information"></textarea>
-<button class="btn">Save Member</button>
-</form>
-</div>
-
-<div class="panel">
-<h3>Backup &amp; Restore</h3>
-<p class="sub">Download a backup or restore a previous backup file.</p>
-<button class="btn" onclick="exportBackup()">Download Backup</button>
-<label style="margin-top:15px">Restore backup file</label>
-<input type="file" id="restoreFile" accept=".json,application/json">
-<button class="btn light" onclick="restoreBackup()">Restore Backup</button>
-</div>
-
-<div class="panel">
-<h3>Data Management</h3>
-<p class="sub">This website stores records in this browser's local storage.</p>
-<button class="btn red" onclick="clearAdded()">Delete added records</button>
-</div>
-
-<div class="notice">Important: This is a local prototype. The Admin Dashboard is not protected by a real server login. Anyone using this browser may be able to access its records. Use a secure backend before publishing private family information online.</div>
-</section>
-
-</main>
 
 <footer>
-<strong>DEEPAK YADAV 9E</strong><br><br>
-Family Records &amp; History
+  DEEPAK 9E PRIVATE HUB<br>
+  Personal Website
 </footer>
 
 <script>
-const starterMembers = [
-{name:"Gilli Baba",dob:"",relation:"Earliest known ancestor",place:"",info:"Approximate birth year: 1800",historical:true},
-{name:"Baba Kalicharan",dob:"",relation:"Ancestor record",place:"",info:"Born 1926 • Died 1996",historical:true},
-{name:"Dai Jashodiya Veva",dob:"",relation:"Recorded name",place:"",info:"Name verification pending",historical:true},
-{name:"Ratiya Devi",dob:"",relation:"Recorded name",place:"",info:"Possible name; not confirmed",historical:true},
-{name:"Jasudiya Devi",dob:"",relation:"Recorded name",place:"",info:"Alternative recorded name",historical:true},
-{name:"Sharda",dob:"1975-01-01",relation:"Father",place:"",info:"",historical:false},
-{name:"Beta Devi",dob:"",relation:"Mother",place:"",info:"Date of birth not provided",historical:false},
-{name:"Deepak",dob:"2008-01-01",relation:"Family member",place:"",info:"",historical:false},
-{name:"Kuldeep",dob:"2010-01-01",relation:"Family member",place:"",info:"",historical:false},
-{name:"Sandeep",dob:"2014-01-01",relation:"Family member",place:"",info:"",historical:false}
-];
+const STORAGE_KEY = "deepak9e_private_hub_v1";
 
-function load(key, fallback){
- try{return JSON.parse(localStorage.getItem("dy9e_"+key)) ?? fallback}
- catch(e){return fallback}
-}
-let members=load("members",starterMembers);
-let histories=load("histories",[]);
-let memories=load("memories",[]);
-let dates=load("dates",[]);
-let documents=load("documents",[]);
+let records = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+  family: [
+    {name:"Gilli Baba",dob:"Approx. 1800 (exact date unknown)",relation:"Family ancestor",info:"Exact details not available."},
+    {name:"Baba Kalicharan",dob:"1926 – 1996",relation:"Family ancestor",info:""},
+    {name:"Jashodiya Veva / Ratiya Devi / Jasudiya Devi",dob:"Not Available",relation:"Family member",info:"Names preserved as provided; exact name not confirmed."},
+    {name:"Sharda",dob:"01-01-1975",relation:"Father",info:""},
+    {name:"Beta Devi",dob:"Not Available",relation:"Mother",info:""},
+    {name:"Deepak Yadav",dob:"01-01-2008",relation:"Self",info:""},
+    {name:"Kuldeep",dob:"01-01-2010",relation:"Brother",info:""},
+    {name:"Sandeep",dob:"01-01-2014",relation:"Brother",info:""}
+  ],
+  data: [],
+  payment: []
+};
 
-function save(){
- localStorage.setItem("dy9e_members",JSON.stringify(members));
- localStorage.setItem("dy9e_histories",JSON.stringify(histories));
- localStorage.setItem("dy9e_memories",JSON.stringify(memories));
- localStorage.setItem("dy9e_dates",JSON.stringify(dates));
- localStorage.setItem("dy9e_documents",JSON.stringify(documents));
- updateStats();
+function saveAll(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
 }
 
-function el(tag,text,className){
- const node=document.createElement(tag);
- if(text!==undefined)node.textContent=text;
- if(className)node.className=className;
- return node;
+function showSection(id){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  renderRecords(id);
 }
 
-function go(id){
- document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
- document.getElementById(id).classList.add("active");
- document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
- renderAll();
- window.scrollTo(0,0);
-}
-document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>go(b.dataset.page)));
+function unlock(id){
+  const key = "hub_lock_" + id;
+  let saved = localStorage.getItem(key);
 
-function renderMembers(){
- const box=document.getElementById("memberList");
- box.innerHTML="";
- const q=(document.getElementById("memberSearch")?.value||"").toLowerCase();
- const list=members.filter(m=>(m.name+" "+m.relation+" "+m.info).toLowerCase().includes(q));
- if(!list.length){box.append(el("div","No matching records found.","empty"));return}
- list.forEach((m)=>{
-  const index=members.indexOf(m);
-  const card=el("div",undefined,"member");
-  card.append(el("h3",m.name));
-  card.append(el("p",m.relation||"Relationship not specified"));
-  card.append(el("p",m.dob?"Date of birth: "+m.dob:"Date of birth: Not provided"));
-  if(m.place)card.append(el("p","Birthplace: "+m.place));
-  if(m.info)card.append(el("p",m.info));
-  if(m.historical)card.append(el("span","Historical record","tag"));
-  if(m.photo){
-   const img=document.createElement("img");img.src=m.photo;card.prepend(img);
+  if(!saved){
+    let first = prompt("Create a new lock password for " + id + ":");
+    if(!first) return;
+    let second = prompt("Enter the same password again:");
+    if(first !== second){
+      alert("Passwords do not match.");
+      return;
+    }
+    localStorage.setItem(key, first);
+    alert("Lock created. This is only a basic browser lock, not secure authentication.");
+  } else {
+    let entered = prompt("Enter " + id + " password:");
+    if(entered !== saved){
+      alert("Incorrect password.");
+      return;
+    }
   }
-  if(!m.historical){
-   const edit=el("button","Edit","btn light small");
-   edit.onclick=()=>editMember(index);
-   const del=el("button","Delete","btn red small");
-   del.onclick=()=>{if(confirm("Delete this member?")){members.splice(index,1);save();renderAll()}};
-   card.append(edit,del);
+
+  document.getElementById(id + "Content").style.display = "block";
+  renderRecords(id);
+}
+
+function addRecord(type){
+  let item;
+
+  if(type === "family"){
+    item = {
+      name: document.getElementById("familyName").value.trim(),
+      dob: document.getElementById("familyDob").value.trim(),
+      relation: document.getElementById("familyRelation").value.trim(),
+      info: document.getElementById("familyInfo").value.trim()
+    };
+    if(!item.name){alert("Enter a name.");return;}
+    ["familyName","familyDob","familyRelation","familyInfo"].forEach(id=>document.getElementById(id).value="");
   }
-  box.append(card);
- });
+
+  if(type === "data"){
+    item = {
+      name: document.getElementById("dataName").value.trim(),
+      user: document.getElementById("dataUser").value.trim(),
+      email: document.getElementById("dataEmail").value.trim(),
+      recovery: document.getElementById("dataRecovery").value.trim(),
+      link: document.getElementById("dataLink").value.trim(),
+      info: document.getElementById("dataInfo").value.trim()
+    };
+    if(!item.name){alert("Enter an account name.");return;}
+    if(records.data.length >= 1520){alert("Record limit reached.");return;}
+    ["dataName","dataUser","dataEmail","dataRecovery","dataLink","dataInfo"].forEach(id=>document.getElementById(id).value="");
+  }
+
+  records[type].push(item);
+  saveAll();
+  renderRecords(type);
 }
 
-function editMember(i){
- const m=members[i];
- const name=prompt("Full name:",m.name);if(name===null)return;
- const relation=prompt("Relationship:",m.relation||"");if(relation===null)return;
- const dob=prompt("Date of birth (YYYY-MM-DD):",m.dob||"");if(dob===null)return;
- const info=prompt("Additional details:",m.info||"");if(info===null)return;
- members[i]={...m,name:name.trim()||m.name,relation,dob,info};
- save();renderAll();
+function escapeHTML(value){
+  return String(value || "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
 }
 
-function renderTree(){
- const box=document.getElementById("treeList");box.innerHTML="";
- members.forEach(m=>{
-  const item=el("div",undefined,"treeitem");
-  item.append(el("h3",m.name));
-  item.append(el("p",m.relation||"Relationship not specified"));
-  if(m.dob)item.append(el("p","Born: "+m.dob));
-  if(m.info)item.append(el("p",m.info));
-  box.append(item);
- });
+function renderRecords(type){
+  if(type === "family"){
+    const box = document.getElementById("familyRecords");
+    if(!box) return;
+    box.innerHTML = records.family.map((r,i)=>`
+      <div class="card">
+        <b>${escapeHTML(r.name)}</b>
+        <p>Date: ${escapeHTML(r.dob)}</p>
+        <p>Relationship: ${escapeHTML(r.relation)}</p>
+        <p>${escapeHTML(r.info)}</p>
+        <button class="action" onclick="editRecord('family',${i})">Edit</button>
+        <button class="action danger" onclick="deleteRecord('family',${i})">Delete</button>
+      </div>`).join("");
+  }
+
+  if(type === "data"){
+    const box = document.getElementById("dataRecords");
+    if(!box) return;
+    const q = (document.getElementById("dataSearch")?.value || "").toLowerCase();
+
+    box.innerHTML = records.data.map((r,i)=>({r,i}))
+      .filter(x=>JSON.stringify(x.r).toLowerCase().includes(q))
+      .map(({r,i})=>`
+      <div class="card">
+        <b>${escapeHTML(r.name)}</b>
+        <p>Username: ${escapeHTML(r.user)}</p>
+        <p>Email: ${escapeHTML(r.email)}</p>
+        <p>Recovery: ${escapeHTML(r.recovery)}</p>
+        <p>Login: ${escapeHTML(r.link)}</p>
+        <p>${escapeHTML(r.info)}</p>
+        <button class="action" onclick="editRecord('data',${i})">Edit</button>
+        <button class="action danger" onclick="deleteRecord('data',${i})">Delete</button>
+      </div>`).join("") || "<p>No records found.</p>";
+  }
+
+  if(type === "payment"){
+    const box = document.getElementById("paymentRecords");
+    if(!box) return;
+    box.innerHTML = records.payment.map((r,i)=>`
+      <div class="card">
+        <b>${escapeHTML(r.note)}</b>
+        <p>Amount: ₹${escapeHTML(r.amount)}</p>
+        <p>Status: ${escapeHTML(r.status)}</p>
+        <button class="action" onclick="togglePayment(${i})">Change Status</button>
+        <button class="action danger" onclick="deleteRecord('payment',${i})">Delete</button>
+      </div>`).join("");
+  }
 }
 
-document.getElementById("memberForm").addEventListener("submit",e=>{
- e.preventDefault();
- members.push({
-  name:newName.value.trim(),dob:newDob.value,
-  relation:newRelation.value.trim(),place:newPlace.value.trim(),
-  info:newInfo.value.trim(),historical:false
- });
- e.target.reset();save();go("members");
-});
+function editRecord(type,index){
+  let r = records[type][index];
+  let name = prompt("Edit name:",r.name);
+  if(name === null) return;
+  r.name = name;
 
-document.getElementById("historyForm").addEventListener("submit",e=>{
- e.preventDefault();
- histories.push({title:historyTitle.value,year:historyYear.value,details:historyDetails.value});
- e.target.reset();save();renderAll();
-});
+  if(type === "family"){
+    r.dob = prompt("Edit date:",r.dob) ?? r.dob;
+    r.relation = prompt("Edit relationship:",r.relation) ?? r.relation;
+    r.info = prompt("Edit information:",r.info) ?? r.info;
+  }
 
-document.getElementById("memoryForm").addEventListener("submit",e=>{
- e.preventDefault();
- const file=memoryFile.files[0];if(!file)return;
- if(file.size>900000){alert("Please choose an image smaller than 900 KB.");return}
- const reader=new FileReader();
- reader.onload=()=>{
-  memories.push({photo:reader.result,caption:memoryCaption.value,date:memoryDate.value});
-  e.target.reset();save();renderAll();
- };
- reader.readAsDataURL(file);
-});
+  if(type === "data"){
+    r.user = prompt("Edit username:",r.user) ?? r.user;
+    r.email = prompt("Edit email:",r.email) ?? r.email;
+    r.recovery = prompt("Edit recovery email:",r.recovery) ?? r.recovery;
+    r.link = prompt("Edit login link:",r.link) ?? r.link;
+    r.info = prompt("Edit notes:",r.info) ?? r.info;
+  }
 
-document.getElementById("dateForm").addEventListener("submit",e=>{
- e.preventDefault();
- dates.push({name:dateName.value,person:datePerson.value,date:dateValue.value,type:dateType.value});
- e.target.reset();save();renderAll();
-});
-
-document.getElementById("documentForm").addEventListener("submit",e=>{
- e.preventDefault();
- documents.push({title:docTitle.value,category:docCategory.value,details:docDetails.value});
- e.target.reset();save();renderAll();
-});
-
-function renderSimple(listId,data,fields){
- const box=document.getElementById(listId);box.innerHTML="";
- if(!data.length){box.append(el("div","No records added yet.","empty"));return}
- data.forEach((item,i)=>{
-  const card=el("div",undefined,"card");
-  fields.forEach(f=>{if(item[f])card.append(el(f==="title"||f==="name"?"h3":"p",item[f]))});
-  const del=el("button","Delete","btn red small");
-  del.onclick=()=>{if(confirm("Delete this record?")){data.splice(i,1);save();renderAll()}};
-  card.append(del);box.append(card);
- });
+  saveAll();
+  renderRecords(type);
 }
 
-function renderMemories(){
- const box=document.getElementById("memoryList");box.innerHTML="";
- if(!memories.length){box.append(el("div","No photos added yet.","empty"));return}
- memories.forEach((m,i)=>{
-  const card=el("div",undefined,"member");
-  const img=document.createElement("img");img.src=m.photo;img.alt=m.caption||"Family memory";
-  card.append(img,el("h3",m.caption||"Family Memory"),el("p",m.date||"Date not provided"));
-  const del=el("button","Delete","btn red small");
-  del.onclick=()=>{if(confirm("Delete this memory?")){memories.splice(i,1);save();renderAll()}};
-  card.append(del);box.append(card);
- });
+function deleteRecord(type,index){
+  if(!confirm("Are you sure you want to delete this record?")) return;
+  records[type].splice(index,1);
+  saveAll();
+  renderRecords(type);
 }
 
-function updateStats(){
- countMembers.textContent=members.length;
- countDates.textContent=dates.length;
- countPhotos.textContent=memories.length;
- adminMembers.textContent=members.length;
- adminHistory.textContent=histories.length;
- adminDocs.textContent=documents.length;
+function saveNotes(){
+  localStorage.setItem("deepak9e_notes",JSON.stringify({
+    real:document.getElementById("realNotes").value,
+    gaming:document.getElementById("gamingNotes").value
+  }));
+  alert("Notes saved on this browser.");
 }
 
-function renderAll(){
- renderMembers();renderTree();renderMemories();
- renderSimple("historyList",histories,["title","year","details"]);
- renderSimple("dateList",dates,["name","person","date","type"]);
- renderSimple("documentList",documents,["title","category","details"]);
- updateStats();
+function loadNotes(){
+  const n = JSON.parse(localStorage.getItem("deepak9e_notes") || "{}");
+  document.getElementById("realNotes").value = n.real || "";
+  document.getElementById("gamingNotes").value = n.gaming || "";
 }
 
-function exportBackup(){
- const data={members,histories,memories,dates,documents,backupDate:new Date().toISOString()};
- const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
- const url=URL.createObjectURL(blob);
- const a=document.createElement("a");a.href=url;a.download="Deepak-Yadav-9E-Backup.json";a.click();
- URL.revokeObjectURL(url);
+function payNow(){
+  const upi = "deepak.yadav.848502-3@okhdfcbank";
+  const uri = "upi://pay?pa=" + encodeURIComponent(upi) + "&cu=INR";
+  window.location.href = uri;
 }
 
-function restoreBackup(){
- const file=restoreFile.files[0];if(!file){alert("Choose a backup file first.");return}
- const reader=new FileReader();
- reader.onload=()=>{
-  try{
-   const data=JSON.parse(reader.result);
-   if(!Array.isArray(data.members))throw new Error("Invalid backup");
-   if(!confirm("Replace current records with this backup?"))return;
-   members=data.members;
-   histories=Array.isArray(data.histories)?data.histories:[];
-   memories=Array.isArray(data.memories)?data.memories:[];
-   dates=Array.isArray(data.dates)?data.dates:[];
-   documents=Array.isArray(data.documents)?data.documents:[];
-   save();renderAll();alert("Backup restored.");
-  }catch(e){alert("This backup file is invalid.");}
- };
- reader.readAsText(file);
+function addPayment(){
+  const note = document.getElementById("paymentNote").value.trim();
+  const amount = document.getElementById("paymentAmount").value.trim();
+  if(!note || !amount || Number(amount)<=0){
+    alert("Enter a payment purpose and valid amount.");
+    return;
+  }
+  records.payment.push({note,amount,status:"Pending"});
+  saveAll();
+  document.getElementById("paymentNote").value="";
+  document.getElementById("paymentAmount").value="";
+  renderRecords("payment");
 }
 
-function clearAdded(){
- if(!confirm("Delete all records added after the original family records?"))return;
- members=members.filter(m=>m.historical || starterMembers.some(s=>s.name===m.name));
- histories=[];memories=[];dates=[];documents=[];
- save();renderAll();
+function togglePayment(index){
+  records.payment[index].status =
+    records.payment[index].status === "Pending" ? "Paid (manually marked)" : "Pending";
+  saveAll();
+  renderRecords("payment");
 }
 
-renderAll();
+saveAll();
+loadNotes();
+renderRecords("family");
+renderRecords("data");
+renderRecords("payment");
 </script>
+
 </body>
 </html>
