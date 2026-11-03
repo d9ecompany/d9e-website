@@ -5,96 +5,142 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090e19">
+
 <title>DEEPAK YADAV 9E</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+html{scroll-behavior:smooth}
+
 body{
  background:#090e19;
- color:#fff;
+ color:#f5f5f5;
  font-family:Arial,sans-serif;
  line-height:1.6;
 }
+
 header{
  text-align:center;
- padding:25px 10px;
- border-bottom:1px solid #283448;
+ padding:24px 12px;
+ border-bottom:1px solid #293449;
+ background:#0c1422;
 }
-header h1{color:#d8b66e;font-size:25px}
-header p{color:#999;font-size:12px}
+
+header h1{
+ color:#d8b66e;
+ font-size:25px;
+ letter-spacing:1.5px;
+}
+
 nav{
  display:flex;
- flex-wrap:wrap;
  justify-content:center;
+ flex-wrap:wrap;
  gap:8px;
- padding:14px 5px;
+ padding:13px 8px;
  background:#111a2b;
  position:sticky;
  top:0;
+ z-index:10;
 }
+
 nav a{
  color:#ddd;
  text-decoration:none;
  border:1px solid #354052;
- padding:7px 12px;
  border-radius:5px;
+ padding:7px 11px;
  font-size:12px;
 }
-main{max-width:750px;margin:auto;padding:18px}
+
+nav a:hover{
+ color:#d8b66e;
+ border-color:#d8b66e;
+}
+
+main{
+ max-width:750px;
+ margin:auto;
+ padding:20px 15px;
+}
+
 section{margin-bottom:28px}
+
 h2{
  color:#d8b66e;
  font-size:19px;
  border-bottom:1px solid #354052;
  padding-bottom:8px;
- margin-bottom:13px;
+ margin-bottom:14px;
 }
-.item{
+
+.card{
  background:#111a2b;
- border:1px solid #283448;
- padding:15px;
+ border:1px solid #293449;
  border-radius:8px;
- margin-bottom:10px;
+ padding:16px;
+ margin-bottom:11px;
 }
-.item h3{font-size:15px}
-.item p{font-size:13px;color:#aaa}
+
+.card h3{font-size:16px}
+
+.card p{
+ color:#aab3c1;
+ font-size:13px;
+ margin-top:3px;
+}
+
 .btn{
  display:inline-block;
  background:#d8b66e;
  color:#111;
  text-decoration:none;
  border:0;
- padding:9px 15px;
  border-radius:5px;
- font-weight:bold;
+ padding:9px 16px;
+ margin-top:11px;
  font-size:13px;
- margin-top:10px;
+ font-weight:bold;
  cursor:pointer;
 }
-input,select{
- width:100%;
- padding:12px;
- margin-top:10px;
- background:#090e19;
- border:1px solid #354052;
- border-radius:5px;
- color:white;
- outline:none;
- font-size:14px;
-}
-label{font-size:13px;color:#bbb}
+
 .family{
- padding:11px;
- border-bottom:1px solid #283448;
+ padding:11px 5px;
+ border-bottom:1px solid #293449;
  font-size:14px;
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
 }
-.family span{color:#d8b66e}
+
+.family span{
+ color:#d8b66e;
+ text-align:right;
+}
+
+.payment-btn{
+ width:100%;
+ font-size:15px;
+ padding:13px;
+}
+
 footer{
  text-align:center;
  padding:20px;
- color:#888;
- border-top:1px solid #283448;
+ border-top:1px solid #293449;
+ color:#8994a5;
  font-size:12px;
+}
+
+@media(max-width:450px){
+ nav{gap:6px}
+ nav a{padding:7px 9px}
+ .family{font-size:13px}
 }
 </style>
 </head>
@@ -102,163 +148,190 @@ footer{
 <body>
 
 <header>
-<h1>DEEPAK YADAV 9E</h1>
-<p>PERSONAL WEBSITE</p>
+ <h1>DEEPAK YADAV 9E</h1>
 </header>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#news">News</a>
-<a href="#gaming">Gaming</a>
-<a href="#real">Real Life</a>
-<a href="#family">Family</a>
-<a href="#payment">Payment</a>
-<a href="#contact">Contact</a>
+ <a href="#home">Home</a>
+ <a href="#news">News</a>
+ <a href="#gaming">Gaming</a>
+ <a href="#real">Real Life</a>
+ <a href="#family">Family</a>
+ <a href="#payment">Payment</a>
+ <a href="#contact">Contact</a>
 </nav>
 
 <main>
 
+<!-- HOME -->
+
 <section id="home">
-<h2>Home</h2>
-<div class="item">
-<h3>DEEPAK YADAV 9E</h3>
-<p>Personal Digital Identity</p>
-</div>
+ <h2>Home</h2>
+ <div class="card">
+  <h3>DEEPAK YADAV 9E</h3>
+  <p>Personal Digital Identity</p>
+ </div>
 </section>
+
+<!-- NEWS -->
 
 <section id="news">
-<h2>News</h2>
-<div class="item">
-<h3>Bhaveerji</h3>
-<a class="btn" href="https://youtube.com/@bhaveerji?si=4h1D9o9oouP-1pCR" target="_blank">Open YouTube</a>
-</div>
+ <h2>News</h2>
+ <div class="card">
+  <h3>Bhaveerji</h3>
+  <a class="btn"
+  href="https://youtube.com/@bhaveerji?si=4h1D9o9oouP-1pCR"
+  target="_blank" rel="noopener">
+  Open Channel
+  </a>
+ </div>
 </section>
+
+<!-- GAMING -->
 
 <section id="gaming">
-<h2>Gaming</h2>
-<div class="item">
-<h3>Jalao Gaming</h3>
-<a class="btn" href="https://youtube.com/@jalaogaming?si=vEa24BUcR4Qq4OZo" target="_blank">Open YouTube</a>
-</div>
+ <h2>Gaming</h2>
+ <div class="card">
+  <h3>Jalao Gaming</h3>
+  <a class="btn"
+  href="https://youtube.com/@jalaogaming?si=vEa24BUcR4Qq4OZo"
+  target="_blank" rel="noopener">
+  Open Channel
+  </a>
+ </div>
 </section>
+
+<!-- REAL LIFE -->
 
 <section id="real">
-<h2>Real Life</h2>
-<div class="item">
-<h3>Deepak9E</h3>
-<a class="btn" href="https://youtube.com/@deepak9e?si=8wPF0RMFSPSgi7t6" target="_blank">Open YouTube</a>
-</div>
+ <h2>Real Life</h2>
+ <div class="card">
+  <h3>Deepak9E</h3>
+  <a class="btn"
+  href="https://youtube.com/@deepak9e?si=8wPF0RMFSPSgi7t6"
+  target="_blank" rel="noopener">
+  Open Channel
+  </a>
+ </div>
 </section>
+
+<!-- FAMILY -->
 
 <section id="family">
-<h2>Family Details</h2>
+ <h2>Family Details</h2>
 
-<div class="family">Gilli Baba <span>— Approximately 1800</span></div>
-<div class="family">Baba Kalicharan <span>— 1926 - 1996</span></div>
-<div class="family">Jashodiya Veva <span>— 01-01-1961</span></div>
-<div class="family">Sharda (Father) <span>— 01-01-1975</span></div>
-<div class="family">Beta Devi (Mother) <span>— Coming Soon</span></div>
-<div class="family">Deepak <span>— 01-01-2008</span></div>
-<div class="family">Kuldeep <span>— 01-01-2010</span></div>
-<div class="family">Sandeep <span>— 01-01-2014</span></div>
+ <div class="family">
+  Gilli Baba
+  <span>Approx. 1800</span>
+ </div>
 
+ <div class="family">
+  Baba Kalicharan
+  <span>1926 - 1996</span>
+ </div>
+
+ <div class="family">
+  Jashodiya Veva
+  <span>1.1.1961</span>
+ </div>
+
+ <div class="family">
+  Sharda (Father)
+  <span>01-01-1975</span>
+ </div>
+
+ <div class="family">
+  Beta Devi (Mother)
+  <span>Coming Soon</span>
+ </div>
+
+ <div class="family">
+  Deepak
+  <span>01-01-2008</span>
+ </div>
+
+ <div class="family">
+  Kuldeep
+  <span>01-01-2010</span>
+ </div>
+
+ <div class="family">
+  Sandeep
+  <span>01-01-2014</span>
+ </div>
 </section>
+
+<!-- PAYMENT -->
 
 <section id="payment">
-<h2>UPI Payment</h2>
+ <h2>Payment</h2>
 
-<div class="item">
-
-<label>Select Payment App</label>
-<select id="app">
-<option value="auto">Automatic / Available UPI App</option>
-<option value="gpay">Google Pay</option>
-<option value="phonepe">PhonePe</option>
-<option value="paytm">Paytm</option>
-</select>
-
-<label>UPI ID</label>
-<input
-type="text"
-id="upi"
-value="deepak.yadav.848502-3@okhdfcbank"
-placeholder="Enter UPI ID">
-
-<label>Amount (₹)</label>
-<input
-type="number"
-id="amount"
-placeholder="Enter amount"
-min="1"
-step="1">
-
-<button class="btn" onclick="payNow()">
-Continue to Payment
-</button>
-
-<p id="message"></p>
-</div>
+ <div class="card">
+  <button class="btn payment-btn" onclick="makePayment()">
+   Pay Now
+  </button>
+ </div>
 </section>
 
+<!-- CONTACT -->
+
 <section id="contact">
-<h2>Contact</h2>
+ <h2>Contact</h2>
 
-<div class="item">
-<h3>Official Email</h3>
-<p>deepak.yadav.848502@gmail.com</p>
-<a class="btn" href="mailto:deepak.yadav.848502@gmail.com">Open Email</a>
-</div>
+ <div class="card">
+  <h3>Official Email</h3>
+  <p>deepak.yadav.848502@gmail.com</p>
+  <a class="btn"
+  href="mailto:deepak.yadav.848502@gmail.com">
+  Send Email
+  </a>
+ </div>
 
-<div class="item">
-<h3>Other Email</h3>
-<p>deepak9eofficial@gmail.com</p>
-<a class="btn" href="mailto:deepak9eofficial@gmail.com">Open Email</a>
-</div>
+ <div class="card">
+  <h3>Other Email</h3>
+  <p>deepak9eofficial@gmail.com</p>
+  <a class="btn"
+  href="mailto:deepak9eofficial@gmail.com">
+  Send Email
+  </a>
+ </div>
 
-<div class="item">
-<h3>WhatsApp</h3>
-<p>9359026575</p>
-<a class="btn" href="https://wa.me/919359026575">Open WhatsApp</a>
-</div>
+ <div class="card">
+  <h3>WhatsApp</h3>
+  <a class="btn"
+  href="https://wa.me/919359026575"
+  target="_blank" rel="noopener">
+  Open WhatsApp
+  </a>
+ </div>
 
-<div class="item">
-<h3>Calling</h3>
-<p>9140618093</p>
-<a class="btn" href="tel:9140618093">Call Now</a>
-</div>
+ <div class="card">
+  <h3>Calling</h3>
+  <a class="btn" href="tel:9140618093">
+  Call Now
+  </a>
+ </div>
 
 </section>
 
 </main>
 
 <footer>
-DEEPAK YADAV 9E © 2026
+ DEEPAK YADAV 9E © 2026
 </footer>
 
 <script>
-function payNow(){
- const upi=document.getElementById("upi").value.trim();
- const amount=document.getElementById("amount").value;
- const app=document.getElementById("app").value;
- const message=document.getElementById("message");
+function makePayment(){
 
- if(!upi || !upi.includes("@")){
-   message.textContent="Please enter a valid UPI ID.";
-   return;
- }
+ const upiID = "deepak.yadav.848502-3@okhdfcbank";
 
- if(!amount || Number(amount)<=0){
-   message.textContent="Please enter a valid amount.";
-   return;
- }
+ const paymentLink =
+ "upi://pay?pa=" + encodeURIComponent(upiID) +
+ "&pn=" + encodeURIComponent("Deepak Yadav") +
+ "&cu=INR";
 
- const name="Deepak Yadav";
- const url="upi://pay?pa="+encodeURIComponent(upi)
- +"&pn="+encodeURIComponent(name)
- +"&am="+encodeURIComponent(amount)
- +"&cu=INR";
+ window.location.href = paymentLink;
 
- window.location.href=url;
 }
 </script>
 
