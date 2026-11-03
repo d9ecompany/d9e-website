@@ -1,544 +1,397 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090e1b">
-<title>DEEPAK YADAV 9E</title>
+<title>DEEPAK YADAV 9E PRIVATE HUB</title>
 
 <style>
-:root{
- --bg:#090e1b;
- --panel:#121c30;
- --panel2:#192740;
- --gold:#d8b66e;
- --white:#f5f5f5;
- --muted:#9ba9bd;
- --border:#293750;
+:root {
+  --bg:#090e1b;
+  --panel:#121c30;
+  --panel2:#192740;
+  --gold:#d8b66e;
+  --text:#f4f1e9;
+  --muted:#aab4c5;
+  --line:#293750;
 }
-
-*{box-sizing:border-box;margin:0;padding:0}
-
-html{scroll-behavior:smooth}
-
+*{box-sizing:border-box}
 body{
- background:var(--bg);
- color:var(--white);
- font-family:Arial,sans-serif;
- line-height:1.6;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
 }
-
 header{
- text-align:center;
- padding:35px 15px;
- background:linear-gradient(140deg,#17243b,#090e1b);
- border-bottom:1px solid var(--border);
+  padding:28px 18px;
+  text-align:center;
+  border-bottom:1px solid var(--line);
+  background:#0d1525;
 }
-
 .logo{
- color:var(--gold);
- font-size:28px;
- font-weight:800;
- letter-spacing:2px;
+  color:var(--gold);
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:2px;
 }
-
 header p{color:var(--muted);font-size:13px}
-
 nav{
- display:flex;
- gap:8px;
- padding:12px;
- overflow-x:auto;
- background:#101a2b;
- position:sticky;
- top:0;
- z-index:10;
+  display:flex;
+  gap:9px;
+  padding:12px;
+  overflow-x:auto;
+  background:#101a2b;
+  position:sticky;
+  top:0;
+  z-index:5;
 }
-
 nav a{
- text-decoration:none;
- color:white;
- background:var(--panel2);
- padding:9px 14px;
- border-radius:7px;
- white-space:nowrap;
- font-size:13px;
+  color:var(--text);
+  text-decoration:none;
+  padding:10px 13px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  white-space:nowrap;
+  font-size:13px;
 }
-
-.container{
- max-width:1050px;
- margin:auto;
- padding:20px 15px;
+main{max-width:1000px;margin:auto;padding:18px}
+section{margin:25px 0}
+.section-title{
+  color:var(--gold);
+  font-size:21px;
+  margin-bottom:14px;
 }
-
-.hero{
- text-align:center;
- padding:55px 18px;
- border:1px solid var(--border);
- border-radius:15px;
- background:linear-gradient(145deg,#17243b,#10192a);
- margin-bottom:30px;
+.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:19px;
+  border-radius:13px;
+  margin-bottom:14px;
 }
-
-.hero h1{
- color:var(--gold);
- font-size:32px;
-}
-
-.hero p{color:var(--muted);margin:10px 0}
-
-.section{margin:35px 0}
-
-.section h2{
- font-size:21px;
- border-left:3px solid var(--gold);
- padding-left:12px;
- margin-bottom:17px;
-}
-
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
- gap:15px;
-}
-
-.card{
- background:var(--panel);
- border:1px solid var(--border);
- padding:20px;
- border-radius:12px;
-}
-
-.card h3{color:var(--gold);margin-bottom:8px}
-.card p{font-size:13px;color:var(--muted);margin:7px 0}
-
+.muted{color:var(--muted);line-height:1.6}
 .btn{
- display:inline-block;
- padding:10px 15px;
- background:var(--gold);
- color:#111;
- text-decoration:none;
- border:0;
- border-radius:6px;
- font-weight:bold;
- font-size:13px;
- cursor:pointer;
- margin-top:8px;
+  display:inline-block;
+  padding:12px 16px;
+  border:0;
+  border-radius:8px;
+  background:var(--gold);
+  color:#111827;
+  font-weight:bold;
+  text-decoration:none;
+  cursor:pointer;
+  margin-top:10px;
 }
-
 .btn.secondary{
- background:var(--panel2);
- color:white;
- border:1px solid var(--border);
+  background:var(--panel2);
+  border:1px solid var(--line);
+  color:var(--text);
 }
-
-.member{min-height:185px}
-
-.member .number{
- color:var(--gold);
- font-size:12px;
- letter-spacing:1px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:13px;
 }
-
-.info{
- background:var(--panel);
- border:1px solid var(--border);
- border-radius:10px;
- padding:16px;
- margin-bottom:12px;
+input{
+  width:100%;
+  padding:13px;
+  background:#0b1424;
+  border:1px solid var(--line);
+  border-radius:8px;
+  color:white;
+  margin:8px 0;
+  font-size:16px;
 }
-
-.info p{color:var(--muted);font-size:14px}
-
-.small{color:var(--muted);font-size:12px}
-
-.modal{
- display:none;
- position:fixed;
- inset:0;
- z-index:30;
- background:rgba(0,0,0,.85);
- padding:20px;
- overflow-y:auto;
-}
-
-.modal-content{
- max-width:650px;
- margin:40px auto;
- background:var(--panel);
- border:1px solid var(--gold);
- border-radius:14px;
- padding:23px;
-}
-
-.modal-content h2{color:var(--gold);margin-bottom:15px}
-.modal-content p{margin:10px 0;color:var(--muted)}
-.close{
- float:right;
- font-size:25px;
- color:var(--gold);
- background:none;
- border:0;
- cursor:pointer;
-}
-
+.profile h3{color:var(--gold);margin-top:0}
 footer{
- text-align:center;
- padding:30px 15px;
- border-top:1px solid var(--border);
- color:var(--muted);
- font-size:12px;
+  text-align:center;
+  color:var(--muted);
+  padding:25px;
+  border-top:1px solid var(--line);
+  font-size:13px;
 }
-
+.hidden{display:none}
 </style>
 </head>
 
 <body>
 
 <header>
- <div class="logo">DEEPAK YADAV 9E</div>
- <p>Personal • Professional • Family Heritage</p>
+  <div class="logo">DEEPAK YADAV 9E</div>
+  <p>PERSONAL • FAMILY • DIGITAL HUB</p>
 </header>
 
 <nav>
- <a href="#home">Home</a>
- <a href="#channels">Channels</a>
- <a href="#contact">Contact</a>
- <a href="#payment">Payment</a>
- <a href="#family">Family</a>
- <a href="#life">Life Introduction</a>
+  <a href="#home">Home</a>
+  <a href="#youtube">YouTube</a>
+  <a href="#contact">Contact</a>
+  <a href="#payment">Payment</a>
+  <a href="#family">Family Heritage</a>
 </nav>
 
-<main class="container">
+<main>
 
-<!-- HOME -->
-
-<section class="hero" id="home">
- <h1>DEEPAK YADAV 9E</h1>
- <p>Welcome to My Personal Digital World</p>
- <p>
- A platform for my digital identity,
- creative journey and family heritage.
- </p>
- <a href="#channels" class="btn">Explore Channels</a>
- <a href="#family" class="btn secondary">Family Heritage</a>
+<section id="home">
+  <h2 class="section-title">Welcome</h2>
+  <div class="panel">
+    <h2>DEEPAK YADAV 9E</h2>
+    <p class="muted">
+      A personal digital space for family records,
+      creator channels, contact and payment services.
+    </p>
+  </div>
 </section>
 
-<!-- CHANNELS -->
+<section id="youtube">
+  <h2 class="section-title">YouTube Channels</h2>
+  <div class="grid">
+    <div class="panel">
+      <h3>JALAO GAMING</h3>
+      <p class="muted">Gaming • Gameplay • Live</p>
+      <a class="btn" target="_blank"
+      href="https://youtube.com/@jalaogaming">
+      Open Channel</a>
+    </div>
 
-<section class="section" id="channels">
- <h2>My YouTube Channels</h2>
+    <div class="panel">
+      <h3>DEEPAK 9E</h3>
+      <p class="muted">Real Life • Creator</p>
+      <a class="btn" target="_blank"
+      href="https://youtube.com/@deepak9e">
+      Open Channel</a>
+    </div>
 
- <div class="grid">
-
-  <div class="card">
-   <h3>News Channel</h3>
-   <p>BHA VEER JI</p>
-   <p>News • Updates • Information</p>
-   <a class="btn"
-    href="https://youtube.com/@bhaveerji?si=f65KTQKsdRUbswwW"
-    target="_blank" rel="noopener">
-    Visit Channel
-   </a>
+    <div class="panel">
+      <h3>BHAVEERJI</h3>
+      <p class="muted">News • Spiritual Content</p>
+      <a class="btn" target="_blank"
+      href="https://youtube.com/@bhaveerji">
+      Open Channel</a>
+    </div>
   </div>
-
-  <div class="card">
-   <h3>Gaming Channel</h3>
-   <p>JALAO GAMING</p>
-   <p>Gaming • Entertainment • Gameplay</p>
-   <a class="btn"
-    href="https://youtube.com/@jalaogaming?si=BH1SrqgIv-JIXO6A"
-    target="_blank" rel="noopener">
-    Visit Channel
-   </a>
-  </div>
-
-  <div class="card">
-   <h3>Real Life Channel</h3>
-   <p>DEEPAK 9E</p>
-   <p>Real Life • Lifestyle • Memories</p>
-   <a class="btn"
-    href="https://youtube.com/@deepak9e?si=OcQskfKIqzf8qhmT"
-    target="_blank" rel="noopener">
-    Visit Channel
-   </a>
-  </div>
-
- </div>
 </section>
 
-<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">Contact System</h2>
 
-<section class="section" id="contact">
- <h2>Contact System</h2>
-
- <div class="grid">
-
-  <div class="card">
-   <h3>Official Email</h3>
-   <p>deepak.yadav.848502@gmail.com</p>
-   <a class="btn"
-    href="mailto:deepak.yadav.848502@gmail.com">
-    Email
-   </a>
+  <div class="panel">
+    <h3>WhatsApp Channel</h3>
+    <p class="muted">
+      Follow the official WhatsApp channel for updates.
+    </p>
+    <a class="btn" target="_blank"
+    href="https://whatsapp.com/channel/0029Vb8Ls0jF6smuc75mSm1D">
+      Open WhatsApp Channel
+    </a>
   </div>
 
-  <div class="card">
-   <h3>Other Email</h3>
-   <p>deepak9eofficial@gmail.com</p>
-   <a class="btn"
-    href="mailto:deepak9eofficial@gmail.com">
-    Email
-   </a>
-  </div>
+  <div class="panel">
+    <h3>Private Calling System</h3>
+    <p class="muted">
+      Calling details are available only after
+      server-side authentication.
+    </p>
 
-  <div class="card">
-   <h3>WhatsApp</h3>
-   <p>Private contact</p>
-   <p class="small">Number will be enabled after privacy review.</p>
-  </div>
+    <input id="callPassword" type="password"
+    placeholder="Enter Access Password">
 
-  <div class="card">
-   <h3>Calling</h3>
-   <p>Private contact</p>
-   <p class="small">Number will be enabled after privacy review.</p>
-  </div>
+    <button class="btn" onclick="requestCallingAccess()">
+      Verify Access
+    </button>
 
- </div>
+    <p id="callMessage" class="muted"></p>
+    <div id="callResult" class="hidden"></div>
+  </div>
 </section>
 
-<!-- PAYMENT -->
+<section id="payment">
+  <h2 class="section-title">Payment System</h2>
 
-<section class="section" id="payment">
- <h2>Payment System</h2>
+  <div class="panel">
+    <h3>Choose Amount</h3>
+    <p class="muted">
+      Select an amount or enter your own amount.
+    </p>
 
- <div class="card">
-  <h3>UPI Payment</h3>
-  <p>UPI payment details are kept private.</p>
-  <p class="small">
-   Payment information should only be shared
-   through a secure and approved method.
-  </p>
- </div>
+    <div class="grid">
+      <button class="btn secondary" onclick="setAmount(10)">₹10</button>
+      <button class="btn secondary" onclick="setAmount(50)">₹50</button>
+      <button class="btn secondary" onclick="setAmount(100)">₹100</button>
+      <button class="btn secondary" onclick="setAmount(500)">₹500</button>
+      <button class="btn secondary" onclick="setAmount(1000)">₹1,000</button>
+    </div>
+
+    <label for="amount">Enter Amount (₹)</label>
+    <input id="amount" type="number" min="1"
+    max="100000" placeholder="Enter amount">
+
+    <button class="btn" onclick="startPayment()">
+      Pay Now
+    </button>
+
+    <p id="paymentMessage" class="muted"></p>
+  </div>
 </section>
 
-<!-- PERMISSION -->
-
-<section class="section" id="permission">
- <h2>Permission System</h2>
-
- <div class="card">
-  <h3>Manual Approval</h3>
-  <p>
-   All requests require manual review
-   and approval by the authorized administrator.
-  </p>
-  <p class="small">
-   Actual access control requires a secure backend.
-  </p>
- </div>
-</section>
-
-<!-- FAMILY -->
-
-<section class="section" id="family">
- <h2>Family Heritage</h2>
- <p class="small">
-  Preserving family history, relationships
-  and life stories.
- </p>
-
- <br>
- <div class="grid" id="familyGrid"></div>
-</section>
-
-<!-- LIFE INTRODUCTION -->
-
-<section class="section" id="life">
- <h2>Life Introduction</h2>
-
- <div class="grid">
-
-  <div class="card">
-   <h3>Personal Introduction</h3>
-   <p>Personal introduction and background.</p>
-  </div>
-
-  <div class="card">
-   <h3>Education</h3>
-   <p>Educational journey and learning.</p>
-  </div>
-
-  <div class="card">
-   <h3>Achievements</h3>
-   <p>Important milestones and achievements.</p>
-  </div>
-
-  <div class="card">
-   <h3>Memories</h3>
-   <p>Life experiences and memorable moments.</p>
-  </div>
-
- </div>
+<section id="family">
+  <h2 class="section-title">Family Heritage</h2>
+  <div class="grid" id="familyGrid"></div>
 </section>
 
 </main>
 
 <footer>
- <h3>DEEPAK YADAV 9E</h3>
- <p>Personal Digital Identity & Family Heritage</p>
- <p>© 2026 All Rights Reserved</p>
+  DEEPAK YADAV 9E<br>
+  Personal Digital Hub
 </footer>
 
-<!-- FAMILY PROFILE MODAL -->
-
-<div class="modal" id="profileModal">
- <div class="modal-content">
-  <button class="close" onclick="closeProfile()">×</button>
-  <div id="profileContent"></div>
-  <button class="btn secondary" onclick="closeProfile()">Close Profile</button>
- </div>
-</div>
-
 <script>
-
-const familyMembers = [
-
-{
- name:"Gilli Baba",
- relation:"Family Ancestor",
- dob:"Approx. 1800",
- bio:"Family ancestor. Detailed life introduction will be added later."
-},
-
-{
- name:"Baba Kalicharan",
- relation:"Family Ancestor",
- dob:"1926",
- bio:"Family ancestor. Detailed life introduction will be added later."
-},
-
-{
- name:"Jashodiya Veva",
- relation:"Family Member",
- dob:"Not Available",
- bio:"Family history and life introduction will be added later."
-},
-
-{
- name:"Sharda",
- relation:"Father",
- dob:"01-01-1975",
- bio:"Father's life introduction, experiences and memories will be added later."
-},
-
-{
- name:"Beta Devi",
- relation:"Mother",
- dob:"Not Available",
- bio:"Mother's life introduction, experiences and memories will be added later."
-},
-
-{
- name:"Deepak",
- relation:"Self",
- dob:"01-01-2008",
- bio:"Personal introduction, education, digital journey, achievements and memories will be added later."
-},
-
-{
- name:"Kuldeep",
- relation:"Brother",
- dob:"01-01-2010",
- bio:"Personal introduction and life memories will be added later."
-},
-
-{
- name:"Sandeep",
- relation:"Brother",
- dob:"01-01-2014",
- bio:"Personal introduction and life memories will be added later."
-},
-
-{
- name:"Family Member 9",
- relation:"Coming Soon",
- dob:"Coming Soon",
- bio:"This profile is reserved for the ninth family member."
-}
-
+const family = [
+  {
+    name:"Gilli Baba",
+    relation:"Family Ancestor",
+    dob:"Approx. 1800"
+  },
+  {
+    name:"Baba Kalicharan",
+    relation:"Family Ancestor",
+    dob:"1926"
+  },
+  {
+    name:"Jashodiya Veva",
+    relation:"Family Member",
+    dob:"Not Available"
+  },
+  {
+    name:"Sharda",
+    relation:"Father",
+    dob:"01-01-1975"
+  },
+  {
+    name:"Beta Devi",
+    relation:"Mother",
+    dob:"Not Available"
+  },
+  {
+    name:"Deepak Yadav",
+    relation:"Self",
+    dob:"01-01-2008"
+  },
+  {
+    name:"Kuldeep",
+    relation:"Brother",
+    dob:"01-01-2010"
+  },
+  {
+    name:"Sandeep",
+    relation:"Brother",
+    dob:"01-01-2014"
+  }
 ];
 
-const grid = document.getElementById("familyGrid");
+const familyGrid = document.getElementById("familyGrid");
 
-familyMembers.forEach((member,index)=>{
-
- const card = document.createElement("div");
- card.className="card member";
-
- const number = document.createElement("div");
- number.className="number";
- number.textContent="FAMILY PROFILE "+String(index+1).padStart(2,"0");
-
- const name = document.createElement("h3");
- name.textContent=member.name;
-
- const relation = document.createElement("p");
- relation.textContent="Relationship: "+member.relation;
-
- const dob = document.createElement("p");
- dob.textContent="Date of Birth: "+member.dob;
-
- const button = document.createElement("button");
- button.className="btn";
- button.textContent="View Full Profile";
- button.addEventListener("click",()=>openProfile(index));
-
- card.append(number,name,relation,dob,button);
- grid.appendChild(card);
-
+family.forEach((person,index)=>{
+  const card=document.createElement("div");
+  card.className="panel profile";
+  card.innerHTML=`
+    <h3>${person.name}</h3>
+    <p class="muted">${person.relation}</p>
+    <button class="btn secondary"
+    onclick="viewProfile(${index})">
+    View Full Profile
+    </button>
+  `;
+  familyGrid.appendChild(card);
 });
 
-function openProfile(index){
-
- const member=familyMembers[index];
-
- const content=document.getElementById("profileContent");
- content.replaceChildren();
-
- const heading=document.createElement("h2");
- heading.textContent=member.name;
-
- const details=[
-  ["Relationship",member.relation],
-  ["Date of Birth",member.dob],
-  ["Life Introduction",member.bio],
-  ["Education","Coming Soon"],
-  ["Achievements","Coming Soon"],
-  ["Memories","Coming Soon"]
- ];
-
- content.appendChild(heading);
-
- details.forEach(([label,value])=>{
-  const p=document.createElement("p");
-  const strong=document.createElement("strong");
-  strong.textContent=label+": ";
-  p.append(strong,document.createTextNode(value));
-  content.appendChild(p);
- });
-
- document.getElementById("profileModal").style.display="block";
+function viewProfile(index){
+  const person=family[index];
+  alert(
+    "Name: "+person.name+
+    "\\nRelationship: "+person.relation+
+    "\\nDate of Birth: "+person.dob
+  );
 }
 
-function closeProfile(){
- document.getElementById("profileModal").style.display="none";
+function setAmount(value){
+  document.getElementById("amount").value=value;
 }
 
-document.getElementById("profileModal").addEventListener("click",function(e){
- if(e.target===this) closeProfile();
-});
+async function requestCallingAccess(){
+  const password=document.getElementById("callPassword").value;
+  const message=document.getElementById("callMessage");
+  const result=document.getElementById("callResult");
 
+  message.textContent="Checking secure server access...";
+  result.classList.add("hidden");
+
+  try{
+    const response=await fetch("/api/private-contact",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({password})
+    });
+
+    if(!response.ok) throw new Error("Access unavailable");
+
+    const data=await response.json();
+
+    if(!data.callingLinks || !Array.isArray(data.callingLinks)){
+      throw new Error("Invalid server response");
+    }
+
+    result.innerHTML="";
+    data.callingLinks.forEach((item)=>{
+      const link=document.createElement("a");
+      link.className="btn";
+      link.href=item.url;
+      link.textContent=item.label;
+      result.appendChild(link);
+    });
+
+    result.classList.remove("hidden");
+    message.textContent="Access verified.";
+  }catch(error){
+    message.textContent=
+      "Secure calling service is not connected yet.";
+  }
+}
+
+async function startPayment(){
+  const amount=Number(document.getElementById("amount").value);
+  const message=document.getElementById("paymentMessage");
+
+  if(!Number.isFinite(amount) || amount<1 || amount>100000){
+    message.textContent="Please enter a valid amount.";
+    return;
+  }
+
+  message.textContent="Connecting to secure payment service...";
+
+  try{
+    const response=await fetch("/api/create-payment",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({amount})
+    });
+
+    if(!response.ok) throw new Error("Payment service unavailable");
+
+    const data=await response.json();
+
+    if(!data.checkoutUrl ||
+       !data.checkoutUrl.startsWith("https://")){
+      throw new Error("Invalid payment link");
+    }
+
+    window.location.href=data.checkoutUrl;
+  }catch(error){
+    message.textContent=
+      "Payment gateway is not connected yet. Please contact the administrator.";
+  }
+}
 </script>
 
 </body>
