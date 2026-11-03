@@ -1,0 +1,626 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090e1b">
+<meta name="description" content="The official personal digital website of Deepak Yadav 9E.">
+<title>DEEPAK YADAV 9E</title>
+
+<style>
+:root {
+  --bg: #090e1b;
+  --panel: #111a2b;
+  --panel2: #17243a;
+  --gold: #d8b66e;
+  --gold-light: #f0d99e;
+  --text: #f4f5f7;
+  --muted: #a8b1c1;
+  --border: rgba(216,182,110,.22);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,14,27,.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  color: var(--gold);
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  white-space: nowrap;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: flex-end;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 13px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  transition: .2s;
+}
+
+nav a:hover {
+  color: var(--gold-light);
+  background: var(--panel2);
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 28px 18px 60px;
+}
+
+section {
+  scroll-margin-top: 100px;
+  margin-bottom: 22px;
+  padding: 28px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 9px;
+}
+
+h1, h2, h3 { line-height: 1.3; }
+
+h1 {
+  font-size: clamp(30px, 6vw, 48px);
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 23px;
+  margin-bottom: 18px;
+}
+
+h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+p { color: var(--muted); }
+
+.hero {
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at top right, rgba(216,182,110,.12), transparent 55%),
+    var(--panel);
+}
+
+.hero h1 { color: var(--text); }
+
+.hero h1 span { color: var(--gold); }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.card {
+  padding: 19px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel2);
+  min-width: 0;
+}
+
+.card p {
+  font-size: 13px;
+  margin: 5px 0 14px;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 9px 16px;
+  background: var(--gold);
+  color: #111827;
+  border: 0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.action:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.action.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--gold);
+}
+
+.family-list {
+  display: grid;
+  gap: 10px;
+}
+
+.family-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 13px 15px;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.family-item span:first-child {
+  font-weight: 600;
+}
+
+.family-item span:last-child {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+}
+
+.payment-box {
+  max-width: 520px;
+}
+
+.amount-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin: 12px 0 18px;
+}
+
+.amount-option {
+  padding: 12px 7px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--text);
+  background: var(--panel2);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.amount-option.active {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(216,182,110,.09);
+}
+
+label {
+  display: block;
+  color: var(--gold-light);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  background: #0b1322;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus { border-color: var(--gold); }
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.total-row strong {
+  color: var(--gold);
+  font-size: 25px;
+}
+
+.pay-button {
+  width: 100%;
+  min-height: 48px;
+  font-size: 15px;
+}
+
+.small-note {
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.status {
+  min-height: 20px;
+  margin-top: 10px;
+  color: var(--gold-light);
+  font-size: 13px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px 15px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 16px;
+  }
+
+  nav {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  nav a {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  main { padding: 20px 13px 40px; }
+
+  section { padding: 21px 17px; }
+
+  .cards { grid-template-columns: 1fr; }
+
+  .family-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .family-item span:last-child { text-align: left; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#home">DEEPAK YADAV 9E</a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#gaming">Gaming</a>
+      <a href="#real-life">Real Life</a>
+      <a href="#family">Family</a>
+      <a href="#payment">Payment</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="eyebrow">Welcome</div>
+    <h1>Personal <span>Digital Identity</span></h1>
+    <p>
+      A central place for my digital presence, creative work,
+      personal journey and family heritage.
+    </p>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="eyebrow">01 / News</div>
+    <h2>News Channel</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Bhaveerji</h3>
+        <p>News and updates.</p>
+        <a class="action" href="https://youtube.com/@bhaveerji"
+           target="_blank" rel="noopener noreferrer">Visit Channel ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMING -->
+  <section id="gaming">
+    <div class="eyebrow">02 / Gaming</div>
+    <h2>Gaming Channel</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Jalao Gaming</h3>
+        <p>Gameplay, live streams and highlights.</p>
+        <a class="action" href="https://youtube.com/@jalaogaming"
+           target="_blank" rel="noopener noreferrer">Visit Channel ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL LIFE -->
+  <section id="real-life">
+    <div class="eyebrow">03 / Real Life</div>
+    <h2>Real Life Channel</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Deepak9E</h3>
+        <p>Personal journey and real-life content.</p>
+        <a class="action" href="https://youtube.com/@deepak9e"
+           target="_blank" rel="noopener noreferrer">Visit Channel ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILY -->
+  <section id="family">
+    <div class="eyebrow">04 / Family</div>
+    <h2>Family Heritage</h2>
+    <p style="margin-bottom:16px">
+      Family history and important names.
+    </p>
+
+    <div class="family-list">
+      <div class="family-item">
+        <span>Gilli Baba</span>
+        <span>Approx. 1800</span>
+      </div>
+      <div class="family-item">
+        <span>Baba Kalicharan</span>
+        <span>1926 – 1996</span>
+      </div>
+      <div class="family-item">
+        <span>Jashodiya Veva</span>
+        <span>Family Heritage</span>
+      </div>
+      <div class="family-item">
+        <span>Sharda</span>
+        <span>Father</span>
+      </div>
+      <div class="family-item">
+        <span>Beta Devi</span>
+        <span>Mother</span>
+      </div>
+      <div class="family-item">
+        <span>Deepak Yadav</span>
+        <span>Family Member</span>
+      </div>
+      <div class="family-item">
+        <span>Kuldeep</span>
+        <span>Brother</span>
+      </div>
+      <div class="family-item">
+        <span>Sandeep</span>
+        <span>Brother</span>
+      </div>
+    </div>
+
+    <p class="small-note">
+      Private family dates and personal records are intentionally
+      not displayed on this public page.
+    </p>
+  </section>
+
+  <!-- PAYMENT -->
+  <section id="payment">
+    <div class="eyebrow">05 / Payment</div>
+    <h2>Support & Payment</h2>
+
+    <div class="payment-box">
+      <label>Select Amount</label>
+
+      <div class="amount-options">
+        <button class="amount-option" type="button" data-amount="10">₹10</button>
+        <button class="amount-option active" type="button" data-amount="100">₹100</button>
+        <button class="amount-option" type="button" data-amount="500">₹500</button>
+        <button class="amount-option" type="button" data-amount="1000">₹1,000</button>
+        <button class="amount-option" type="button" data-amount="10000">₹10,000</button>
+      </div>
+
+      <label for="customAmount">Or Enter Custom Amount (₹)</label>
+      <input
+        id="customAmount"
+        type="number"
+        min="1"
+        max="100000"
+        step="1"
+        inputmode="numeric"
+        placeholder="Enter Amount (₹)"
+      >
+
+      <div class="total-row">
+        <span>Total Amount</span>
+        <strong id="totalAmount">₹100</strong>
+      </div>
+
+      <button class="action pay-button" id="payButton" type="button">
+        Pay Now →
+      </button>
+
+      <p class="small-note">
+        You will be redirected to an available UPI app.
+        Check the recipient and amount before confirming payment.
+      </p>
+
+      <p class="status" id="paymentStatus" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="eyebrow">06 / Contact</div>
+    <h2>Contact Details</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Official Email</h3>
+        <p>deepak.yadav.848502@gmail.com</p>
+        <a class="action secondary"
+           href="mailto:deepak.yadav.848502@gmail.com">Send Email</a>
+      </div>
+
+      <div class="card">
+        <h3>Other Email</h3>
+        <p>deepak9eofficial@gmail.com</p>
+        <a class="action secondary"
+           href="mailto:deepak9eofficial@gmail.com">Send Email</a>
+      </div>
+
+      <div class="card">
+        <h3>WhatsApp</h3>
+        <p>Direct message</p>
+        <a class="action secondary"
+           href="https://wa.me/919359026575"
+           target="_blank" rel="noopener noreferrer">Open WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <h3>Calling</h3>
+        <p>Phone contact</p>
+        <a class="action secondary" href="tel:+919140618093">Call Now</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  DEEPAK YADAV 9E © 2026
+</footer>
+
+<script>
+/*
+  UPI ID is included in this public HTML.
+  Anyone inspecting the page source can see it.
+*/
+const UPI_ID = "deepak.yadav.848502-3@okhdfcbank";
+const PAYEE_NAME = "Deepak Yadav";
+
+const amountButtons = document.querySelectorAll(".amount-option");
+const customInput = document.getElementById("customAmount");
+const totalAmount = document.getElementById("totalAmount");
+const payButton = document.getElementById("payButton");
+const paymentStatus = document.getElementById("paymentStatus");
+
+let selectedAmount = 100;
+
+function getAmount() {
+  if (customInput.value.trim() !== "") {
+    return Number(customInput.value);
+  }
+  return selectedAmount;
+}
+
+function updateAmountDisplay() {
+  const amount = getAmount();
+
+  totalAmount.textContent =
+    "₹" + (Number.isFinite(amount) ? amount.toLocaleString("en-IN") : "0");
+
+  amountButtons.forEach(button => {
+    const isSelected =
+      customInput.value.trim() === "" &&
+      Number(button.dataset.amount) === selectedAmount;
+
+    button.classList.toggle("active", isSelected);
+  });
+}
+
+amountButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    selectedAmount = Number(button.dataset.amount);
+    customInput.value = "";
+    paymentStatus.textContent = "";
+    updateAmountDisplay();
+  });
+});
+
+customInput.addEventListener("input", () => {
+  paymentStatus.textContent = "";
+  updateAmountDisplay();
+});
+
+payButton.addEventListener("click", () => {
+  const amount = getAmount();
+
+  if (!Number.isSafeInteger(amount) || amount < 1 || amount > 100000) {
+    paymentStatus.textContent =
+      "Please enter a valid amount between ₹1 and ₹1,00,000.";
+    return;
+  }
+
+  const params = new URLSearchParams({
+    pa: UPI_ID,
+    pn: PAYEE_NAME,
+    am: amount.toFixed(2),
+    cu: "INR"
+  });
+
+  window.location.href = "upi://pay?" + params.toString();
+});
+
+updateAmountDisplay();
+</script>
+
+</body>
+</html>
