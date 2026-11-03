@@ -8,7 +8,7 @@
 <title>DEEPAK YADAV 9E PRIVATE HUB</title>
 
 <style>
-:root {
+:root{
   --bg:#090e1b;
   --panel:#121c30;
   --panel2:#192740;
@@ -18,6 +18,7 @@
   --line:#293750;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   background:var(--bg);
@@ -25,10 +26,10 @@ body{
   font-family:Arial,sans-serif;
 }
 header{
-  padding:28px 18px;
+  padding:28px 16px;
   text-align:center;
-  border-bottom:1px solid var(--line);
   background:#0d1525;
+  border-bottom:1px solid var(--line);
 }
 .logo{
   color:var(--gold);
@@ -36,16 +37,22 @@ header{
   font-weight:800;
   letter-spacing:2px;
 }
-header p{color:var(--muted);font-size:13px}
+.subtitle{
+  color:var(--muted);
+  font-size:12px;
+  letter-spacing:2px;
+  margin-top:9px;
+}
 nav{
   display:flex;
-  gap:9px;
+  justify-content:center;
+  gap:8px;
   padding:12px;
-  overflow-x:auto;
   background:#101a2b;
   position:sticky;
   top:0;
-  z-index:5;
+  z-index:10;
+  overflow-x:auto;
 }
 nav a{
   color:var(--text);
@@ -53,31 +60,43 @@ nav a{
   padding:10px 13px;
   border:1px solid var(--line);
   border-radius:8px;
-  white-space:nowrap;
   font-size:13px;
+  white-space:nowrap;
 }
-main{max-width:1000px;margin:auto;padding:18px}
-section{margin:25px 0}
-.section-title{
+nav a:hover{border-color:var(--gold);color:var(--gold)}
+main{max-width:1050px;margin:auto;padding:18px}
+section{margin:25px 0;scroll-margin-top:75px}
+.heading{
   color:var(--gold);
   font-size:21px;
-  margin-bottom:14px;
+  margin-bottom:15px;
 }
 .panel{
   background:var(--panel);
   border:1px solid var(--line);
-  padding:19px;
   border-radius:13px;
-  margin-bottom:14px;
+  padding:19px;
 }
-.muted{color:var(--muted);line-height:1.6}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:18px;
+}
+.card h3{color:var(--gold);margin-top:0}
+.muted{color:var(--muted);line-height:1.6;font-size:14px}
 .btn{
   display:inline-block;
   padding:12px 16px;
   border:0;
   border-radius:8px;
   background:var(--gold);
-  color:#111827;
+  color:#101827;
   font-weight:bold;
   text-decoration:none;
   cursor:pointer;
@@ -88,30 +107,63 @@ section{margin:25px 0}
   border:1px solid var(--line);
   color:var(--text);
 }
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:13px;
-}
+.btn:hover{opacity:.88}
 input{
   width:100%;
   padding:13px;
-  background:#0b1424;
-  border:1px solid var(--line);
-  border-radius:8px;
-  color:white;
   margin:8px 0;
-  font-size:16px;
+  border-radius:8px;
+  border:1px solid var(--line);
+  background:#0b1424;
+  color:white;
+  font-size:15px;
 }
-.profile h3{color:var(--gold);margin-top:0}
+.amounts{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.amounts button{flex:1;min-width:65px}
 footer{
+  border-top:1px solid var(--line);
+  padding:22px;
   text-align:center;
   color:var(--muted);
-  padding:25px;
-  border-top:1px solid var(--line);
   font-size:13px;
 }
-.hidden{display:none}
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:20;
+  background:#000b;
+  padding:20px;
+  align-items:center;
+  justify-content:center;
+}
+.modal-content{
+  background:var(--panel);
+  border:1px solid var(--gold);
+  border-radius:14px;
+  padding:22px;
+  width:100%;
+  max-width:420px;
+}
+.modal-content h2{color:var(--gold)}
+.close{
+  float:right;
+  background:none;
+  border:0;
+  color:white;
+  font-size:24px;
+  cursor:pointer;
+}
+.status{font-size:13px;color:var(--muted);margin-top:12px}
+@media(max-width:600px){
+  .logo{font-size:21px}
+  main{padding:13px}
+  nav{justify-content:flex-start}
+}
 </style>
 </head>
 
@@ -119,7 +171,7 @@ footer{
 
 <header>
   <div class="logo">DEEPAK YADAV 9E</div>
-  <p>PERSONAL • FAMILY • DIGITAL HUB</p>
+  <div class="subtitle">PERSONAL DIGITAL HUB</div>
 </header>
 
 <nav>
@@ -132,200 +184,208 @@ footer{
 
 <main>
 
+<!-- HOME -->
 <section id="home">
-  <h2 class="section-title">Welcome</h2>
+  <h2 class="heading">Welcome</h2>
   <div class="panel">
-    <h2>DEEPAK YADAV 9E</h2>
     <p class="muted">
-      A personal digital space for family records,
-      creator channels, contact and payment services.
+      Welcome to the personal digital hub.
+      Explore creator channels, contact services,
+      payment services and family heritage records.
     </p>
   </div>
 </section>
 
+<!-- YOUTUBE -->
 <section id="youtube">
-  <h2 class="section-title">YouTube Channels</h2>
+  <h2 class="heading">YouTube Channels</h2>
+
   <div class="grid">
-    <div class="panel">
+    <div class="card">
       <h3>JALAO GAMING</h3>
       <p class="muted">Gaming • Gameplay • Live</p>
       <a class="btn" target="_blank"
+      rel="noopener"
       href="https://youtube.com/@jalaogaming">
       Open Channel</a>
     </div>
 
-    <div class="panel">
+    <div class="card">
       <h3>DEEPAK 9E</h3>
-      <p class="muted">Real Life • Creator</p>
+      <p class="muted">Real Life • Digital Creator</p>
       <a class="btn" target="_blank"
+      rel="noopener"
       href="https://youtube.com/@deepak9e">
       Open Channel</a>
     </div>
 
-    <div class="panel">
+    <div class="card">
       <h3>BHAVEERJI</h3>
       <p class="muted">News • Spiritual Content</p>
       <a class="btn" target="_blank"
+      rel="noopener"
       href="https://youtube.com/@bhaveerji">
       Open Channel</a>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
-  <h2 class="section-title">Contact System</h2>
+  <h2 class="heading">Contact System</h2>
 
-  <div class="panel">
-    <h3>WhatsApp Channel</h3>
-    <p class="muted">
-      Follow the official WhatsApp channel for updates.
-    </p>
-    <a class="btn" target="_blank"
-    href="https://whatsapp.com/channel/0029Vb8Ls0jF6smuc75mSm1D">
-      Open WhatsApp Channel
-    </a>
-  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>WhatsApp Channel</h3>
+      <p class="muted">
+        Follow the official channel for updates.
+      </p>
+      <a class="btn" target="_blank"
+      rel="noopener"
+      href="https://whatsapp.com/channel/0029Vb8Ls0jF6smuc75mSm1D">
+      Open WhatsApp Channel</a>
+    </div>
 
-  <div class="panel">
-    <h3>Private Calling System</h3>
-    <p class="muted">
-      Calling details are available only after
-      server-side authentication.
-    </p>
+    <div class="card">
+      <h3>Private Calling</h3>
+      <p class="muted">
+        Calling access requires secure server verification.
+      </p>
 
-    <input id="callPassword" type="password"
-    placeholder="Enter Access Password">
+      <input id="callPassword"
+      type="password"
+      placeholder="Enter access password">
 
-    <button class="btn" onclick="requestCallingAccess()">
-      Verify Access
-    </button>
+      <button class="btn" onclick="verifyCalling()">
+        Login
+      </button>
 
-    <p id="callMessage" class="muted"></p>
-    <div id="callResult" class="hidden"></div>
+      <div id="callStatus" class="status"></div>
+      <div id="callLinks"></div>
+    </div>
   </div>
 </section>
 
+<!-- PAYMENT -->
 <section id="payment">
-  <h2 class="section-title">Payment System</h2>
+  <h2 class="heading">Payment System</h2>
 
   <div class="panel">
-    <h3>Choose Amount</h3>
+    <h3>Make a Payment</h3>
     <p class="muted">
-      Select an amount or enter your own amount.
+      Select an amount or enter a custom amount.
     </p>
 
-    <div class="grid">
-      <button class="btn secondary" onclick="setAmount(10)">₹10</button>
-      <button class="btn secondary" onclick="setAmount(50)">₹50</button>
-      <button class="btn secondary" onclick="setAmount(100)">₹100</button>
-      <button class="btn secondary" onclick="setAmount(500)">₹500</button>
-      <button class="btn secondary" onclick="setAmount(1000)">₹1,000</button>
+    <div class="amounts">
+      <button class="btn secondary" onclick="chooseAmount(10)">₹10</button>
+      <button class="btn secondary" onclick="chooseAmount(50)">₹50</button>
+      <button class="btn secondary" onclick="chooseAmount(100)">₹100</button>
+      <button class="btn secondary" onclick="chooseAmount(500)">₹500</button>
+      <button class="btn secondary" onclick="chooseAmount(1000)">₹1,000</button>
     </div>
 
-    <label for="amount">Enter Amount (₹)</label>
-    <input id="amount" type="number" min="1"
-    max="100000" placeholder="Enter amount">
+    <label for="paymentAmount">Enter Amount (₹)</label>
+    <input id="paymentAmount"
+    type="number"
+    min="1"
+    max="100000"
+    placeholder="Enter your amount">
 
-    <button class="btn" onclick="startPayment()">
+    <button class="btn" onclick="makePayment()">
       Pay Now
     </button>
 
-    <p id="paymentMessage" class="muted"></p>
+    <div id="paymentStatus" class="status"></div>
   </div>
 </section>
 
+<!-- FAMILY -->
 <section id="family">
-  <h2 class="section-title">Family Heritage</h2>
+  <h2 class="heading">Family Heritage</h2>
   <div class="grid" id="familyGrid"></div>
 </section>
 
 </main>
 
 <footer>
-  DEEPAK YADAV 9E<br>
   Personal Digital Hub
 </footer>
 
+<!-- PROFILE MODAL -->
+<div class="modal" id="profileModal"
+onclick="closeModalOutside(event)">
+  <div class="modal-content">
+    <button class="close" onclick="closeProfile()">×</button>
+    <h2 id="profileName"></h2>
+    <p class="muted" id="profileRelation"></p>
+    <p id="profileDob"></p>
+    <button class="btn secondary" onclick="closeProfile()">Close</button>
+  </div>
+</div>
+
 <script>
-const family = [
-  {
-    name:"Gilli Baba",
-    relation:"Family Ancestor",
-    dob:"Approx. 1800"
-  },
-  {
-    name:"Baba Kalicharan",
-    relation:"Family Ancestor",
-    dob:"1926"
-  },
-  {
-    name:"Jashodiya Veva",
-    relation:"Family Member",
-    dob:"Not Available"
-  },
-  {
-    name:"Sharda",
-    relation:"Father",
-    dob:"01-01-1975"
-  },
-  {
-    name:"Beta Devi",
-    relation:"Mother",
-    dob:"Not Available"
-  },
-  {
-    name:"Deepak Yadav",
-    relation:"Self",
-    dob:"01-01-2008"
-  },
-  {
-    name:"Kuldeep",
-    relation:"Brother",
-    dob:"01-01-2010"
-  },
-  {
-    name:"Sandeep",
-    relation:"Brother",
-    dob:"01-01-2014"
-  }
+const familyMembers=[
+  {name:"Gilli Baba",relation:"Family Ancestor",dob:"Approx. 1800"},
+  {name:"Baba Kalicharan",relation:"Family Ancestor",dob:"1926"},
+  {name:"Jashodiya Veva",relation:"Family Member",dob:"Not Available"},
+  {name:"Sharda",relation:"Father",dob:"01-01-1975"},
+  {name:"Beta Devi",relation:"Mother",dob:"Not Available"},
+  {name:"Deepak Yadav",relation:"Self",dob:"01-01-2008"},
+  {name:"Kuldeep",relation:"Brother",dob:"01-01-2010"},
+  {name:"Sandeep",relation:"Brother",dob:"01-01-2014"}
 ];
 
-const familyGrid = document.getElementById("familyGrid");
+const familyGrid=document.getElementById("familyGrid");
 
-family.forEach((person,index)=>{
+familyMembers.forEach((person,index)=>{
   const card=document.createElement("div");
-  card.className="panel profile";
-  card.innerHTML=`
-    <h3>${person.name}</h3>
-    <p class="muted">${person.relation}</p>
-    <button class="btn secondary"
-    onclick="viewProfile(${index})">
-    View Full Profile
-    </button>
-  `;
+  card.className="card";
+
+  const heading=document.createElement("h3");
+  heading.textContent=person.name;
+
+  const relation=document.createElement("p");
+  relation.className="muted";
+  relation.textContent=person.relation;
+
+  const button=document.createElement("button");
+  button.className="btn secondary";
+  button.textContent="View Full Profile";
+  button.onclick=()=>openProfile(index);
+
+  card.append(heading,relation,button);
   familyGrid.appendChild(card);
 });
 
-function viewProfile(index){
-  const person=family[index];
-  alert(
-    "Name: "+person.name+
-    "\\nRelationship: "+person.relation+
-    "\\nDate of Birth: "+person.dob
-  );
+function openProfile(index){
+  const person=familyMembers[index];
+  document.getElementById("profileName").textContent=person.name;
+  document.getElementById("profileRelation").textContent=
+    "Relationship: "+person.relation;
+  document.getElementById("profileDob").textContent=
+    "Date of Birth: "+person.dob;
+  document.getElementById("profileModal").style.display="flex";
 }
 
-function setAmount(value){
-  document.getElementById("amount").value=value;
+function closeProfile(){
+  document.getElementById("profileModal").style.display="none";
 }
 
-async function requestCallingAccess(){
+function closeModalOutside(event){
+  if(event.target.id==="profileModal") closeProfile();
+}
+
+function chooseAmount(value){
+  document.getElementById("paymentAmount").value=value;
+}
+
+async function verifyCalling(){
   const password=document.getElementById("callPassword").value;
-  const message=document.getElementById("callMessage");
-  const result=document.getElementById("callResult");
+  const status=document.getElementById("callStatus");
+  const links=document.getElementById("callLinks");
 
-  message.textContent="Checking secure server access...";
-  result.classList.add("hidden");
+  status.textContent="Connecting to secure server...";
+  links.replaceChildren();
 
   try{
     const response=await fetch("/api/private-contact",{
@@ -338,37 +398,37 @@ async function requestCallingAccess(){
 
     const data=await response.json();
 
-    if(!data.callingLinks || !Array.isArray(data.callingLinks)){
-      throw new Error("Invalid server response");
+    if(!Array.isArray(data.callingLinks)){
+      throw new Error("Invalid response");
     }
 
-    result.innerHTML="";
-    data.callingLinks.forEach((item)=>{
+    data.callingLinks.forEach(item=>{
       const link=document.createElement("a");
       link.className="btn";
-      link.href=item.url;
       link.textContent=item.label;
-      result.appendChild(link);
+      link.href=item.url;
+      links.appendChild(link);
     });
 
-    result.classList.remove("hidden");
-    message.textContent="Access verified.";
+    status.textContent="Access verified.";
   }catch(error){
-    message.textContent=
-      "Secure calling service is not connected yet.";
+    status.textContent=
+      "Calling server is not connected. Server setup is required.";
   }
 }
 
-async function startPayment(){
-  const amount=Number(document.getElementById("amount").value);
-  const message=document.getElementById("paymentMessage");
+async function makePayment(){
+  const amount=Number(
+    document.getElementById("paymentAmount").value
+  );
+  const status=document.getElementById("paymentStatus");
 
-  if(!Number.isFinite(amount) || amount<1 || amount>100000){
-    message.textContent="Please enter a valid amount.";
+  if(!Number.isFinite(amount)||amount<1||amount>100000){
+    status.textContent="Enter a valid amount between ₹1 and ₹1,00,000.";
     return;
   }
 
-  message.textContent="Connecting to secure payment service...";
+  status.textContent="Connecting to secure payment gateway...";
 
   try{
     const response=await fetch("/api/create-payment",{
@@ -381,15 +441,15 @@ async function startPayment(){
 
     const data=await response.json();
 
-    if(!data.checkoutUrl ||
+    if(!data.checkoutUrl||
        !data.checkoutUrl.startsWith("https://")){
-      throw new Error("Invalid payment link");
+      throw new Error("Invalid checkout link");
     }
 
     window.location.href=data.checkoutUrl;
   }catch(error){
-    message.textContent=
-      "Payment gateway is not connected yet. Please contact the administrator.";
+    status.textContent=
+      "Payment gateway is not connected yet. Server setup is required.";
   }
 }
 </script>
