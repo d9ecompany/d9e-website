@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090e1b">
+<title>DEEPAK YADAV 9E</title>
+
+<style>
+:root{
+ --bg:#090e1b;
+ --panel:#121c30;
+ --panel2:#192740;
+ --gold:#d8b66e;
+ --white:#f5f5f5;
+ --muted:#9ba9bd;
+ --border:#293750;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+ background:var(--bg);
+ color:var(--white);
+ font-family:Arial,sans-serif;
+ line-height:1.6;
+}
+
+header{
+ text-align:center;
+ padding:35px 15px;
+ background:linear-gradient(140deg,#17243b,#090e1b);
+ border-bottom:1px solid var(--border);
+}
+
+.logo{
+ color:var(--gold);
+ font-size:28px;
+ font-weight:800;
+ letter-spacing:2px;
+}
+
+header p{color:var(--muted);font-size:13px}
+
+nav{
+ display:flex;
+ gap:8px;
+ padding:12px;
+ overflow-x:auto;
+ background:#101a2b;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+
+nav a{
+ text-decoration:none;
+ color:white;
+ background:var(--panel2);
+ padding:9px 14px;
+ border-radius:7px;
+ white-space:nowrap;
+ font-size:13px;
+}
+
+.container{
+ max-width:1050px;
+ margin:auto;
+ padding:20px 15px;
+}
+
+.hero{
+ text-align:center;
+ padding:55px 18px;
+ border:1px solid var(--border);
+ border-radius:15px;
+ background:linear-gradient(145deg,#17243b,#10192a);
+ margin-bottom:30px;
+}
+
+.hero h1{
+ color:var(--gold);
+ font-size:32px;
+}
+
+.hero p{color:var(--muted);margin:10px 0}
+
+.section{margin:35px 0}
+
+.section h2{
+ font-size:21px;
+ border-left:3px solid var(--gold);
+ padding-left:12px;
+ margin-bottom:17px;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:15px;
+}
+
+.card{
+ background:var(--panel);
+ border:1px solid var(--border);
+ padding:20px;
+ border-radius:12px;
+}
+
+.card h3{color:var(--gold);margin-bottom:8px}
+.card p{font-size:13px;color:var(--muted);margin:7px 0}
+
+.btn{
+ display:inline-block;
+ padding:10px 15px;
+ background:var(--gold);
+ color:#111;
+ text-decoration:none;
+ border:0;
+ border-radius:6px;
+ font-weight:bold;
+ font-size:13px;
+ cursor:pointer;
+ margin-top:8px;
+}
+
+.btn.secondary{
+ background:var(--panel2);
+ color:white;
+ border:1px solid var(--border);
+}
+
+.member{min-height:185px}
+
+.member .number{
+ color:var(--gold);
+ font-size:12px;
+ letter-spacing:1px;
+}
+
+.info{
+ background:var(--panel);
+ border:1px solid var(--border);
+ border-radius:10px;
+ padding:16px;
+ margin-bottom:12px;
+}
+
+.info p{color:var(--muted);font-size:14px}
+
+.small{color:var(--muted);font-size:12px}
+
+.modal{
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:30;
+ background:rgba(0,0,0,.85);
+ padding:20px;
+ overflow-y:auto;
+}
+
+.modal-content{
+ max-width:650px;
+ margin:40px auto;
+ background:var(--panel);
+ border:1px solid var(--gold);
+ border-radius:14px;
+ padding:23px;
+}
+
+.modal-content h2{color:var(--gold);margin-bottom:15px}
+.modal-content p{margin:10px 0;color:var(--muted)}
+.close{
+ float:right;
+ font-size:25px;
+ color:var(--gold);
+ background:none;
+ border:0;
+ cursor:pointer;
+}
+
+footer{
+ text-align:center;
+ padding:30px 15px;
+ border-top:1px solid var(--border);
+ color:var(--muted);
+ font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">DEEPAK YADAV 9E</div>
+ <p>Personal • Professional • Family Heritage</p>
+</header>
+
+<nav>
+ <a href="#home">Home</a>
+ <a href="#channels">Channels</a>
+ <a href="#contact">Contact</a>
+ <a href="#payment">Payment</a>
+ <a href="#family">Family</a>
+ <a href="#life">Life Introduction</a>
+</nav>
+
+<main class="container">
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+ <h1>DEEPAK YADAV 9E</h1>
+ <p>Welcome to My Personal Digital World</p>
+ <p>
+ A platform for my digital identity,
+ creative journey and family heritage.
+ </p>
+ <a href="#channels" class="btn">Explore Channels</a>
+ <a href="#family" class="btn secondary">Family Heritage</a>
+</section>
+
+<!-- CHANNELS -->
+
+<section class="section" id="channels">
+ <h2>My YouTube Channels</h2>
+
+ <div class="grid">
+
+  <div class="card">
+   <h3>News Channel</h3>
+   <p>BHA VEER JI</p>
+   <p>News • Updates • Information</p>
+   <a class="btn"
+    href="https://youtube.com/@bhaveerji?si=f65KTQKsdRUbswwW"
+    target="_blank" rel="noopener">
+    Visit Channel
+   </a>
+  </div>
+
+  <div class="card">
+   <h3>Gaming Channel</h3>
+   <p>JALAO GAMING</p>
+   <p>Gaming • Entertainment • Gameplay</p>
+   <a class="btn"
+    href="https://youtube.com/@jalaogaming?si=BH1SrqgIv-JIXO6A"
+    target="_blank" rel="noopener">
+    Visit Channel
+   </a>
+  </div>
+
+  <div class="card">
+   <h3>Real Life Channel</h3>
+   <p>DEEPAK 9E</p>
+   <p>Real Life • Lifestyle • Memories</p>
+   <a class="btn"
+    href="https://youtube.com/@deepak9e?si=OcQskfKIqzf8qhmT"
+    target="_blank" rel="noopener">
+    Visit Channel
+   </a>
+  </div>
+
+ </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+ <h2>Contact System</h2>
+
+ <div class="grid">
+
+  <div class="card">
+   <h3>Official Email</h3>
+   <p>deepak.yadav.848502@gmail.com</p>
+   <a class="btn"
+    href="mailto:deepak.yadav.848502@gmail.com">
+    Email
+   </a>
+  </div>
+
+  <div class="card">
+   <h3>Other Email</h3>
+   <p>deepak9eofficial@gmail.com</p>
+   <a class="btn"
+    href="mailto:deepak9eofficial@gmail.com">
+    Email
+   </a>
+  </div>
+
+  <div class="card">
+   <h3>WhatsApp</h3>
+   <p>Private contact</p>
+   <p class="small">Number will be enabled after privacy review.</p>
+  </div>
+
+  <div class="card">
+   <h3>Calling</h3>
+   <p>Private contact</p>
+   <p class="small">Number will be enabled after privacy review.</p>
+  </div>
+
+ </div>
+</section>
+
+<!-- PAYMENT -->
+
+<section class="section" id="payment">
+ <h2>Payment System</h2>
+
+ <div class="card">
+  <h3>UPI Payment</h3>
+  <p>UPI payment details are kept private.</p>
+  <p class="small">
+   Payment information should only be shared
+   through a secure and approved method.
+  </p>
+ </div>
+</section>
+
+<!-- PERMISSION -->
+
+<section class="section" id="permission">
+ <h2>Permission System</h2>
+
+ <div class="card">
+  <h3>Manual Approval</h3>
+  <p>
+   All requests require manual review
+   and approval by the authorized administrator.
+  </p>
+  <p class="small">
+   Actual access control requires a secure backend.
+  </p>
+ </div>
+</section>
+
+<!-- FAMILY -->
+
+<section class="section" id="family">
+ <h2>Family Heritage</h2>
+ <p class="small">
+  Preserving family history, relationships
+  and life stories.
+ </p>
+
+ <br>
+ <div class="grid" id="familyGrid"></div>
+</section>
+
+<!-- LIFE INTRODUCTION -->
+
+<section class="section" id="life">
+ <h2>Life Introduction</h2>
+
+ <div class="grid">
+
+  <div class="card">
+   <h3>Personal Introduction</h3>
+   <p>Personal introduction and background.</p>
+  </div>
+
+  <div class="card">
+   <h3>Education</h3>
+   <p>Educational journey and learning.</p>
+  </div>
+
+  <div class="card">
+   <h3>Achievements</h3>
+   <p>Important milestones and achievements.</p>
+  </div>
+
+  <div class="card">
+   <h3>Memories</h3>
+   <p>Life experiences and memorable moments.</p>
+  </div>
+
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <h3>DEEPAK YADAV 9E</h3>
+ <p>Personal Digital Identity & Family Heritage</p>
+ <p>© 2026 All Rights Reserved</p>
+</footer>
+
+<!-- FAMILY PROFILE MODAL -->
+
+<div class="modal" id="profileModal">
+ <div class="modal-content">
+  <button class="close" onclick="closeProfile()">×</button>
+  <div id="profileContent"></div>
+  <button class="btn secondary" onclick="closeProfile()">Close Profile</button>
+ </div>
+</div>
+
+<script>
+
+const familyMembers = [
+
+{
+ name:"Gilli Baba",
+ relation:"Family Ancestor",
+ dob:"Approx. 1800",
+ bio:"Family ancestor. Detailed life introduction will be added later."
+},
+
+{
+ name:"Baba Kalicharan",
+ relation:"Family Ancestor",
+ dob:"1926",
+ bio:"Family ancestor. Detailed life introduction will be added later."
+},
+
+{
+ name:"Jashodiya Veva",
+ relation:"Family Member",
+ dob:"Not Available",
+ bio:"Family history and life introduction will be added later."
+},
+
+{
+ name:"Sharda",
+ relation:"Father",
+ dob:"01-01-1975",
+ bio:"Father's life introduction, experiences and memories will be added later."
+},
+
+{
+ name:"Beta Devi",
+ relation:"Mother",
+ dob:"Not Available",
+ bio:"Mother's life introduction, experiences and memories will be added later."
+},
+
+{
+ name:"Deepak",
+ relation:"Self",
+ dob:"01-01-2008",
+ bio:"Personal introduction, education, digital journey, achievements and memories will be added later."
+},
+
+{
+ name:"Kuldeep",
+ relation:"Brother",
+ dob:"01-01-2010",
+ bio:"Personal introduction and life memories will be added later."
+},
+
+{
+ name:"Sandeep",
+ relation:"Brother",
+ dob:"01-01-2014",
+ bio:"Personal introduction and life memories will be added later."
+},
+
+{
+ name:"Family Member 9",
+ relation:"Coming Soon",
+ dob:"Coming Soon",
+ bio:"This profile is reserved for the ninth family member."
+}
+
+];
+
+const grid = document.getElementById("familyGrid");
+
+familyMembers.forEach((member,index)=>{
+
+ const card = document.createElement("div");
+ card.className="card member";
+
+ const number = document.createElement("div");
+ number.className="number";
+ number.textContent="FAMILY PROFILE "+String(index+1).padStart(2,"0");
+
+ const name = document.createElement("h3");
+ name.textContent=member.name;
+
+ const relation = document.createElement("p");
+ relation.textContent="Relationship: "+member.relation;
+
+ const dob = document.createElement("p");
+ dob.textContent="Date of Birth: "+member.dob;
+
+ const button = document.createElement("button");
+ button.className="btn";
+ button.textContent="View Full Profile";
+ button.addEventListener("click",()=>openProfile(index));
+
+ card.append(number,name,relation,dob,button);
+ grid.appendChild(card);
+
+});
+
+function openProfile(index){
+
+ const member=familyMembers[index];
+
+ const content=document.getElementById("profileContent");
+ content.replaceChildren();
+
+ const heading=document.createElement("h2");
+ heading.textContent=member.name;
+
+ const details=[
+  ["Relationship",member.relation],
+  ["Date of Birth",member.dob],
+  ["Life Introduction",member.bio],
+  ["Education","Coming Soon"],
+  ["Achievements","Coming Soon"],
+  ["Memories","Coming Soon"]
+ ];
+
+ content.appendChild(heading);
+
+ details.forEach(([label,value])=>{
+  const p=document.createElement("p");
+  const strong=document.createElement("strong");
+  strong.textContent=label+": ";
+  p.append(strong,document.createTextNode(value));
+  content.appendChild(p);
+ });
+
+ document.getElementById("profileModal").style.display="block";
+}
+
+function closeProfile(){
+ document.getElementById("profileModal").style.display="none";
+}
+
+document.getElementById("profileModal").addEventListener("click",function(e){
+ if(e.target===this) closeProfile();
+});
+
+</script>
+
+</body>
+</html>
