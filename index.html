@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090e19">
-
 <title>DEEPAK YADAV 9E</title>
 
 <style>
@@ -102,7 +101,7 @@ h2{
  text-decoration:none;
  border:0;
  border-radius:5px;
- padding:9px 16px;
+ padding:10px 16px;
  margin-top:11px;
  font-size:13px;
  font-weight:bold;
@@ -123,10 +122,26 @@ h2{
  text-align:right;
 }
 
+select{
+ width:100%;
+ padding:13px;
+ margin-top:12px;
+ background:#090e19;
+ border:1px solid #354052;
+ border-radius:5px;
+ color:white;
+ font-size:14px;
+}
+
 .payment-btn{
  width:100%;
  font-size:15px;
  padding:13px;
+}
+
+#paymentMessage{
+ margin-top:10px;
+ color:#d8b66e;
 }
 
 footer{
@@ -232,7 +247,7 @@ footer{
 
  <div class="family">
   Jashodiya Veva
-  <span>1.1.1961</span>
+  <span>01-01-1961</span>
  </div>
 
  <div class="family">
@@ -267,9 +282,25 @@ footer{
  <h2>Payment</h2>
 
  <div class="card">
-  <button class="btn payment-btn" onclick="makePayment()">
-   Pay Now
+
+  <h3>Select Amount</h3>
+
+  <select id="paymentAmount">
+   <option value="">Select Payment Amount</option>
+   <option value="10">₹10</option>
+   <option value="100">₹100</option>
+   <option value="500">₹500</option>
+   <option value="1000">₹1,000</option>
+   <option value="10000">₹10,000</option>
+  </select>
+
+  <button class="btn payment-btn"
+  onclick="makePayment()">
+  Pay Now
   </button>
+
+  <p id="paymentMessage"></p>
+
  </div>
 </section>
 
@@ -323,15 +354,26 @@ footer{
 <script>
 function makePayment(){
 
- const upiID = "deepak.yadav.848502-3@okhdfcbank";
+ const amount =
+ document.getElementById("paymentAmount").value;
 
- const paymentLink =
- "upi://pay?pa=" + encodeURIComponent(upiID) +
- "&pn=" + encodeURIComponent("Deepak Yadav") +
+ const message =
+ document.getElementById("paymentMessage");
+
+ if(!amount){
+  message.textContent="Please select an amount.";
+  return;
+ }
+
+ const upiID="deepak.yadav.848502-3@okhdfcbank";
+
+ const paymentLink=
+ "upi://pay?pa="+encodeURIComponent(upiID)+
+ "&pn="+encodeURIComponent("Deepak Yadav")+
+ "&am="+amount+
  "&cu=INR";
 
- window.location.href = paymentLink;
-
+ window.location.href=paymentLink;
 }
 </script>
 
