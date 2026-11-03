@@ -1,0 +1,508 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090e19">
+
+<title>DEEPAK YADAV 9E</title>
+
+<style>
+:root {
+  --bg:#090e19;
+  --panel:#111a2b;
+  --panel2:#17243a;
+  --gold:#d8b66e;
+  --white:#f5f5f5;
+  --muted:#9ba9bd;
+  --border:rgba(216,182,110,.2);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:Arial, sans-serif;
+  line-height:1.6;
+}
+
+header {
+  padding:20px;
+  text-align:center;
+  border-bottom:1px solid var(--border);
+  background:#0c1422;
+}
+
+.logo {
+  color:var(--gold);
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+header p {
+  color:var(--muted);
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+nav {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  padding:15px 10px;
+  background:#0d1626;
+  position:sticky;
+  top:0;
+  z-index:10;
+  border-bottom:1px solid var(--border);
+}
+
+nav a {
+  text-decoration:none;
+  color:#ddd;
+  font-size:12px;
+  padding:8px 12px;
+  border:1px solid var(--border);
+  border-radius:6px;
+}
+
+nav a:hover {
+  color:var(--gold);
+  border-color:var(--gold);
+}
+
+.hero {
+  text-align:center;
+  padding:75px 20px;
+  background:linear-gradient(145deg,#111d30,#090e19);
+}
+
+.hero h1 {
+  font-size:clamp(27px,6vw,45px);
+  color:var(--gold);
+  letter-spacing:2px;
+}
+
+.hero p {
+  color:var(--muted);
+  margin-top:12px;
+}
+
+.hero .tag {
+  margin-top:20px;
+  display:inline-block;
+  border:1px solid var(--border);
+  padding:8px 18px;
+  border-radius:30px;
+  color:var(--gold);
+  font-size:12px;
+}
+
+.container {
+  max-width:1000px;
+  margin:auto;
+  padding:25px 16px;
+}
+
+.section {
+  margin-bottom:35px;
+}
+
+.section-title {
+  font-size:21px;
+  color:var(--gold);
+  margin-bottom:17px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:10px;
+}
+
+.card {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:13px;
+}
+
+.card h3 {
+  font-size:17px;
+  margin-bottom:7px;
+}
+
+.card p {
+  font-size:13px;
+  color:var(--muted);
+}
+
+.btn {
+  display:inline-block;
+  margin-top:13px;
+  padding:9px 15px;
+  border-radius:6px;
+  background:var(--gold);
+  color:#111;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.btn:hover {
+  opacity:.85;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:13px;
+}
+
+.detail {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  font-size:13px;
+}
+
+.detail span:first-child {
+  color:var(--muted);
+}
+
+.detail span:last-child {
+  text-align:right;
+  overflow-wrap:anywhere;
+}
+
+.family-item {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-left:3px solid var(--gold);
+  border-radius:8px;
+  padding:13px 16px;
+  margin-bottom:10px;
+}
+
+.family-item strong {
+  display:block;
+  font-size:14px;
+}
+
+.family-item small {
+  color:var(--muted);
+}
+
+.status {
+  color:var(--gold);
+}
+
+footer {
+  text-align:center;
+  padding:30px 15px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:12px;
+  background:#0c1422;
+}
+
+footer strong {
+  color:var(--gold);
+}
+
+@media(max-width:500px) {
+  .detail {
+    flex-direction:column;
+    gap:3px;
+  }
+
+  .detail span:last-child {
+    text-align:left;
+  }
+
+  nav a {
+    font-size:11px;
+    padding:7px 9px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">DEEPAK YADAV 9E</div>
+  <p>PERSONAL DIGITAL HUB</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#media">Media</a>
+  <a href="#family">Family</a>
+  <a href="#data">Data Centre</a>
+  <a href="#payment">Payment</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+  <h1>DEEPAK YADAV 9E</h1>
+  <p>Personal Identity • Digital Presence • Family Heritage</p>
+  <div class="tag">OFFICIAL PERSONAL WEBSITE</div>
+</section>
+
+<main class="container">
+
+<!-- MEDIA -->
+
+<section class="section" id="media">
+
+  <h2 class="section-title">Digital Platforms</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>News & Spiritual</h3>
+      <p>Bhaveerji - News and Spiritual Content</p>
+      <a class="btn"
+      href="https://youtube.com/@bhaveerji?si=4h1D9o9oouP-1pCR"
+      target="_blank" rel="noopener">
+      Visit Channel ↗
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Gaming</h3>
+      <p>Jalao Gaming - Gameplay, Live & Highlights</p>
+      <a class="btn"
+      href="https://youtube.com/@jalaogaming?si=vEa24BUcR4Qq4OZo"
+      target="_blank" rel="noopener">
+      Visit Channel ↗
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Real Life</h3>
+      <p>Deepak9E - Personal Life and Experiences</p>
+      <a class="btn"
+      href="https://youtube.com/@deepak9e?si=8wPF0RMFSPSgi7t6"
+      target="_blank" rel="noopener">
+      Visit Channel ↗
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAMILY -->
+
+<section class="section" id="family">
+
+  <h2 class="section-title">Family Heritage</h2>
+
+  <div class="card">
+    <h3>Family History</h3>
+    <p>Family Heritage & Generational Records</p>
+  </div>
+
+  <div class="family-item">
+    <strong>Gilli Baba</strong>
+    <small>Approximately 1800 (Estimated)</small>
+  </div>
+
+  <div class="family-item">
+    <strong>Baba Kalicharan</strong>
+    <small>1926 - 1996</small>
+  </div>
+
+  <div class="family-item">
+    <strong>Jashodiya Veva</strong>
+    <small>01-01-1961</small>
+  </div>
+
+  <div class="family-item">
+    <strong>Sharda (Father)</strong>
+    <small>01-01-1975</small>
+  </div>
+
+  <div class="family-item">
+    <strong>Beta Devi (Mother)</strong>
+    <small class="status">Coming Soon</small>
+  </div>
+
+  <div class="family-item">
+    <strong>Deepak Yadav</strong>
+    <small>01-01-2008</small>
+  </div>
+
+  <div class="family-item">
+    <strong>Kuldeep</strong>
+    <small>01-01-2010</small>
+  </div>
+
+  <div class="family-item">
+    <strong>Sandeep</strong>
+    <small>01-01-2014</small>
+  </div>
+
+</section>
+
+<!-- DATA CENTRE -->
+
+<section class="section" id="data">
+
+  <h2 class="section-title">Data Centre</h2>
+
+  <div class="card">
+
+    <h3>Personal Information</h3>
+
+    <div class="detail">
+      <span>Full Name</span>
+      <span>Deepak Yadav</span>
+    </div>
+
+    <div class="detail">
+      <span>Personal Brand</span>
+      <span>DEEPAK YADAV 9E</span>
+    </div>
+
+    <div class="detail">
+      <span>Location</span>
+      <span>Banda, Uttar Pradesh</span>
+    </div>
+
+    <div class="detail">
+      <span>Digital Identity</span>
+      <span>Deepakyadav9e</span>
+    </div>
+
+    <div class="detail">
+      <span>Permission</span>
+      <span class="status">Automatic Approval</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PAYMENT -->
+
+<section class="section" id="payment">
+
+  <h2 class="section-title">Payment System</h2>
+
+  <div class="card">
+
+    <h3>UPI Information</h3>
+
+    <div class="detail">
+      <span>UPI ID</span>
+      <span id="upi">deepak.yadav.848502-3@okhdfcbank</span>
+    </div>
+
+    <button class="btn" onclick="copyUPI()">
+      Copy UPI ID
+    </button>
+
+    <p id="copyStatus" style="margin-top:10px"></p>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+  <h2 class="section-title">Contact Information</h2>
+
+  <div class="card">
+
+    <h3>Official Contact</h3>
+
+    <div class="detail">
+      <span>Official Email</span>
+      <span>deepak.yadav.848502@gmail.com</span>
+    </div>
+
+    <div class="detail">
+      <span>Other Email</span>
+      <span>deepak9eofficial@gmail.com</span>
+    </div>
+
+    <div class="detail">
+      <span>WhatsApp</span>
+      <span>9359026575</span>
+    </div>
+
+    <div class="detail">
+      <span>Calling</span>
+      <span>9140618093</span>
+    </div>
+
+    <a class="btn"
+    href="mailto:deepak.yadav.848502@gmail.com">
+    Official Email
+    </a>
+
+    <a class="btn"
+    href="https://wa.me/919359026575"
+    target="_blank" rel="noopener">
+    WhatsApp
+    </a>
+
+    <a class="btn"
+    href="tel:9140618093">
+    Call Now
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <strong>DEEPAK YADAV 9E</strong>
+  <p>Personal Digital Hub</p>
+  <p>© 2026 DEEPAK YADAV 9E. All Rights Reserved.</p>
+</footer>
+
+<script>
+
+function copyUPI() {
+
+  const upi = document.getElementById("upi").innerText;
+  const status = document.getElementById("copyStatus");
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(upi)
+      .then(() => {
+        status.innerText = "UPI ID copied successfully!";
+      })
+      .catch(() => {
+        status.innerText = "Please copy the UPI ID manually.";
+      });
+  } else {
+    status.innerText = "Please copy the UPI ID manually.";
+  }
+
+}
+
+</script>
+
+</body>
+</html>
