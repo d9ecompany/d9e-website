@@ -26,7 +26,7 @@ body{
   font-family:Arial,sans-serif;
 }
 header{
-  padding:28px 16px;
+  padding:30px 16px;
   text-align:center;
   background:#0d1525;
   border-bottom:1px solid var(--line);
@@ -45,7 +45,6 @@ header{
 }
 nav{
   display:flex;
-  justify-content:center;
   gap:8px;
   padding:12px;
   background:#101a2b;
@@ -57,13 +56,13 @@ nav{
 nav a{
   color:var(--text);
   text-decoration:none;
-  padding:10px 13px;
+  padding:10px 14px;
   border:1px solid var(--line);
   border-radius:8px;
   font-size:13px;
   white-space:nowrap;
 }
-nav a:hover{border-color:var(--gold);color:var(--gold)}
+nav a:hover{color:var(--gold);border-color:var(--gold)}
 main{max-width:1050px;margin:auto;padding:18px}
 section{margin:25px 0;scroll-margin-top:75px}
 .heading{
@@ -71,7 +70,7 @@ section{margin:25px 0;scroll-margin-top:75px}
   font-size:21px;
   margin-bottom:15px;
 }
-.panel{
+.panel,.card{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:13px;
@@ -82,14 +81,12 @@ section{margin:25px 0;scroll-margin-top:75px}
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:14px;
 }
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:18px;
-}
 .card h3{color:var(--gold);margin-top:0}
-.muted{color:var(--muted);line-height:1.6;font-size:14px}
+.muted{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:14px;
+}
 .btn{
   display:inline-block;
   padding:12px 16px;
@@ -120,13 +117,18 @@ input{
 }
 .amounts{
   display:flex;
-  gap:8px;
   flex-wrap:wrap;
+  gap:8px;
 }
 .amounts button{flex:1;min-width:65px}
+.status{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:12px;
+}
 footer{
   border-top:1px solid var(--line);
-  padding:22px;
+  padding:24px;
   text-align:center;
   color:var(--muted);
   font-size:13px;
@@ -158,11 +160,9 @@ footer{
   font-size:24px;
   cursor:pointer;
 }
-.status{font-size:13px;color:var(--muted);margin-top:12px}
 @media(max-width:600px){
   .logo{font-size:21px}
   main{padding:13px}
-  nav{justify-content:flex-start}
 }
 </style>
 </head>
@@ -184,7 +184,6 @@ footer{
 
 <main>
 
-<!-- HOME -->
 <section id="home">
   <h2 class="heading">Welcome</h2>
   <div class="panel">
@@ -196,16 +195,14 @@ footer{
   </div>
 </section>
 
-<!-- YOUTUBE -->
 <section id="youtube">
   <h2 class="heading">YouTube Channels</h2>
-
   <div class="grid">
+
     <div class="card">
       <h3>JALAO GAMING</h3>
       <p class="muted">Gaming • Gameplay • Live</p>
-      <a class="btn" target="_blank"
-      rel="noopener"
+      <a class="btn" target="_blank" rel="noopener"
       href="https://youtube.com/@jalaogaming">
       Open Channel</a>
     </div>
@@ -213,8 +210,7 @@ footer{
     <div class="card">
       <h3>DEEPAK 9E</h3>
       <p class="muted">Real Life • Digital Creator</p>
-      <a class="btn" target="_blank"
-      rel="noopener"
+      <a class="btn" target="_blank" rel="noopener"
       href="https://youtube.com/@deepak9e">
       Open Channel</a>
     </div>
@@ -222,39 +218,36 @@ footer{
     <div class="card">
       <h3>BHAVEERJI</h3>
       <p class="muted">News • Spiritual Content</p>
-      <a class="btn" target="_blank"
-      rel="noopener"
+      <a class="btn" target="_blank" rel="noopener"
       href="https://youtube.com/@bhaveerji">
       Open Channel</a>
     </div>
+
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <h2 class="heading">Contact System</h2>
 
   <div class="grid">
+
     <div class="card">
       <h3>WhatsApp Channel</h3>
-      <p class="muted">
-        Follow the official channel for updates.
-      </p>
-      <a class="btn" target="_blank"
-      rel="noopener"
+      <p class="muted">Follow the official channel.</p>
+      <a class="btn" target="_blank" rel="noopener"
       href="https://whatsapp.com/channel/0029Vb8Ls0jF6smuc75mSm1D">
       Open WhatsApp Channel</a>
     </div>
 
     <div class="card">
-      <h3>Private Calling</h3>
+      <h3>Private Calling System</h3>
       <p class="muted">
-        Calling access requires secure server verification.
+        Calling access requires password verification.
       </p>
 
       <input id="callPassword"
       type="password"
-      placeholder="Enter access password">
+      placeholder="Enter Password">
 
       <button class="btn" onclick="verifyCalling()">
         Login
@@ -263,17 +256,17 @@ footer{
       <div id="callStatus" class="status"></div>
       <div id="callLinks"></div>
     </div>
+
   </div>
 </section>
 
-<!-- PAYMENT -->
 <section id="payment">
   <h2 class="heading">Payment System</h2>
 
   <div class="panel">
     <h3>Make a Payment</h3>
     <p class="muted">
-      Select an amount or enter a custom amount.
+      Select an amount or enter your own amount.
     </p>
 
     <div class="amounts">
@@ -285,11 +278,8 @@ footer{
     </div>
 
     <label for="paymentAmount">Enter Amount (₹)</label>
-    <input id="paymentAmount"
-    type="number"
-    min="1"
-    max="100000"
-    placeholder="Enter your amount">
+    <input id="paymentAmount" type="number"
+    min="1" max="100000" placeholder="Enter amount">
 
     <button class="btn" onclick="makePayment()">
       Pay Now
@@ -299,7 +289,6 @@ footer{
   </div>
 </section>
 
-<!-- FAMILY -->
 <section id="family">
   <h2 class="heading">Family Heritage</h2>
   <div class="grid" id="familyGrid"></div>
@@ -311,7 +300,6 @@ footer{
   Personal Digital Hub
 </footer>
 
-<!-- PROFILE MODAL -->
 <div class="modal" id="profileModal"
 onclick="closeModalOutside(event)">
   <div class="modal-content">
@@ -324,6 +312,9 @@ onclick="closeModalOutside(event)">
 </div>
 
 <script>
+
+/* FAMILY RECORDS */
+
 const familyMembers=[
   {name:"Gilli Baba",relation:"Family Ancestor",dob:"Approx. 1800"},
   {name:"Baba Kalicharan",relation:"Family Ancestor",dob:"1926"},
@@ -359,11 +350,13 @@ familyMembers.forEach((person,index)=>{
 
 function openProfile(index){
   const person=familyMembers[index];
+
   document.getElementById("profileName").textContent=person.name;
   document.getElementById("profileRelation").textContent=
     "Relationship: "+person.relation;
   document.getElementById("profileDob").textContent=
     "Date of Birth: "+person.dob;
+
   document.getElementById("profileModal").style.display="flex";
 }
 
@@ -375,16 +368,25 @@ function closeModalOutside(event){
   if(event.target.id==="profileModal") closeProfile();
 }
 
+/* PAYMENT AMOUNT */
+
 function chooseAmount(value){
   document.getElementById("paymentAmount").value=value;
 }
+
+/*
+  PRIVATE CALLING:
+  Connect a secure server endpoint here.
+  Do not store private phone numbers or passwords
+  in public HTML.
+*/
 
 async function verifyCalling(){
   const password=document.getElementById("callPassword").value;
   const status=document.getElementById("callStatus");
   const links=document.getElementById("callLinks");
 
-  status.textContent="Connecting to secure server...";
+  status.textContent="Checking secure access...";
   links.replaceChildren();
 
   try{
@@ -394,13 +396,11 @@ async function verifyCalling(){
       body:JSON.stringify({password})
     });
 
-    if(!response.ok) throw new Error("Access unavailable");
+    if(!response.ok) throw new Error();
 
     const data=await response.json();
 
-    if(!Array.isArray(data.callingLinks)){
-      throw new Error("Invalid response");
-    }
+    if(!Array.isArray(data.callingLinks)) throw new Error();
 
     data.callingLinks.forEach(item=>{
       const link=document.createElement("a");
@@ -412,10 +412,16 @@ async function verifyCalling(){
 
     status.textContent="Access verified.";
   }catch(error){
-    status.textContent=
-      "Calling server is not connected. Server setup is required.";
+    status.textContent="Calling service needs server setup.";
   }
 }
+
+/*
+  PAYMENT:
+  The server creates a verified payment checkout.
+  Never trust an amount or payment confirmation
+  supplied only by the browser.
+*/
 
 async function makePayment(){
   const amount=Number(
@@ -424,11 +430,11 @@ async function makePayment(){
   const status=document.getElementById("paymentStatus");
 
   if(!Number.isFinite(amount)||amount<1||amount>100000){
-    status.textContent="Enter a valid amount between ₹1 and ₹1,00,000.";
+    status.textContent="Enter a valid amount.";
     return;
   }
 
-  status.textContent="Connecting to secure payment gateway...";
+  status.textContent="Connecting to payment service...";
 
   try{
     const response=await fetch("/api/create-payment",{
@@ -437,22 +443,22 @@ async function makePayment(){
       body:JSON.stringify({amount})
     });
 
-    if(!response.ok) throw new Error("Payment service unavailable");
+    if(!response.ok) throw new Error();
 
     const data=await response.json();
 
     if(!data.checkoutUrl||
        !data.checkoutUrl.startsWith("https://")){
-      throw new Error("Invalid checkout link");
+      throw new Error();
     }
 
     window.location.href=data.checkoutUrl;
+
   }catch(error){
-    status.textContent=
-      "Payment gateway is not connected yet. Server setup is required.";
+    status.textContent="Payment service needs server setup.";
   }
 }
-</script>
 
+</script>
 </body>
 </html>
